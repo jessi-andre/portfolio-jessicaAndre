@@ -144,6 +144,13 @@ document.addEventListener('DOMContentLoaded', () => {
     prev.addEventListener('click', () => show((current - 1 + slides.length) % slides.length));
     next.addEventListener('click', () => show((current + 1) % slides.length));
 
+    // volver a la primera imagen cuando el cursor sale del carrusel
+    container.addEventListener('mouseleave', () => {
+      if (current !== 0) {
+        show(0);
+      }
+    });
+
     // opción: autoplay lento (desactivado por defecto)
     // let autoplay = setInterval(() => next.click(), 5000);
     // container.addEventListener('mouseenter', () => clearInterval(autoplay));

@@ -114,7 +114,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 14px 16px;
 }
 
 .brand {
@@ -138,11 +138,10 @@ a:hover {
 .nav-toggle {
   display: none;
   background: transparent;
-  border-radius: 999px;
-  border: 1px solid rgba(31, 19, 15, 0.45);
+  border: none;
   color: var(--color-texto);
-  padding: 5px 10px;
-  font-size: 0.88rem;
+  padding: 8px;
+  font-size: 1.5rem;
   cursor: pointer;
 }
 
@@ -1057,6 +1056,10 @@ textarea:focus::placeholder {
     padding-top: 56px;
   }
 
+  .hero-copy {
+    padding: 0 20px;
+  }
+
   .nav-toggle {
     display: inline-flex;
   }
@@ -1206,9 +1209,9 @@ textarea:focus::placeholder {
   /* espacio mayor entre texto y galería; cards centradas */
   display: grid;
   grid-template-columns: repeat(3, 280px);
-  gap: 24px;
+  gap: 40px;
   justify-content: center;
-  margin: 40px auto 0;
+  margin: 60px auto 0;
 }
 
 .content-gallery .content-card {
@@ -1217,14 +1220,15 @@ textarea:focus::placeholder {
 }
 
 .content-card-image {
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
   margin-bottom: 16px;
-  height: 280px;
+  min-height: 280px;
   display: block;
   position: relative;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   background: rgba(241, 230, 221, 0.3);
+  transition: all 0.4s ease;
 }
 
 .content-card-title {
@@ -1236,9 +1240,29 @@ textarea:focus::placeholder {
 
 .content-card-image img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
   display: block;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.content-card:hover {
+  z-index: 100;
+}
+
+.content-card-image:hover {
+  overflow: visible;
+  z-index: 100;
+}
+
+.content-card-image:hover img {
+  transform: scale(1.5);
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border-radius: 18px;
+  z-index: 100;
 }
 
 /* PHOTO GRID */
@@ -1342,8 +1366,8 @@ textarea:focus::placeholder {
 
 .carousel-slide img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
@@ -1407,8 +1431,8 @@ textarea:focus::placeholder {
 /* 👉 Tamaño para FOTOS y CARRUSELES (NO reels) */
 .content-block:not(.reels-block) .content-card-image img {
   width: 100%;
-  height: 220px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 
