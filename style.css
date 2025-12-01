@@ -86,7 +86,7 @@ a:hover {
   line-height: 1.7;
 }
 
-/* ------------------ HEADER / NAV (ESTILO L. VARELA) ------------------ */
+/* HEADER / NAV */
 
 .site-header {
   position: sticky;
@@ -244,7 +244,7 @@ a:hover {
   text-underline-offset: 3px;
 }
 
-/* Mobile: el submenú aparece dentro del menú general */
+/* MOBILE */
 
 @media (max-width: 767px) {
   .has-submenu {
@@ -269,7 +269,7 @@ a:hover {
 }
 
 
-/* ------------ HERO ------------ */
+/* HERO */
 
 .hero {
   padding: 0px 0 72px;
@@ -282,11 +282,11 @@ a:hover {
   align-items: center;
 }
 
-/* === FOTO CON EFECTO EDITORIAL (como las cards) === */
+/* HERO PHOTO */
 .hero-photo {
   position: relative;
   height: 620px;
-  overflow: hidden; /* necesario para el overlay */
+  overflow: hidden;
 }
 
 .hero-photo img {
@@ -297,7 +297,7 @@ a:hover {
   display: block;
   border-radius: 0;
   filter: saturate(0.9) contrast(0.96) brightness(1.02);
-  transform: scale(1.02); /* corrige bordes */
+  transform: scale(1.02);
 }
 
 .hero-photo::after {
@@ -695,7 +695,8 @@ a:hover {
 .contact-inner {
   margin-top: 52px;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr); /* foto un poco más grande */
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr);
+  /* foto un poco más grande */
   gap: 52px;
   align-items: stretch;
 }
@@ -723,7 +724,7 @@ a:hover {
 /* tarjeta del formulario */
 .contact-form {
   margin-top: 6px;
-  background-color: #f9f4ee;    
+  background-color: #f9f4ee;
   border-radius: 30px;
   padding: 26px 26px 30px;
   box-shadow:
@@ -777,10 +778,12 @@ a:hover {
   -moz-appearance: none;
   appearance: none;
   padding-left: 22px;
-  padding-right: 48px; /* deja espacio para la flecha */
+  padding-right: 48px;
+  /* deja espacio para la flecha */
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23493833' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 22px center; /* flecha más separada del borde */
+  background-position: right 22px center;
+  /* flecha más separada del borde */
   background-size: 12px 8px;
 }
 
@@ -802,7 +805,8 @@ a:hover {
     0 0 0 1px rgba(0, 0, 0, 0.03);
   background-image:
     linear-gradient(to bottom, rgba(12, 8, 6, 0.05), rgba(12, 8, 6, 0.55)),
-    url("img/contact-card.jpg"); /* CAMBIÁ esta ruta por tu foto */
+    url("img/contact-card.jpg");
+  /* CAMBIÁ esta ruta por tu foto */
   background-size: cover;
   background-position: center;
   display: flex;
@@ -839,7 +843,7 @@ a:hover {
   }
 
   .contact-visual {
-    order: -1;              
+    order: -1;
     min-height: 260px;
   }
 
@@ -870,10 +874,10 @@ textarea:focus::placeholder {
   font-family: inherit;
   font-size: 1rem;
   color: var(--color-texto);
-  background-color: #f7efe7;            
+  background-color: #f7efe7;
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.10);
-  padding: 13px 48px 13px 22px;        
+  padding: 13px 48px 13px 22px;
   cursor: pointer;
   outline: none;
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23493833' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
@@ -889,7 +893,8 @@ textarea:focus::placeholder {
 }
 
 .contact-form select option {
-  background-color: #f7f0ea;  /* crema suave */
+  background-color: #f7f0ea;
+  /* crema suave */
   color: #2f2b28;
   font-size: 1rem;
 }
@@ -911,10 +916,10 @@ textarea:focus::placeholder {
 
 /* “pill” cerrado */
 .custom-select-trigger {
-  background-color: #f7efe7;           
+  background-color: #f7efe7;
   border-radius: 999px;
   padding: 13px 22px;
-  border: 1px solid rgba(0,0,0,0.10);
+  border: 1px solid rgba(0, 0, 0, 0.10);
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -928,7 +933,7 @@ textarea:focus::placeholder {
 /* flechita del custom select */
 .custom-select-caret {
   font-size: 0.9rem;
-  color: rgba(0,0,0,0.45);
+  color: rgba(0, 0, 0, 0.45);
   margin-left: 10px;
 }
 
@@ -940,8 +945,8 @@ textarea:focus::placeholder {
   right: 0;
   background-color: #fdf6ef;
   border-radius: 20px;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
-  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   padding: 14px 0;
   list-style: none;
   margin: 0;
@@ -965,7 +970,8 @@ textarea:focus::placeholder {
   font-size: 1rem;
   color: var(--color-texto);
   transition: background .15s ease;
-  border-bottom: 1px solid rgba(0,0,0,0.06);  /* lineitas tipo menú */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  /* lineitas tipo menú */
 }
 
 .custom-select-menu li:last-child {
@@ -988,12 +994,12 @@ textarea:focus::placeholder {
 /* --------------------------------------- */
 
 .contact-form-column {
-  padding-left: 0; 
+  padding-left: 0;
 }
 
 .contact-form {
   padding-left: 22px;
-  padding-right: 22px;  
+  padding-right: 22px;
   background: #f1e6dd;
 }
 
@@ -1083,7 +1089,7 @@ textarea:focus::placeholder {
 }
 
 .contact-form {
-  margin-left: -8px;   
+  margin-left: -8px;
   padding-left: 26px;
   padding-right: 26px;
 }
@@ -1094,7 +1100,7 @@ textarea:focus::placeholder {
 /* --------------------------------------- */
 
 .tools-section {
- padding: 30px 0 40px; 
+  padding: 30px 0 40px;
   background: #f5ebe6;
 }
 
@@ -1105,6 +1111,7 @@ textarea:focus::placeholder {
   margin-bottom: 22px;
   color: var(--color-texto);
 }
+
 .tools-marquee {
   width: 100%;
   overflow: hidden;
@@ -1116,13 +1123,15 @@ textarea:focus::placeholder {
   display: flex;
   gap: 60px;
   align-items: center;
-  width: max-content;           /* que mida lo que ocupa el contenido */
+  width: max-content;
+  /* que mida lo que ocupa el contenido */
   animation: scroll 20s linear infinite;
 }
 
 .marquee-track img {
   height: 60px;
-  flex-shrink: 0;               /* que no se achiquen */
+  flex-shrink: 0;
+  /* que no se achiquen */
   opacity: 0.7;
   transition: opacity 0.3s, transform 0.3s;
 }
@@ -1148,9 +1157,315 @@ textarea:focus::placeholder {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-33.3333%);
   }
 }
 
+/* ============================================================
+   CONTENIDO · BLOQUES EDITORIALES
+   ============================================================ */
 
+.content-block {
+  /* texto arriba / galería debajo (centrada) */
+  display: block;
+  margin-top: 56px;
+  margin-bottom: 80px;
+}
+
+/* ------------------ Texto ------------------ */
+
+.content-block-text h3 {
+  font-family: var(--font-serif);
+  font-size: 1.9rem;
+  margin: 0 0 10px;
+}
+
+.content-block-text p {
+  font-size: 0.98rem;
+  line-height: 1.7;
+  color: var(--color-texto-suave);
+  margin: 0 0 10px;
+}
+
+.content-block-text ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.94rem;
+  color: var(--color-texto-suave);
+}
+
+.content-block-text ul li+li {
+  margin-top: 4px;
+}
+
+/* ------------------ Galería general (fotos / carruseles) ------------------ */
+
+.content-gallery {
+  /* espacio mayor entre texto y galería; cards centradas */
+  display: flex;
+  justify-content: center;
+  margin: 40px auto 0;
+}
+
+.content-gallery .content-card {
+  width: 420px;
+  padding: 0;
+}
+
+.content-card-image {
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  height: 420px;
+  display: block;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.content-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-family: var(--font-serif);
+  color: var(--color-texto);
+}
+
+.content-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* PHOTO GRID */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px auto 0;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+
+.content-card {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  text-align: center;
+}
+
+.content-card-image {
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+/* Carousel styles para imágenes múltiples dentro de .content-card-image */
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .28s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(31,19,15,0.7);
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: rgba(31,19,15,0.9);
+}
+
+.carousel-prev { left: 8px; }
+.carousel-next { right: 8px; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease;
+}
+
+.carousel-dot:hover {
+  background: rgba(255,255,255,0.8);
+}
+
+.carousel-dot.active { 
+  background: rgba(255,255,255,1);
+}
+
+/* 👉 Tamaño para FOTOS y CARRUSELES (NO reels) */
+.content-block:not(.reels-block) .content-card-image img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* título */
+.content-card-title {
+  margin: 0;
+  font-size: 0.98rem; /* un poco mayor */
+  font-family: var(--font-serif);
+}
+
+/* -------- CONTENIDO · BLOQUES EDITORIALES (limpiado) -------- */
+/* Reglas específicas de contenido definidas arriba; se eliminaron
+   duplicados repetidos para reducir el tamaño del archivo. */
+/* -------- SOLO BLOQUE REELS (tamaño tipo story) -------- */
+
+/* Se aplica solo al bloque que tiene class="reels-block" */
+.reels-block .content-gallery {
+  grid-template-columns: repeat(3, 310px);
+  gap: 30px;
+}
+
+.reels-block .content-card {
+  width: 310px;
+  border-radius: 26px;
+  padding: 16px 16px 20px;
+}
+
+.reels-block .content-card-image {
+  height: 420px;
+}
+
+.reels-block .content-card-image img {
+  height: 420px;
+}
+
+.content-card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 24px;
+  display: block;
+  cursor: pointer;
+}
+
+.content-card-video:hover {
+  transform: scale(1.01);
+  transition: .2s ease;
+}
+
+
+/* -------- RESPONSIVE -------- */
+
+@media (max-width: 1024px) {
+  .content-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .content-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .content-card-image img {
+    height: 210px;
+  }
+
+  .reels-block .content-card-image img {
+    height: 260px;
+    /* reels siguen más altos, pero no gigantes en mobile */
+  }
+
+  .content-block {
+    margin-top: 40px;
+    margin-bottom: 56px;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE GENERAL
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .content-block {
+    grid-template-columns: 1fr;
+  }
+
+  .content-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .content-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  /* fotos y carruseles más bajitos en mobile */
+  .content-block:not(.reels-block) .content-card-image img {
+    height: 210px;
+  }
+
+  .content-block {
+    margin-top: 40px;
+    margin-bottom: 56px;
+  }
+}

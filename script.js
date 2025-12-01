@@ -2,13 +2,14 @@
 const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
 
-if (navToggle) {
+// Robustez: comprobar que ambos elementos existen antes de usar
+if (navToggle && navList) {
   navToggle.addEventListener('click', () => {
     navList.classList.toggle('nav-open');
   });
 }
 
-// TABS seccion Trabajo
+// TABS seccion Proyectos
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -23,50 +24,6 @@ tabButtons.forEach((button) => {
     if (target) target.classList.add('active');
   });
 });
-
-// -------------------------
-//  SUBMENÚ TRABAJO -> HOVER + CAMBIO DE TABS
-// -------------------------
-
-const hasSubmenu = document.querySelector('.has-submenu');
-const submenuLinks = document.querySelectorAll('.nav-submenu-link');
-
-if (hasSubmenu) {
-  // Abrir al entrar con el mouse y cerrar al salir (desktop)
-  hasSubmenu.addEventListener('mouseenter', () => {
-    hasSubmenu.classList.add('submenu-open');
-  });
-
-  hasSubmenu.addEventListener('mouseleave', () => {
-    hasSubmenu.classList.remove('submenu-open');
-  });
-}
-
-// Cuando hago click en un item del submenú:
-// - Salto a la sección Trabajo
-// - Activo la tab correcta
-// - Cierro el menú mobile si estaba abierto
-submenuLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    const targetSelector = link.dataset.tabTarget;
-
-    if (targetSelector) {
-      tabButtons.forEach((btn) => {
-        if (btn.dataset.tabTarget === targetSelector) {
-          btn.click(); // activa la tab correspondiente
-        }
-      });
-    }
-
-    if (hasSubmenu) {
-      hasSubmenu.classList.remove('submenu-open');
-    }
-    if (navList) {
-      navList.classList.remove('nav-open');
-    }
-  });
-});
-
 
 // -------------------------
 // CUSTOM SELECT CONTACTO
@@ -122,3 +79,73 @@ const yearSpan = document.getElementById('year');
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear();
 }
+
+// Simple carousel para `.content-card-image` que contengan múltiples `<img>`
+document.addEventListener('DOMContentLoaded', () => {
+  const galleries = document.querySelectorAll('.content-gallery .content-card-image');
+
+  galleries.forEach((container) => {
+    // ignorar si tiene video
+    if (container.querySelector('video')) return;
+
+    const imgs = Array.from(container.querySelectorAll('img'));
+    if (imgs.length <= 1) return; // nada que hacer
+
+    // convertir cada imagen en un slide
+    const slides = imgs.map((img, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+      // mover la imagen dentro del slide
+      slide.appendChild(img);
+      return slide;
+    });
+
+    // limpiar contenedor y añadir slides
+    container.innerHTML = '';
+    slides.forEach((s) => container.appendChild(s));
+
+    // controles
+    const prev = document.createElement('button');
+    prev.type = 'button';
+    prev.className = 'carousel-prev';
+    prev.setAttribute('aria-label', 'Anterior');
+    prev.textContent = '‹';
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'carousel-next';
+    next.setAttribute('aria-label', 'Siguiente');
+    next.textContent = '›';
+
+    container.appendChild(prev);
+    container.appendChild(next);
+
+    // dots
+    const dots = document.createElement('div');
+    dots.className = 'carousel-dots';
+    slides.forEach((_, idx) => {
+      const d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'carousel-dot' + (idx === 0 ? ' active' : '');
+      d.dataset.index = idx;
+      d.addEventListener('click', () => show(idx));
+      dots.appendChild(d);
+    });
+    container.appendChild(dots);
+
+    let current = 0;
+    function show(index) {
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
+      const dotButtons = dots.querySelectorAll('.carousel-dot');
+      dotButtons.forEach((b, i) => b.classList.toggle('active', i === index));
+      current = index;
+    }
+
+    prev.addEventListener('click', () => show((current - 1 + slides.length) % slides.length));
+    next.addEventListener('click', () => show((current + 1) % slides.length));
+
+    // opción: autoplay lento (desactivado por defecto)
+    // let autoplay = setInterval(() => next.click(), 5000);
+    // container.addEventListener('mouseenter', () => clearInterval(autoplay));
+  });
+});

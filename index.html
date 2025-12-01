@@ -18,7 +18,7 @@
   <!-- OPEN GRAPH (para compartir en redes) -->
   <meta property="og:title" content="J. André · Diseño Web, Redes & Contenido">
   <meta property="og:description" content="Diseño web, community management y contenido.">
-  <meta property="og:image" content="img/preview.png"> <!-- tu imagen 1200x630 -->
+  <meta property="og:image" content="https://jessi-andre.github.io/portfolio-jessicaAndre/img/jess-photo-perfil.jpeg">
   <meta property="og:url" content="https://jessi-andre.github.io/portfolio-jessicaAndre/">
   <meta property="og:type" content="website">
 
@@ -26,7 +26,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="J. André · Diseño Web & Redes">
   <meta name="twitter:description" content="Portfolio.">
-  <meta name="twitter:image" content="#">
+  <meta name="twitter:image" content="https://jessi-andre.github.io/portfolio-jessicaAndre/img/jess-photo-perfil.jpeg">
 
   <!-- COLOR DEL NAVEGADOR (estética móvil) -->
   <meta name="theme-color" content="#f5ebe6">
@@ -54,23 +54,9 @@
           ☰
         </button>
         <ul class="nav-list">
-          <li class="has-submenu">
-            <button class="nav-parent" type="button">
-              Proyectos <span class="nav-caret">▾</span>
-            </button>
-            <ul class="nav-submenu">
-              <li>
-                <a href="#trabajo" class="nav-submenu-link" data-tab-target="#tab-contenido">Contenido</a>
-              </li>
-              <li>
-                <a href="#trabajo" class="nav-submenu-link" data-tab-target="#tab-webs">Webs</a>
-              </li>
-              <li>
-                <a href="#trabajo" class="nav-submenu-link" data-tab-target="#tab-cm">Community Manager</a>
-              </li>
-            </ul>
+          <li>
+            <a href="#trabajo">Proyectos</a>
           </li>
-
           <li><a href="#contacto">Contacto</a></li>
         </ul>
 
@@ -83,7 +69,7 @@
 
 
     <!-- HERO -->
-    <section class="hero">
+    <section id="inicio" class="hero">
       <div class="hero-inner">
 
         <!-- FOTO (columna izquierda) -->
@@ -119,7 +105,7 @@
 
 
 
-    <!-- TRABAJO -->
+    <!-- PROYECTOS -->
     <section id="trabajo" class="section">
       <div class="container">
         <header class="section-header">
@@ -148,8 +134,8 @@
             <div class="trabajos-body">
               <h3>Creación de contenido</h3>
               <p>
-                Reels, carruseles e historias para marcas de nichos como bienestar,
-                yoga, cafeterías, hoteles y marcas personales.
+                Contenido visual en reels, carruseles e historias que elevan tu marca y cuentan lo que querés
+                transmitir, sin perder coherencia.
               </p>
             </div>
           </a>
@@ -169,8 +155,8 @@
             <div class="trabajos-body">
               <h3>Diseño web estratégico</h3>
               <p>
-                Landings y portfolios con estructura clara y estética editorial,
-                pensadas para convertir y comunicar mejor.
+                Webs, landings y portfolios que cuentan tu historia de forma clara, estética y estratégica, sin perder
+                autenticidad.
               </p>
             </div>
           </a>
@@ -208,26 +194,26 @@
 
       <section class="tools-marquee">
         <div class="marquee-track">
-      <!-- ORIGINAL -->
-<img src="img/figma.png" alt="Figma">
-<img src="img/canva.png" alt="Canva">
-<img src="img/vscode.png" alt="VSCode">
-<img src="img/Illustrator.png" alt="Illustrator">
-<img src="img/icon-chatgpt.png" alt="ChatGPT">
+          <!-- ORIGINAL -->
+          <img src="img/figma.png" alt="Figma">
+          <img src="img/canva.png" alt="Canva">
+          <img src="img/vscode.png" alt="VSCode">
+          <img src="img/Illustrator.png" alt="Illustrator">
+          <img src="img/icon-chatgpt.png" alt="ChatGPT">
 
-<!-- DUPLICADO -->
-<img src="img/figma.png" alt="Figma">
-<img src="img/canva.png" alt="Canva">
-<img src="img/vscode.png" alt="VSCode">
-<img src="img/Illustrator.png" alt="Illustrator">
-<img src="img/icon-chatgpt.png" alt="ChatGPT">
+          <!-- DUPLICADO -->
+          <img src="img/figma.png" alt="Figma">
+          <img src="img/canva.png" alt="Canva">
+          <img src="img/vscode.png" alt="VSCode">
+          <img src="img/Illustrator.png" alt="Illustrator">
+          <img src="img/icon-chatgpt.png" alt="ChatGPT">
 
-<!-- TRIPLICADO -->
-<img src="img/figma.png" alt="Figma">
-<img src="img/canva.png" alt="Canva">
-<img src="img/vscode.png" alt="VSCode">
-<img src="img/Illustrator.png" alt="Illustrator">
-<img src="img/icon-chatgpt.png" alt="ChatGPT">
+          <!-- TRIPLICADO -->
+          <img src="img/figma.png" alt="Figma">
+          <img src="img/canva.png" alt="Canva">
+          <img src="img/vscode.png" alt="VSCode">
+          <img src="img/Illustrator.png" alt="Illustrator">
+          <img src="img/icon-chatgpt.png" alt="ChatGPT">
 
 
         </div>
@@ -258,7 +244,7 @@
               que buscan una presencia digital clara, estética y humana.
             </p>
 
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
               <div class="form-group">
                 <label for="nombre">Nombre / marca</label>
                 <input id="nombre" name="nombre" type="text" placeholder="Tu nombre o el de tu proyecto" required>
@@ -325,7 +311,6 @@
           marca.</p>
         <div class="footer-links">
           <a href="#trabajo">Proyectos</a>
-          <a href="#sobre-mi">Herramientas</a>
           <a href="#contacto">Contacto</a>
         </div>
       </div>
