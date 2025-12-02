@@ -1482,6 +1482,36 @@ textarea:focus::placeholder {
   transition: .2s ease;
 }
 
+/* -------- BLOQUE WEBS (formato cine/horizontal) -------- */
+
+.webs-block .content-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.webs-block .content-card {
+  width: 100%;
+}
+
+.webs-block .content-card-image {
+  height: auto;
+  min-height: auto;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.webs-block .content-card-video {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+}
+
 
 /* -------- RESPONSIVE -------- */
 
