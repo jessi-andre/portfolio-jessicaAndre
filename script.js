@@ -26,6 +26,14 @@ const navList = document.querySelector('.nav-list');
 if (navToggle && navList) {
   navToggle.addEventListener('click', () => {
     navList.classList.toggle('nav-open');
+    // Cambiar ícono entre hamburguesa y cruz
+    if (navList.classList.contains('nav-open')) {
+      navToggle.innerHTML = '✕';
+      navToggle.setAttribute('aria-label', 'Cerrar menú');
+    } else {
+      navToggle.innerHTML = '☰';
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+    }
   });
 }
 
