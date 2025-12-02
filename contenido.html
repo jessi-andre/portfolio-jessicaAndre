@@ -16,6 +16,13 @@
     rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
+  
+  <script>
+    // Redirigir a index.html en mobile si es acceso directo
+    if (window.innerWidth <= 768 && !document.referrer.includes(window.location.hostname)) {
+      window.location.href = 'index.html';
+    }
+  </script>
 </head>
 
 <body>
