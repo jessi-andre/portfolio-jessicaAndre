@@ -155,4 +155,70 @@ document.addEventListener('DOMContentLoaded', () => {
     // let autoplay = setInterval(() => next.click(), 5000);
     // container.addEventListener('mouseenter', () => clearInterval(autoplay));
   });
+
+  // -------------------------
+  // BOTÓN VER MÁS EN MÓVIL
+  // -------------------------
+  
+  function setupVerMas() {
+    // Solo en móvil (< 680px)
+    if (window.innerWidth > 680) return;
+
+    // Obtener todas las galerías y photo-grids
+    const galleries = document.querySelectorAll('.content-gallery');
+    const photoGrids = document.querySelectorAll('.photo-grid');
+
+    galleries.forEach((gallery) => {
+      // Solo si tiene más de 1 item
+      const items = gallery.querySelectorAll('.content-card');
+      if (items.length > 1) {
+        const btn = document.createElement('button');
+        btn.className = 'btn-ver-mas';
+        btn.textContent = 'Ver más';
+        btn.style.display = 'flex';
+        
+        // Insertar después de la galería
+        gallery.parentNode.insertBefore(btn, gallery.nextSibling);
+
+        btn.addEventListener('click', () => {
+          gallery.classList.toggle('show-all');
+          btn.textContent = gallery.classList.contains('show-all') ? 'Ver menos' : 'Ver más';
+        });
+      }
+    });
+
+    photoGrids.forEach((grid) => {
+      const images = grid.querySelectorAll('img');
+      if (images.length > 1) {
+        const btn = document.createElement('button');
+        btn.className = 'btn-ver-mas';
+        btn.textContent = 'Ver más';
+        btn.style.display = 'flex';
+        
+        grid.parentNode.insertBefore(btn, grid.nextSibling);
+
+        btn.addEventListener('click', () => {
+          grid.classList.toggle('show-all');
+          btn.textContent = grid.classList.contains('show-all') ? 'Ver menos' : 'Ver más';
+        });
+      }
+    });
+  }
+
+  // Ejecutar al cargar
+  setupVerMas();
+
+  // Ejecutar al cambiar tamaño de ventana
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      // Remover botones existentes
+      document.querySelectorAll('.btn-ver-mas').forEach(btn => btn.remove());
+      // Remover clases show-all
+      document.querySelectorAll('.show-all').forEach(el => el.classList.remove('show-all'));
+      // Recrear si es necesario
+      setupVerMas();
+    }, 250);
+  });
 });
