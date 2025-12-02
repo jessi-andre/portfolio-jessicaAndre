@@ -947,6 +947,7 @@ textarea:focus::placeholder {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-33.3333%);
   }
@@ -986,15 +987,25 @@ textarea:focus::placeholder {
 
 .content-gallery {
   display: grid;
-  grid-template-columns: repeat(2, 280px);
-  gap: 40px;
+  grid-template-columns: repeat(3, 280px);
+  gap: 32px;
   justify-content: center;
-  margin: 60px auto 0;
+  margin: 45px auto 0;
 }
 
 .content-gallery .content-card {
   width: 280px;
   padding: 0;
+  background: var(--color-crema-claro);
+  border-radius: 20px;
+}
+
+.reels-block .content-gallery .content-card {
+  width: 280px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .content-card {
@@ -1045,20 +1056,33 @@ textarea:focus::placeholder {
 }
 
 .content-card-title {
-  margin: 0;
+  margin: 10px 0 0;
   font-size: 0.98rem;
   font-family: var(--font-serif);
   color: var(--color-texto);
+  text-align: center;
 }
 
 /* Photo Grid */
+.photo-grid-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto 0;
+}
+
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   width: 100%;
-  max-width: 700px;
-  margin: 50px auto 0;
+  max-height: 460px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-grid.expanded {
+  max-height: none;
 }
 
 .photo-grid img {
@@ -1072,6 +1096,61 @@ textarea:focus::placeholder {
 .photo-grid img:hover {
   transform: scale(1.02);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.photo-grid-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background: linear-gradient(to top, 
+    var(--color-fondo) 0%, 
+    var(--color-fondo) 10%, 
+    rgba(245, 235, 230, 0.95) 20%,
+    rgba(245, 235, 230, 0.85) 30%,
+    rgba(245, 235, 230, 0.7) 40%,
+    rgba(245, 235, 230, 0.5) 50%,
+    rgba(245, 235, 230, 0.3) 60%,
+    rgba(245, 235, 230, 0.15) 70%,
+    rgba(245, 235, 230, 0.06) 80%,
+    rgba(245, 235, 230, 0.02) 90%,
+    transparent 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 30px;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+}
+
+.photo-grid-wrapper.expanded .photo-grid-overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-photo-expand {
+  pointer-events: auto;
+  padding: 12px 28px;
+  background: var(--color-marron);
+  color: var(--color-crema);
+  border: none;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(139, 115, 98, 0.3);
+}
+
+.btn-photo-expand:hover {
+  background: var(--color-texto);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 115, 98, 0.4);
 }
 
 /* Cards estáticas */
@@ -1150,7 +1229,7 @@ textarea:focus::placeholder {
   height: 32px;
   border-radius: 50%;
   border: none;
-  background: rgba(31,19,15,0.7);
+  background: rgba(31, 19, 15, 0.7);
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
@@ -1163,11 +1242,16 @@ textarea:focus::placeholder {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background: rgba(31,19,15,0.9);
+  background: rgba(31, 19, 15, 0.9);
 }
 
-.carousel-prev { left: 8px; }
-.carousel-next { right: 8px; }
+.carousel-prev {
+  left: 8px;
+}
+
+.carousel-next {
+  right: 8px;
+}
 
 .carousel-dots {
   position: absolute;
@@ -1184,18 +1268,18 @@ textarea:focus::placeholder {
   height: 7px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   padding: 0;
   transition: background 0.2s ease;
 }
 
 .carousel-dot:hover {
-  background: rgba(255,255,255,0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
-.carousel-dot.active { 
-  background: rgba(255,255,255,1);
+.carousel-dot.active {
+  background: rgba(255, 255, 255, 1);
 }
 
 .content-block:not(.reels-block) .content-card-image img {
@@ -1208,8 +1292,10 @@ textarea:focus::placeholder {
 /* ==================== REELS ==================== */
 
 .reels-block .content-gallery {
-  grid-template-columns: repeat(2, 310px);
-  gap: 30px;
+  grid-template-columns: repeat(3, 280px);
+  gap: 36px;
+  justify-content: center;
+  margin: 60px auto 0;
 }
 
 .reels-block .content-card {
@@ -1223,16 +1309,18 @@ textarea:focus::placeholder {
 }
 
 .reels-block .content-card-image img {
-  height: 420px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .content-card-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
-  display: block;
-  cursor: pointer;
+      width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    display: block;
+    cursor: pointer;
 }
 
 .content-card-video:hover {
@@ -1276,12 +1364,15 @@ textarea:focus::placeholder {
   .hero-inner {
     grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   }
+
   .about-layout {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   }
+
   .tab-layout {
     grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
   }
+
   .contact-layout {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
   }
@@ -1291,17 +1382,21 @@ textarea:focus::placeholder {
   .hero-inner {
     grid-template-columns: 1fr;
   }
+
   .hero-photo {
     height: 420px;
   }
+
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
   .contact-visual {
     order: -1;
     min-height: 260px;
   }
+
   .contact-form {
     padding: 22px 18px 24px;
   }
@@ -1320,12 +1415,15 @@ textarea:focus::placeholder {
   .hero {
     padding-top: 56px;
   }
+
   .hero-copy {
     padding: 0 20px;
   }
+
   .nav-toggle {
     display: inline-flex;
   }
+
   .nav-list {
     position: absolute;
     right: 0;
@@ -1341,14 +1439,17 @@ textarea:focus::placeholder {
     pointer-events: none;
     transition: opacity 0.12s ease, transform 0.12s ease;
   }
+
   .nav-list.nav-open {
     opacity: 1;
     transform: scale(1);
     pointer-events: auto;
   }
+
   .has-submenu {
     width: 100%;
   }
+
   .nav-submenu {
     position: static;
     opacity: 1;
@@ -1359,6 +1460,7 @@ textarea:focus::placeholder {
     padding: 4px 0 0;
     margin-top: 4px;
   }
+
   .nav-submenu-link {
     display: block;
     padding-left: 0;
@@ -1369,12 +1471,16 @@ textarea:focus::placeholder {
   .content-block {
     grid-template-columns: 1fr;
   }
+
   .content-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
   }
+
   .reels-block .content-gallery {
     grid-template-columns: repeat(2, 280px);
   }
+
   .photo-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1384,65 +1490,79 @@ textarea:focus::placeholder {
   .content-gallery {
     grid-template-columns: 1fr;
   }
+
   .content-card-image img {
     height: 210px;
   }
+
   .reels-block .content-gallery {
     grid-template-columns: 1fr;
   }
+
   .reels-block .content-card {
     width: 100%;
     max-width: 310px;
     margin: 0 auto;
   }
+
   .reels-block .content-card-image img {
     height: 260px;
   }
+
   .content-block {
     margin-top: 40px;
     margin-bottom: 56px;
   }
+
   .content-block:not(.reels-block) .content-card-image img {
     height: 210px;
   }
+
   .photo-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
+
   .photo-grid img {
     height: 250px;
   }
+
   .webs-block .content-gallery {
     max-width: 100%;
     padding: 0 16px;
   }
+
   .webs-block .content-card-title {
     font-size: 0.9rem;
   }
+
   .tools-marquee {
     padding: 30px 0;
   }
+
   .marquee-track img {
     height: 45px;
   }
+
   .section-header h2 {
     font-size: 2rem;
   }
+
   .section-intro {
     font-size: 0.9rem;
   }
-  
+
   /* Mostrar solo el primer item en móvil */
   .content-gallery .content-card:not(:first-child),
   .photo-grid img:not(:first-child) {
     display: none;
   }
-  
+
   .content-gallery.show-all .content-card,
   .photo-grid.show-all img {
     display: block;
   }
-  
+
   .btn-ver-mas {
     display: inline-flex;
     align-items: center;
@@ -1459,13 +1579,13 @@ textarea:focus::placeholder {
     transition: all 0.2s ease;
     text-align: center;
   }
-  
+
   .btn-ver-mas:hover {
     background-color: var(--color-marron);
     color: var(--color-crema);
     transform: translateY(-1px);
   }
-  
+
   .btn-ver-mas.hidden {
     display: none;
   }
@@ -1507,7 +1627,7 @@ textarea:focus::placeholder {
     bottom: 20px;
     right: 20px;
   }
-  
+
   .whatsapp-float svg {
     width: 28px;
     height: 28px;

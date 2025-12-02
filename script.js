@@ -250,3 +250,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 250);
   });
 });
+
+// PHOTO GRID EXPAND
+document.addEventListener('DOMContentLoaded', () => {
+  const btnExpand = document.querySelector('.btn-photo-expand');
+  const gridWrapper = document.querySelector('.photo-grid-wrapper');
+  const grid = document.querySelector('.photo-grid');
+  const photoSection = gridWrapper?.closest('.content-block');
+  
+  if (btnExpand && gridWrapper && grid) {
+    btnExpand.addEventListener('click', () => {
+      gridWrapper.classList.add('expanded');
+      grid.classList.add('expanded');
+    });
+
+    // Detectar scroll fuera de la sección
+    if (photoSection) {
+      let lastScrollY = window.scrollY;
+      
+      window.addEventListener('scroll', () => {
+        const sectionRect = photoSection.getBoundingClientRect();
+        const isInView = sectionRect.top < window.innerHeight && sectionRect.bottom > 0;
+        
+        // Si la sección ya no está visible y estaba expandida
+        if (!isInView && gridWrapper.classList.contains('expanded')) {
+          gridWrapper.classList.remove('expanded');
+          grid.classList.remove('expanded');
+        }
+      });
+    }
+  }
+});
