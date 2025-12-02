@@ -1,0 +1,20 @@
+{
+  "preguntas": [
+    {
+      "pregunta": "¿Puedo actualizar el contenido yo mismo/a después?",
+      "respuesta": "Sí. Te entrego la web lista para que puedas editar textos, fotos y contenido básico sin necesidad de programar. También te doy un tutorial grabado explicando cómo hacerlo."
+    },
+    {
+      "pregunta": "¿Incluye dominio y hosting?",
+      "respuesta": "Los precios son solo por diseño y desarrollo. Dominio y hosting se contratan aparte (te ayudo a elegir las mejores opciones según tu proyecto)."
+    },
+    {
+      "pregunta": "¿Cuántas revisiones incluye?",
+      "respuesta": "Incluye 2 rondas de ajustes durante el proceso. Cambios adicionales se cotizan aparte para mantener los tiempos de entrega."
+    },
+    {
+      "pregunta": "¿Qué necesito tener listo para empezar?",
+      "respuesta": "Textos básicos de tu negocio, logo (si tenés), fotos o videos de calidad, y una idea clara de qué querés comunicar. Te acompaño en el resto."
+    }
+  ]
+}
