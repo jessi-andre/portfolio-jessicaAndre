@@ -1,13 +1,22 @@
 // FORZAR SCROLL AL TOP AL CARGAR PÁGINA
-window.addEventListener('beforeunload', () => {
-  window.scrollTo(0, 0);
-});
-
-// Si viene de otra página o recarga, ir arriba
-if (history.scrollRestoration) {
+// Deshabilitar scroll restoration del navegador
+if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual';
 }
+
+// Forzar scroll al top inmediatamente
 window.scrollTo(0, 0);
+document.documentElement.scrollTop = 0;
+document.body.scrollTop = 0;
+
+// También al cargar completamente la página
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, 0);
+});
 
 // NAV MOBILE
 const navToggle = document.querySelector('.nav-toggle');
