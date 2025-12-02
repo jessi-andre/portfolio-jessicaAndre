@@ -6,57 +6,7 @@ media_folder: "img"
 public_folder: "/img"
 
 collections:
-  # Información personal y textos generales
-  - name: "configuracion"
-    label: "Configuración del sitio"
-    files:
-      - label: "Información Personal"
-        name: "info"
-        file: "content/info.json"
-        fields:
-          - {label: "Nombre", name: "nombre", widget: "string"}
-          - {label: "Título/Profesión", name: "titulo", widget: "string"}
-          - {label: "Bio corta", name: "bio", widget: "text"}
-          - {label: "Email", name: "email", widget: "string"}
-          - {label: "Instagram", name: "instagram", widget: "string"}
-          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
-      
-      - label: "Textos de Inicio"
-        name: "hero"
-        file: "content/hero.json"
-        fields:
-          - {label: "Título principal", name: "titulo", widget: "string"}
-          - {label: "Subtítulo", name: "subtitulo", widget: "text"}
-          - {label: "Texto del botón", name: "cta_texto", widget: "string"}
-      
-      - label: "Community & Contenido"
-        name: "community"
-        file: "content/community.json"
-        fields:
-          - {label: "Título de sección", name: "titulo", widget: "string"}
-          - {label: "Descripción", name: "descripcion", widget: "text"}
-          - {label: "Texto del botón", name: "cta_texto", widget: "string"}
-          - {label: "Link del botón", name: "cta_link", widget: "string"}
-      
-      - label: "Sección Webs - Textos"
-        name: "webs_intro"
-        file: "content/webs-intro.json"
-        fields:
-          - {label: "Título principal", name: "titulo", widget: "string"}
-          - {label: "Descripción introductoria", name: "intro", widget: "text"}
-      
-      - label: "Preguntas Frecuentes (FAQ)"
-        name: "faq"
-        file: "content/faq.json"
-        fields:
-          - label: "Preguntas"
-            name: "preguntas"
-            widget: "list"
-            fields:
-              - {label: "Pregunta", name: "pregunta", widget: "string"}
-              - {label: "Respuesta", name: "respuesta", widget: "text"}
-
-  # Servicios de diseño web
+  # Servicios de diseño web (EDITABLE por cliente)
   - name: "servicios"
     label: "Servicios Web"
     folder: "content/servicios"
@@ -78,6 +28,21 @@ collections:
         widget: "list"
         field: {label: "Característica", name: "item", widget: "string"}
       - {label: "Texto del botón", name: "cta_texto", widget: "string"}
+
+  # FAQ (EDITABLE por cliente)
+  - name: "configuracion"
+    label: "Preguntas Frecuentes"
+    files:
+      - label: "FAQ"
+        name: "faq"
+        file: "content/faq.json"
+        fields:
+          - label: "Preguntas"
+            name: "preguntas"
+            widget: "list"
+            fields:
+              - {label: "Pregunta", name: "pregunta", widget: "string"}
+              - {label: "Respuesta", name: "respuesta", widget: "text"}
 
   # Proyectos/Portfolio
   - name: "proyectos"

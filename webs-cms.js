@@ -56,9 +56,41 @@ async function loadServicios() {
   }
 }
 
+// Cargar FAQ desde archivo JSON del CMS
+async function loadFAQ() {
+  try {
+    const faqData = await fetch('/content/faq.json').then(r => r.json());
+    const faqSection = document.querySelector('.faq-section');
+    
+    if (!faqSection || !faqData.preguntas) return;
+
+    // Mantener el título, limpiar el resto
+    faqSection.innerHTML = '<h3 class="faq-title">Preguntas frecuentes</h3>';
+
+    // Generar HTML para cada pregunta
+    faqData.preguntas.forEach(item => {
+      const details = document.createElement('details');
+      details.className = 'faq-item';
+      
+      details.innerHTML = `
+        <summary class="faq-question">${item.pregunta}</summary>
+        <p class="faq-answer">${item.respuesta}</p>
+      `;
+      
+      faqSection.appendChild(details);
+    });
+  } catch (error) {
+    console.error('Error cargando FAQ:', error);
+  }
+}
+
 // Ejecutar cuando el DOM esté listo
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', loadServicios);
+  document.addEventListener('DOMContentLoaded', () => {
+    loadServicios();
+    loadFAQ();
+  });
 } else {
   loadServicios();
+  loadFAQ();
 }
