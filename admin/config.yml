@@ -2,10 +2,7 @@ backend:
   name: git-gateway
   branch: main
 
-# Para desarrollo local (sin necesidad de GitHub por ahora)
-local_backend: true
-
-media_folder: "img" # Carpeta donde se guardan las imágenes
+media_folder: "img"
 public_folder: "/img"
 
 collections:
@@ -29,6 +26,8 @@ collections:
     label: "Servicios Web"
     folder: "content/servicios"
     create: false
+    extension: "json"
+    format: "json"
     slug: "{{slug}}"
     fields:
       - {label: "Título", name: "titulo", widget: "string"}
