@@ -281,3 +281,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// -------------------------
+// AUTO-PAUSAR VIDEOS AL HACER SCROLL
+// -------------------------
+document.addEventListener('DOMContentLoaded', () => {
+  const videos = document.querySelectorAll('video');
+  
+  if (videos.length === 0) return;
+
+  // Configurar el Intersection Observer
+  const observerOptions = {
+    root: null, // viewport
+    rootMargin: '0px',
+    threshold: 0.5 // 50% del video debe estar visible
+  };
+
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      
+      if (!entry.isIntersecting) {
+        // El video ya no está visible, pausarlo
+        if (!video.paused) {
+          video.pause();
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observar todos los videos
+  videos.forEach(video => {
+    videoObserver.observe(video);
+  });
+});

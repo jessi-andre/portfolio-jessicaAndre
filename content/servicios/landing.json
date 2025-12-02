@@ -1,0 +1,17 @@
+{
+  "titulo": "Landing comercial",
+  "descripcion": "Diseñada para un solo objetivo: convertir. Cada elemento guía al usuario hacia la acción que querés que tome.",
+  "precio_original": 280,
+  "precio_promo": 196,
+  "entrega": "1-2 semanas",
+  "ejemplo_url": "https://www.instagram.com/lauramendezpsicologa",
+  "ejemplo_usuario": "@lauramendezpsicologa",
+  "video": "video/webLauraMendez.mp4",
+  "caracteristicas": [
+    "Tu cliente sabe qué hacer en segundos",
+    "Cada sección empuja hacia la compra o contacto",
+    "Sin menús que distraigan: foco total en convertir",
+    "Perfecta para campañas de ads que necesitan resultados"
+  ],
+  "cta_texto": "Necesito una landing"
+}

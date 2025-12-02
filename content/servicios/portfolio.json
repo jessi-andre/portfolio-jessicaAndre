@@ -1,0 +1,17 @@
+{
+  "titulo": "Portfolio creativo",
+  "descripcion": "Tu carta de presentación digital que trabaja 24/7. Mostrá tu trabajo, comunicá tu identidad y convertí visitas en oportunidades reales.",
+  "precio_original": 450,
+  "precio_promo": 315,
+  "entrega": "2-3 semanas",
+  "ejemplo_url": "https://www.instagram.com/luna.varela.photo",
+  "ejemplo_usuario": "@luna.varela.photo",
+  "video": "video/webLunaVarela.mp4",
+  "caracteristicas": [
+    "Se ve perfecta en celular, tablet y computadora",
+    "Tus proyectos organizados para que brillen",
+    "Los clientes te contactan directo desde tu web",
+    "Actualizaciones fáciles cuando agregues nuevos trabajos"
+  ],
+  "cta_texto": "Quiero un portfolio así"
+}

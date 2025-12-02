@@ -15,6 +15,9 @@
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="img/icon2.png">
 
+  <!-- Netlify Identity Widget -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
   <!-- OPEN GRAPH (para compartir en redes) -->
   <meta property="og:title" content="J. André · Community Manager, Contenido & Webs">
   <meta property="og:description" content="Gestión de redes, creación de contenido visual y diseño web para marcas auténticas.">
@@ -294,7 +297,7 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/TU_NUMERO_AQUI?text=Hola! Me interesa conocer más sobre tus servicios" 
+    <a href="https://wa.me/56978941879?text=Hola Jessi! Me interesa conocer más sobre tus servicios" 
        class="whatsapp-float" 
        target="_blank" 
        rel="noopener noreferrer"
@@ -305,6 +308,19 @@
     </a>
 
     <script src="script.js"></script>
+    
+    <!-- Netlify Identity redirect script -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 
 </html>

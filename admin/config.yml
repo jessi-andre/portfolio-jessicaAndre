@@ -1,0 +1,61 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Para desarrollo local (sin necesidad de GitHub por ahora)
+local_backend: true
+
+media_folder: "img" # Carpeta donde se guardan las imágenes
+public_folder: "/img"
+
+collections:
+  # Información personal
+  - name: "configuracion"
+    label: "Configuración del sitio"
+    files:
+      - label: "Información Personal"
+        name: "info"
+        file: "content/info.json"
+        fields:
+          - {label: "Nombre", name: "nombre", widget: "string"}
+          - {label: "Título/Profesión", name: "titulo", widget: "string"}
+          - {label: "Bio corta", name: "bio", widget: "text"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Instagram", name: "instagram", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+
+  # Servicios de diseño web
+  - name: "servicios"
+    label: "Servicios Web"
+    folder: "content/servicios"
+    create: false
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título", name: "titulo", widget: "string"}
+      - {label: "Descripción corta", name: "descripcion", widget: "text"}
+      - {label: "Precio original", name: "precio_original", widget: "number"}
+      - {label: "Precio promocional", name: "precio_promo", widget: "number"}
+      - {label: "Tiempo de entrega", name: "entrega", widget: "string"}
+      - {label: "Ejemplo (URL Instagram)", name: "ejemplo_url", widget: "string"}
+      - {label: "Ejemplo (Usuario)", name: "ejemplo_usuario", widget: "string"}
+      - {label: "Video demo (ruta)", name: "video", widget: "string"}
+      - label: "Características"
+        name: "caracteristicas"
+        widget: "list"
+        field: {label: "Característica", name: "item", widget: "string"}
+      - {label: "Texto del botón", name: "cta_texto", widget: "string"}
+
+  # Proyectos/Portfolio
+  - name: "proyectos"
+    label: "Proyectos"
+    folder: "content/proyectos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre del proyecto", name: "titulo", widget: "string"}
+      - {label: "Cliente", name: "cliente", widget: "string"}
+      - {label: "Categoría", name: "categoria", widget: "select", options: ["Diseño Web", "Branding", "Fotografía", "Contenido"]}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Imagen/Video", name: "imagen", widget: "image"}
+      - {label: "Link (opcional)", name: "link", widget: "string", required: false}
+      - {label: "Orden", name: "orden", widget: "number", default: 1}
