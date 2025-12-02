@@ -1309,7 +1309,10 @@ textarea:focus::placeholder {
 
 @media (max-width: 768px) {
   .trabajos-media {
-    height: 200px;
+    height: 240px;
+    min-height: 240px;
+    background-size: cover;
+    background-position: center;
   }
 }
 

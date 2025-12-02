@@ -1,3 +1,14 @@
+// FORZAR SCROLL AL TOP AL CARGAR PÁGINA
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0);
+});
+
+// Si viene de otra página o recarga, ir arriba
+if (history.scrollRestoration) {
+  history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+
 // NAV MOBILE
 const navToggle = document.querySelector('.nav-toggle');
 const navList = document.querySelector('.nav-list');
