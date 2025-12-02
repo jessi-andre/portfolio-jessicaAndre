@@ -1,17 +1,17 @@
 {
-  "titulo": "Web corporativa",
-  "descripcion": "Presencia digital profesional que genera confianza y trabaja para tu marca las 24 horas. Todo lo que tu empresa necesita en un solo lugar.",
-  "precio_original": 750,
-  "precio_promo": 525,
-  "entrega": "3-4 semanas",
-  "ejemplo_url": "https://www.instagram.com/formayfondo__/",
-  "ejemplo_usuario": "@formayfondo__",
-  "video": "video/webFormaYFondo.mp4",
+  "precio_original": 890,
   "caracteristicas": [
     "Múltiples páginas conectadas de forma coherente",
     "Blog o noticias para mantener contenido fresco",
     "Formularios de contacto y cotización personalizados",
     "Preparada para crecer con tu negocio"
   ],
-  "cta_texto": "Quiero cotizar mi web"
+  "descripcion": "Presencia digital profesional que genera confianza y trabaja para tu marca las 24 horas. Todo lo que tu empresa necesita en un solo lugar.",
+  "cta_texto": "Quiero cotizar mi web",
+  "ejemplo_usuario": "@formayfondo__",
+  "ejemplo_url": "https://www.instagram.com/formayfondo__/",
+  "precio_promo": 525,
+  "entrega": "3-4 semanas",
+  "titulo": "Web corporativa",
+  "video": "video/webFormaYFondo.mp4"
 }
