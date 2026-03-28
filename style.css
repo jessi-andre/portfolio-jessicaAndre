@@ -1,18 +1,23 @@
 :root {
-  --color-crema: #f5ebe6;
-  --color-crema-claro: #f9f1ec;
-  --color-rosa: #f7d2c4;
-  --color-marron: #3b2623;
-  --color-texto: #1f130f;
-  --color-texto-suave: #6a5a53;
-  --color-borde: #1f130f;
-  --color-pill: #fbe4ff;
-  --shadow-suave: 0 16px 40px rgba(0, 0, 0, 0.08);
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
+  --color-crema:        #F2EAE1;
+  --color-crema-claro:  #FAF6F2;
+  --color-negro:        #1A1A1A;
+  --color-violeta:      #8B7FD4;
+  --color-violeta-suave:#EAE7F8;
+  --color-gris:         #6B6560;
+  --color-borde:        #E0D8CE;
+  --color-marron:       #3B2F2A;
+  /* aliases para compatibilidad con webs.html / contenido.html */
+  --color-texto:        #1A1A1A;
+  --color-texto-suave:  #6B6560;
+  --color-rosa:         #EAE7F8;
+  --color-pill:         #EAE7F8;
+  --shadow-suave:       0 4px 20px rgba(0, 0, 0, 0.06);
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
   --font-serif: "Cormorant Garamond", serif;
-  --font-sans: "Manrope", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 *,
