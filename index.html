@@ -51,9 +51,23 @@
        RESET / BASE
     ══════════════════════════════════════ */
     body {
-      background-color: var(--color-crema);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
+      line-height: 1.7;
       color: var(--color-negro);
-      font-family: var(--font-sans);
+      background-color: var(--color-crema);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, h4, blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+    }
+
+    p, a, button, label, input, textarea,
+    select, li, span, small {
+      font-family: 'Inter', system-ui, sans-serif;
     }
 
     /* ══════════════════════════════════════
@@ -137,6 +151,19 @@
       color: var(--color-negro);
       text-decoration: none;
     }
+    .nav-cta {
+      background-color: var(--color-marron);
+      color: #ffffff !important;
+      padding: 9px 20px;
+      border-radius: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; color: #fff !important; }
     .nav-toggle {
       display: none;
       background: none;
@@ -155,43 +182,63 @@
        HERO
     ══════════════════════════════════════ */
     .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
       background-color: var(--color-crema);
-      padding: 120px 24px 100px;
-      text-align: center;
     }
     .hero-inner {
-      max-width: 680px;
-      margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-align: center;
+      max-width: 640px;
+      width: 100%;
+      gap: 20px;
+    }
+    .hero-tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-violeta);
+      margin: 0;
     }
     .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 2.8rem);
+      font-weight: 400;
       line-height: 1.2;
       color: var(--color-negro);
-      margin: 0 0 24px;
+      margin: 0;
     }
-    .hero-lead {
-      font-size: 1.1rem;
-      color: var(--color-gris);
+    .hero-text, .hero-lead {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 1rem;
       line-height: 1.75;
-      max-width: 560px;
-      margin: 0 0 40px;
+      color: var(--color-gris);
+      max-width: 520px;
+      margin: 0;
     }
     .hero-actions {
       display: flex;
-      gap: 16px;
+      gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 12px;
     }
     .hero-divider {
-      width: 60px;
+      width: 48px;
       height: 1px;
       background-color: var(--color-borde);
-      margin-top: 56px;
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 64px 20px; }
+      .hero h1 { font-size: 1.85rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
     }
 
     /* ══════════════════════════════════════
@@ -725,8 +772,8 @@
         <button class="nav-toggle" aria-label="Abrir menú">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#proceso">Proceso</a></li>
-          <li><a href="#contacto">Contacto</a></li>
+          <li><a href="#trabajo">Proyectos</a></li>
+          <li><a href="#contacto" class="nav-cta">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -754,9 +801,9 @@
     <!-- ══ DOLOR DEL CLIENTE ══ -->
     <section class="dolor">
       <p class="dolor-quote">
-        "La mayoría de los profesionales que llegan a nosotras tienen algo en común:
+        La mayoría de los profesionales que llegan a nosotras tienen algo en común:
         saben muy bien lo que hacen, pero cuando alguien llega a su web o a su
-        Instagram, eso no queda claro."
+        Instagram, eso no queda claro.
       </p>
       <p class="dolor-sub">
         Una presencia digital sin identidad no genera confianza.
@@ -787,6 +834,7 @@
     </section>
 
     <!-- ══ SERVICIOS ══ -->
+    <span id="trabajo" style="display:block;height:0;visibility:hidden;"></span>
     <section class="servicios" id="servicios">
       <div class="servicios-header inner--narrow">
         <span class="eyebrow">Qué hacemos</span>
@@ -799,6 +847,7 @@
 
       <div class="servicios-grid">
         <div class="servicio-card">
+          <img src="img/card-webs.jpg" alt="Diseño y programación web" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:24px;">
           <h3>Diseño &amp; Web</h3>
           <p class="servicio-subtitulo">A cargo de Jess</p>
           <p>
@@ -811,6 +860,7 @@
         </div>
 
         <div class="servicio-card">
+          <img src="img/card-community.jpg" alt="Contenido y redes sociales" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:24px;">
           <h3>Contenido &amp; Social Media</h3>
           <p class="servicio-subtitulo">A cargo de Cami</p>
           <p>

@@ -20,26 +20,20 @@
 
   <link rel="stylesheet" href="style.css" />
   
-  <script>
-    // Redirigir a index.html en mobile si es acceso directo
-    if (window.innerWidth <= 768 && !document.referrer.includes(window.location.hostname)) {
-      window.location.href = 'index.html';
-    }
-  </script>
 </head>
 
 <body>
   <header class="site-header">
-    <div class="container header-inner">
+    <div class="header-inner">
       <a href="index.html#inicio" class="brand">
-        <span class="brand-text">J. André</span>
+        Forma <span class="brand-accent">&amp; Fondo</span>
       </a>
-
       <nav class="main-nav">
         <button class="nav-toggle" aria-label="Abrir menú">☰</button>
-        <ul class="nav-list">
+        <ul class="nav-list" id="navList">
+          <li><a href="index.html#servicios">Servicios</a></li>
           <li><a href="index.html#trabajo">Proyectos</a></li>
-          <li><a href="index.html#contacto">Contacto</a></li>
+          <li><a href="index.html#contacto" class="nav-cta">Contacto</a></li>
         </ul>
       </nav>
     </div>
@@ -71,9 +65,7 @@
               </ul>
               <div class="web-item-meta">
                 <span class="web-meta-item">
-                  <strong>Inversión:</strong> 
-                  <span class="price-original">$450 USD</span> 
-                  <span class="price-promo">$315 USD</span> 
+                  <strong>Inversión:</strong> desde USD 500
                   <em>(sin dominio ni hosting)</em>
                 </span>
                 <span class="web-meta-item"><strong>Entrega:</strong> 2-3 semanas</span>
@@ -102,9 +94,7 @@
               </ul>
               <div class="web-item-meta">
                 <span class="web-meta-item">
-                  <strong>Inversión:</strong> 
-                  <span class="price-original">$280 USD</span> 
-                  <span class="price-promo">$196 USD</span> 
+                  <strong>Inversión:</strong> desde USD 300
                   <em>(sin dominio ni hosting)</em>
                 </span>
                 <span class="web-meta-item"><strong>Entrega:</strong> 1-2 semanas</span>
@@ -133,9 +123,7 @@
               </ul>
               <div class="web-item-meta">
                 <span class="web-meta-item">
-                  <strong>Inversión:</strong> 
-                  <span class="price-original">$750 USD</span> 
-                  <span class="price-promo">$525 USD</span> 
+                  <strong>Inversión:</strong> desde USD 800
                   <em>(sin dominio ni hosting)</em>
                 </span>
                 <span class="web-meta-item"><strong>Entrega:</strong> 3-4 semanas</span>
@@ -193,13 +181,24 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> Diseño &amp; Contenido · Todas las piezas de esta web pueden adaptarse a tu
-        marca.</p>
-      <div class="footer-links">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          Forma <span class="footer-brand-accent">&amp; Fondo</span>
+        </div>
+        <div class="footer-copy">
+          &copy; <span id="year"></span> · Jess + Cami
+        </div>
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html#servicios">Servicios</a>
         <a href="index.html#trabajo">Proyectos</a>
         <a href="index.html#contacto">Contacto</a>
-      </div>
+      </nav>
+      <a href="https://instagram.com/formayfondo__"
+         class="footer-ig" target="_blank" rel="noopener">
+        Instagram
+      </a>
     </div>
   </footer>
 
@@ -215,7 +214,14 @@
   </a>
 
   <script src="script.js"></script>
-  <script src="webs-cms.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const toggle = document.querySelector('.nav-toggle');
+    const navList = document.getElementById('navList');
+    if (toggle && navList) {
+      toggle.addEventListener('click', () => navList.classList.toggle('open'));
+    }
+  </script>
 </body>
 
 </html>
