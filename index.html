@@ -6,11 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- TÍTULO SEO -->
-  <title>J. André · Community Manager, Contenido & Diseño Web</title>
+  <title>Forma &amp; Fondo · Diseño web y redes para profesionales de servicios</title>
 
   <!-- DESCRIPCIÓN SEO -->
   <meta name="description"
-    content="Community manager, creadora de contenido y diseñadora web. Estrategia, gestión de redes y diseños que comunican con coherencia y autenticidad.">
+    content="Diseño web, gestión de redes e identidad visual para coaches, psicólogos, consultoras y negocios de servicios. Jess + Cami · Con intención, no con ruido.">
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://jessandre-design.netlify.app/">
 
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="img/icon2.png">
@@ -18,21 +21,39 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <!-- OPEN GRAPH (para compartir en redes) -->
-  <meta property="og:title" content="J. André · Community Manager, Contenido & Webs">
-  <meta property="og:description" content="Gestión de redes, creación de contenido visual y diseño web para marcas auténticas.">
-  <meta property="og:image" content="https://jessi-andre.github.io/portfolio-jessicaAndre/img/jess-photo-perfil.jpeg">
-  <meta property="og:url" content="https://jessi-andre.github.io/portfolio-jessicaAndre/">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Forma &amp; Fondo · Diseño web y redes para profesionales de servicios">
+  <meta property="og:description" content="Diseño web, redes e identidad para coaches, psicólogos, consultoras y negocios de servicios. Con intención, no con ruido.">
+  <meta property="og:image" content="https://jessandre-design.netlify.app/img/jess-photo-perfil.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://jessandre-design.netlify.app/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
 
-  <!-- TWITTER CARD (para que se vea perfecto si lo twitteás o LinkedIn lo toma) -->
+  <!-- TWITTER CARD -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="J. André · Diseño Web & Redes">
-  <meta name="twitter:description" content="Portfolio.">
-  <meta name="twitter:image" content="https://jessi-andre.github.io/portfolio-jessicaAndre/img/jess-photo-perfil.jpeg">
 
   <!-- COLOR DEL NAVEGADOR (estética móvil) -->
   <meta name="theme-color" content="#f5ebe6">
+
+  <!-- STRUCTURED DATA -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Forma & Fondo",
+    "url": "https://jessandre-design.netlify.app/",
+    "description": "Diseño web, gestión de redes e identidad visual para coaches, psicólogos, consultoras y negocios de servicios.",
+    "founder": [
+      { "@type": "Person", "name": "Jessica André" },
+      { "@type": "Person", "name": "Cami" }
+    ],
+    "serviceType": ["Diseño web", "Community management", "Identidad visual"],
+    "areaServed": "Latinoamérica",
+    "sameAs": ["https://www.instagram.com/formayfondo__/"]
+  }
+  </script>
 
   <!-- TIPOGRAFÍAS -->
   <link
@@ -42,14 +63,279 @@
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
 
+  <style>
+    /* ── HERO CENTRADO ── */
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 100px 24px 80px;
+    }
+    .hero-tag {
+      position: relative;
+      padding-bottom: 16px;
+      margin-bottom: 8px;
+    }
+    .hero-tag::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 1px;
+      background-color: currentColor;
+      opacity: 0.3;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+
+    /* ── SOBRE NOSOTRAS ── */
+    .sobre-section {
+      padding: 72px 0 80px;
+      background-color: var(--color-crema-claro);
+    }
+    .sobre-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .sobre-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 420px;
+      position: relative;
+    }
+    .sobre-photo::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(59, 38, 35, 0.18);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .sobre-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+    }
+    .sobre-copy h2 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      margin: 0 0 20px;
+    }
+    .sobre-copy p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--color-texto-suave);
+      margin: 0;
+    }
+
+    /* ── PÚBLICOS ── */
+    .publicos-section {
+      padding: 72px 0 80px;
+    }
+    .publicos-section .section-header {
+      max-width: 680px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .publicos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .publico-card {
+      background: var(--color-crema-claro);
+      border-radius: var(--radius-md);
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--color-rosa);
+    }
+    .publico-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .publico-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-texto);
+    }
+
+    /* ── SERVICIOS ── */
+    .servicios-section {
+      padding: 72px 0 80px;
+      background-color: var(--color-crema-claro);
+    }
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 1080px;
+      margin: 0 auto 24px;
+      padding: 0 16px;
+    }
+    .servicio-card {
+      background: var(--color-crema);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      border: 1px solid var(--color-rosa);
+    }
+    .servicio-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+    }
+    .servicio-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin: 0 0 6px;
+    }
+    .servicio-autor {
+      font-size: 0.82rem;
+      color: var(--color-texto-suave);
+      margin: 0 0 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .servicio-card p {
+      font-size: 0.97rem;
+      line-height: 1.7;
+      color: var(--color-texto-suave);
+      margin: 0 0 16px;
+    }
+    .servicio-precio {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--color-marron);
+      margin: 0;
+    }
+    .servicios-disclaimer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-texto-suave);
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+      font-style: italic;
+    }
+
+    /* ── TESTIMONIOS ── */
+    .testimonios-section {
+      padding: 72px 0 80px;
+      background-color: var(--color-crema-claro);
+    }
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .testimonio-card {
+      background: var(--color-crema);
+      border-radius: var(--radius-lg);
+      padding: 36px 32px;
+      border: 1px solid var(--color-rosa);
+      position: relative;
+    }
+    .testimonio-comilla {
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      line-height: 1;
+      color: var(--color-rosa);
+      position: absolute;
+      top: 12px;
+      left: 24px;
+    }
+    .testimonio-texto {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--color-texto-suave);
+      margin: 40px 0 20px;
+      font-style: italic;
+    }
+    .testimonio-nombre {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-texto);
+      margin: 0 0 2px;
+    }
+    .testimonio-rubro {
+      font-size: 0.85rem;
+      color: var(--color-texto-suave);
+      margin: 0;
+    }
+
+    /* ── CONTACT WHATSAPP CTA ── */
+    .contact-wa-cta {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .contact-wa-cta a {
+      font-size: 0.95rem;
+      color: var(--color-texto-suave);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .contact-wa-cta a:hover {
+      color: var(--color-texto);
+    }
+
+    /* ── FOOTER INSTAGRAM ── */
+    .footer-instagram {
+      font-size: 0.9rem;
+      color: var(--color-texto-suave);
+      margin-top: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .sobre-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .publicos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .servicios-grid,
+      .testimonios-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .publicos-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- HEADER (estilo similar a L. Varela) -->
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="#inicio" class="brand">
-        <span class="brand-text">J. André</span>
+        <span class="brand-text">Forma &amp; Fondo</span>
       </a>
 
       <nav class="main-nav">
@@ -62,49 +348,134 @@
           </li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
-
       </nav>
     </div>
   </header>
 
   <main>
 
-
-
     <!-- HERO -->
     <section id="inicio" class="hero">
       <div class="hero-inner">
 
-        <!-- FOTO (columna izquierda) -->
-        <div class="hero-photo">
-          <img src="img/jess-photo-perfil.jpeg" alt="Jessica André, diseñadora web y creadora de contenido.">
-        </div>
+        <p class="hero-tag">Diseño Web · Redes · Identidad</p>
 
-        <!-- TEXTO (columna derecha) -->
-        <div class="hero-copy">
-          <p class="hero-tag">Community · Contenido · Webs</p>
+        <h1>Forma &amp; Fondo · Diseño web y redes con identidad</h1>
 
-          <h1>Jessica André</h1>
+        <p class="hero-text">
+          Tu presencia digital tiene que trabajar para vos.
+        </p>
 
-          <p class="hero-text">
-            Community manager, creadora de contenido y diseñadora web para marcas que quieren comunicar con estrategia, coherencia y autenticidad.
-          </p>
+        <p class="hero-text">
+          Diseño web, redes e identidad para coaches, consultoras y profesionales
+          de servicios que quieren crecer con intención, no con ruido.
+        </p>
 
-          <p class="hero-text">
-            Me gusta ordenar ideas, darle forma a lo que querés decir y que tu presencia digital se sienta clara,
-            estética y humana.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#contacto" class="btn btn-primary">Contactar</a>
-            <a href="#trabajo" class="btn btn-outline">Ver trabajos</a>
-          </div>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Contactar</a>
+          <a href="#trabajo" class="btn btn-outline">Ver trabajos</a>
         </div>
 
       </div>
     </section>
 
 
+    <!-- SOBRE NOSOTRAS -->
+    <section class="sobre-section">
+      <div class="sobre-inner">
+
+        <div class="sobre-photo">
+          <img src="img/jess-cami.jpg" alt="Jess y Cami, Forma & Fondo" loading="lazy">
+        </div>
+
+        <div class="sobre-copy">
+          <h2>Sobre nosotras</h2>
+          <p>
+            Somos Jess y Cami. Jess diseña y programa — webs, landings e identidad
+            visual que convierten. Cami crea y edita — contenido, reels y storytelling
+            que conectan. Juntas cubrimos todo lo que tu presencia digital necesita
+            para funcionar de verdad.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- SERVICIOS -->
+    <section class="servicios-section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Qué hacemos</h2>
+          <p class="section-intro">
+            Dos especialidades, un solo resultado: una presencia digital que refleja lo bueno de tu servicio.
+          </p>
+        </header>
+      </div>
+
+      <div class="servicios-grid">
+
+        <div class="servicio-card">
+          <img src="img/card-webs.jpg" alt="Diseño y programación web" loading="lazy">
+          <h3>Diseño &amp; Web</h3>
+          <p class="servicio-autor">A cargo de Jess</p>
+          <p>
+            Webs, landings y portfolios que cuentan tu historia de forma clara, estética y estratégica, sin perder
+            autenticidad. Desde el diseño hasta el código — todo para que tu sitio convierta visitas en clientes.
+          </p>
+          <p class="servicio-precio">Landings desde USD 500 · Sitios completos desde USD 800</p>
+        </div>
+
+        <div class="servicio-card">
+          <img src="img/card-community.jpg" alt="Contenido y redes sociales" loading="lazy">
+          <h3>Contenido &amp; Social Media</h3>
+          <p class="servicio-autor">A cargo de Cami</p>
+          <p>
+            Estrategia, calendarios, reels y copys que sostienen la voz de tu marca con coherencia y autenticidad.
+            Contenido que conecta con tu audiencia y convierte seguidores en clientes reales.
+          </p>
+          <p class="servicio-precio">Desde USD 300/mes</p>
+        </div>
+
+      </div>
+
+      <p class="servicios-disclaimer">
+        Cada proyecto es único. Hablemos para armar una propuesta a medida.
+      </p>
+    </section>
+
+
+    <!-- TRABAJAMOS CON PROFESIONALES DE SERVICIOS -->
+    <section class="publicos-section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Trabajamos con profesionales de servicios</h2>
+          <p class="section-intro">
+            Si tu servicio es excelente pero tu presencia digital no lo refleja,
+            estás perdiendo clientes antes de que te lean.
+          </p>
+        </header>
+      </div>
+
+      <div class="publicos-grid">
+        <div class="publico-card">
+          <span class="publico-icon">🧠</span>
+          <p>Coaches y psicólogos</p>
+        </div>
+        <div class="publico-card">
+          <span class="publico-icon">📋</span>
+          <p>Consultoras y estudios</p>
+        </div>
+        <div class="publico-card">
+          <span class="publico-icon">🏋️</span>
+          <p>Gym, yoga y pilates</p>
+        </div>
+        <div class="publico-card">
+          <span class="publico-icon">💼</span>
+          <p>Negocios de servicios</p>
+        </div>
+      </div>
+    </section>
 
 
     <!-- PROYECTOS -->
@@ -113,11 +484,10 @@
         <header class="section-header">
           <h2>Proyectos</h2>
           <p class="section-intro">
-            Una selección de proyectos en los que combiné contenido, diseño web y community
-            management para marcas de distintos nichos.
+            Una selección de trabajos donde diseño web, contenido y community
+            se combinan para que la presencia digital haga su trabajo de verdad.
           </p>
         </header>
-
 
         <div class="trabajos-grid">
 
@@ -126,7 +496,7 @@
             <div class="trabajos-media">
               <div class="trabajos-media-overlay">
                 <div class="trabajos-media-info">
-                  <span class="trabajos-pill">Community & Contenido</span>
+                  <span class="trabajos-pill">Community &amp; Contenido</span>
                   <button class="trabajos-media-btn" type="button">
                     Ver más
                   </button>
@@ -134,7 +504,7 @@
               </div>
             </div>
             <div class="trabajos-body">
-              <h3>Community Manager & Contenido</h3>
+              <h3>Community Manager &amp; Contenido</h3>
               <p>
                 Gestión integral de redes sociales: estrategia, calendarios, creación de contenido visual y copys que sostienen la voz de tu marca con coherencia y autenticidad.
               </p>
@@ -166,36 +536,67 @@
       </div>
     </section>
 
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonios-section">
+      <div class="container">
+        <header class="section-header">
+          <h2>Lo que dicen quienes trabajaron con nosotras</h2>
+        </header>
+
+        <div class="testimonios-grid">
+
+          <div class="testimonio-card">
+            <span class="testimonio-comilla">&ldquo;</span>
+            <p class="testimonio-texto">
+              Espacio para testimonio real — editable directamente en el código
+            </p>
+            <p class="testimonio-nombre">Nombre del cliente</p>
+            <p class="testimonio-rubro">Profesión / Rubro</p>
+          </div>
+
+          <div class="testimonio-card">
+            <span class="testimonio-comilla">&ldquo;</span>
+            <p class="testimonio-texto">
+              Espacio para testimonio real — editable directamente en el código
+            </p>
+            <p class="testimonio-nombre">Nombre del cliente</p>
+            <p class="testimonio-rubro">Profesión / Rubro</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MI CAJA DE HERRAMIENTAS CREATIVA -->
     <section class="tools-section">
 
       <h2 class="tools-title">Mi caja de herramientas creativa</h2>
-      <p class="tools-subtitle">Software y plataformas que forman parte de mi flujo de trabajo.</p>
-
+      <p class="tools-subtitle">Software y plataformas que forman parte de nuestro flujo de trabajo.</p>
 
       <section class="tools-marquee">
         <div class="marquee-track">
           <!-- ORIGINAL -->
-          <img src="img/figma.png" alt="Figma">
-          <img src="img/canva.png" alt="Canva">
-          <img src="img/vscode.png" alt="VSCode">
-          <img src="img/Illustrator.png" alt="Illustrator">
-          <img src="img/icon-chatgpt.png" alt="ChatGPT">
+          <img src="img/figma.png" alt="Figma" loading="lazy">
+          <img src="img/canva.png" alt="Canva" loading="lazy">
+          <img src="img/vscode.png" alt="VSCode" loading="lazy">
+          <img src="img/Illustrator.png" alt="Illustrator" loading="lazy">
+          <img src="img/icon-chatgpt.png" alt="ChatGPT" loading="lazy">
 
           <!-- DUPLICADO -->
-          <img src="img/figma.png" alt="Figma">
-          <img src="img/canva.png" alt="Canva">
-          <img src="img/vscode.png" alt="VSCode">
-          <img src="img/Illustrator.png" alt="Illustrator">
-          <img src="img/icon-chatgpt.png" alt="ChatGPT">
+          <img src="img/figma.png" alt="Figma" loading="lazy">
+          <img src="img/canva.png" alt="Canva" loading="lazy">
+          <img src="img/vscode.png" alt="VSCode" loading="lazy">
+          <img src="img/Illustrator.png" alt="Illustrator" loading="lazy">
+          <img src="img/icon-chatgpt.png" alt="ChatGPT" loading="lazy">
 
           <!-- TRIPLICADO -->
-          <img src="img/figma.png" alt="Figma">
-          <img src="img/canva.png" alt="Canva">
-          <img src="img/vscode.png" alt="VSCode">
-          <img src="img/Illustrator.png" alt="Illustrator">
-          <img src="img/icon-chatgpt.png" alt="ChatGPT">
-
-
+          <img src="img/figma.png" alt="Figma" loading="lazy">
+          <img src="img/canva.png" alt="Canva" loading="lazy">
+          <img src="img/vscode.png" alt="VSCode" loading="lazy">
+          <img src="img/Illustrator.png" alt="Illustrator" loading="lazy">
+          <img src="img/icon-chatgpt.png" alt="ChatGPT" loading="lazy">
         </div>
       </section>
 
@@ -207,10 +608,11 @@
       <div class="container">
 
         <header class="section-header section-header--center">
-          <h2>Contacto</h2>
+          <h2>¿Hablamos de tu proyecto?</h2>
           <p class="section-intro">
-            Si sentís que tu web, tus redes o tu contenido podrían trabajar mejor para tu marca,
-            dejame algunos datos y te respondo con una propuesta o una próxima acción clara.
+            Si querés que tu presencia digital empiece a trabajar para vos,
+            contanos de tu proyecto. Te respondemos con una propuesta concreta,
+            sin vueltas.
           </p>
         </header>
 
@@ -218,13 +620,13 @@
 
           <!-- COLUMNA FORMULARIO -->
           <div class="contact-form-column">
-            <h3 class="contact-subtitle">Contame de tu proyecto</h3>
+            <h3 class="contact-subtitle">Contanos de tu proyecto</h3>
             <p class="contact-lead">
-              Trabajo con emprendimientos, marcas personales y empresas de servicios
-              que buscan una presencia digital clara, estética y humana.
+              Trabajamos con profesionales que quieren que su presencia sea tan
+              buena como su servicio.
             </p>
 
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form class="contact-form" action="https://formspree.io/f/xkgbwywv" method="POST">
               <div class="form-group">
                 <label for="nombre">Nombre / marca</label>
                 <input id="nombre" name="nombre" type="text" placeholder="Tu nombre o el de tu proyecto" required>
@@ -236,7 +638,7 @@
               </div>
 
               <div class="form-group">
-                <label for="servicio">¿En qué te puedo ayudar?</label>
+                <label for="servicio">¿En qué te podemos ayudar?</label>
 
                 <!-- CUSTOM SELECT -->
                 <div class="custom-select" data-name="servicio">
@@ -249,7 +651,7 @@
                     <li data-value="contenido">Contenido</li>
                     <li data-value="webs">Diseño web</li>
                     <li data-value="cm">Community Manager</li>
-                    <li data-value="no-se">No sé, necesito que me guíes</li>
+                    <li data-value="no-se">No sé, necesito que me guíen</li>
                   </ul>
 
                   <!-- acá se guarda el valor real para enviar en el form -->
@@ -257,17 +659,22 @@
                 </div>
               </div>
 
-
               <div class="form-group">
                 <label for="mensaje">Mensaje</label>
                 <textarea id="mensaje" name="mensaje" rows="4"
-                  placeholder="Contame qué hacés, qué querés mejorar y si tenés alguna referencia o plazo."></textarea>
+                  placeholder="Contanos qué hacés, qué querés mejorar y si tenés alguna referencia o plazo."></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary btn-full">
-                Enviar mensaje
+                Hablemos de tu proyecto →
               </button>
             </form>
+
+            <div class="contact-wa-cta">
+              <a href="https://wa.me/56978941879" target="_blank" rel="noopener noreferrer">
+                O escribinos directo por WhatsApp →
+              </a>
+            </div>
           </div>
 
           <!-- COLUMNA FOTO / COPETE -->
@@ -282,13 +689,13 @@
     </section>
 
 
-
-
     <!-- FOOTER -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>&copy; <span id="year"></span> Diseño &amp; Contenido · Todas las piezas de esta web pueden adaptarse a tu
-          marca.</p>
+        <p>&copy; <span id="year"></span> Forma &amp; Fondo · Jess + Cami</p>
+        <p class="footer-instagram">
+          <a href="https://instagram.com/formayfondo__" target="_blank" rel="noopener">@formayfondo__</a>
+        </p>
         <div class="footer-links">
           <a href="#trabajo">Proyectos</a>
           <a href="#contacto">Contacto</a>
@@ -297,9 +704,9 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/56978941879?text=Hola Jessi! Me interesa conocer más sobre tus servicios" 
-       class="whatsapp-float" 
-       target="_blank" 
+    <a href="https://wa.me/56978941879?text=Hola! Me interesa conocer más sobre sus servicios"
+       class="whatsapp-float"
+       target="_blank"
        rel="noopener noreferrer"
        aria-label="Contactar por WhatsApp">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -308,7 +715,7 @@
     </a>
 
     <script src="script.js"></script>
-    
+
     <!-- Netlify Identity redirect script -->
     <script>
       if (window.netlifyIdentity) {
