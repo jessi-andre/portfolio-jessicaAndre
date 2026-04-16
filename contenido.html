@@ -136,13 +136,14 @@
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html#inicio" class="brand">
         Forma <span class="brand-accent">&amp; Fondo</span>
       </a>
       <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="index.html#servicios">Servicios</a></li>
           <li><a href="index.html#trabajo">Proyectos</a></li>
@@ -152,7 +153,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="section">
       <div class="container">
 
@@ -166,13 +167,13 @@
 
         <!-- TABS -->
         <div class="tab-list" role="tablist">
-          <button class="tab-button active" data-tab-target="#reels-panel" role="tab" aria-selected="true">Reels</button>
-          <button class="tab-button" data-tab-target="#fotos-panel" role="tab" aria-selected="false">Fotos</button>
-          <button class="tab-button" data-tab-target="#estrategia-panel" role="tab" aria-selected="false">Estrategia</button>
+          <button class="tab-button active" id="tab-reels" data-tab-target="#reels-panel" role="tab" aria-selected="true" aria-controls="reels-panel">Reels</button>
+          <button class="tab-button" id="tab-fotos" data-tab-target="#fotos-panel" role="tab" aria-selected="false" aria-controls="fotos-panel">Fotos</button>
+          <button class="tab-button" id="tab-estrategia" data-tab-target="#estrategia-panel" role="tab" aria-selected="false" aria-controls="estrategia-panel">Estrategia</button>
         </div>
 
         <!-- PANEL REELS -->
-        <div id="reels-panel" class="tab-panel active" role="tabpanel">
+        <div id="reels-panel" class="tab-panel active" role="tabpanel" aria-labelledby="tab-reels">
           <div class="tab-layout">
             <div class="tab-copy">
               <h3>Reels</h3>
@@ -215,7 +216,7 @@
         </div>
 
         <!-- PANEL FOTOS -->
-        <div id="fotos-panel" class="tab-panel" role="tabpanel">
+        <div id="fotos-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-fotos">
           <div class="tab-layout">
             <div class="tab-copy">
               <h3>Contenido fotográfico</h3>
@@ -263,7 +264,7 @@
         </div>
 
         <!-- PANEL ESTRATEGIA -->
-        <div id="estrategia-panel" class="tab-panel" role="tabpanel">
+        <div id="estrategia-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-estrategia">
           <div class="tab-layout">
             <div class="tab-copy">
               <h3>Estrategia de contenido</h3>
@@ -404,21 +405,14 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <div class="footer-brand">
-          Forma <span class="footer-brand-accent">&amp; Fondo</span>
-        </div>
-        <div class="footer-copy">
-          &copy; <span id="year"></span> · Jess
-        </div>
+        <div class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></div>
+        <div class="footer-copy">&copy; <span id="year"></span> · Jess André</div>
       </div>
-      <nav class="footer-nav">
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#trabajo">Proyectos</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
-      <a href="https://instagram.com/formayfondo__"
-         class="footer-ig" target="_blank" rel="noopener">
-        Instagram
+      <a href="https://instagram.com/formayfondo__" class="footer-ig" target="_blank" rel="noopener" aria-label="Instagram de Forma &amp; Fondo">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.7 2.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7.2A4.8 4.8 0 1 1 12 16.8 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/>
+        </svg>
+        <span>Instagram</span>
       </a>
     </div>
   </footer>

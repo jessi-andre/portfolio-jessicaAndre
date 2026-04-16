@@ -238,11 +238,19 @@ tabButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const target = document.querySelector(button.dataset.tabTarget);
 
-    tabButtons.forEach((btn) => btn.classList.remove('active'));
+    tabButtons.forEach((btn) => {
+      btn.classList.remove('active');
+      btn.setAttribute('aria-selected', 'false');
+    });
     tabPanels.forEach((panel) => panel.classList.remove('active'));
 
     button.classList.add('active');
-    if (target) target.classList.add('active');
+    button.setAttribute('aria-selected', 'true');
+    if (target) {
+      target.classList.add('active');
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }
   });
 });
 
@@ -280,11 +288,20 @@ if (customSelect) {
     });
   });
 
-  // cerrar al clickear afuera
+  // cerrar al clickear afuera o presionar Escape/Tab
   document.addEventListener("click", (e) => {
     if (!customSelect.contains(e.target)) {
       customSelect.classList.remove("open");
       trigger.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!customSelect.classList.contains("open")) return;
+    if (e.key === "Escape" || e.key === "Tab") {
+      customSelect.classList.remove("open");
+      trigger.setAttribute("aria-expanded", "false");
+      if (e.key === "Escape") trigger.focus();
     }
   });
 
@@ -433,6 +450,40 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// FORM SUBMISSION FEEDBACK
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('.contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = form.querySelector('[type="submit"]');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Enviando…';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+      });
+
+      if (res.ok) {
+        form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! Te contacto pronto.</p></div>';
+      } else {
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        alert('Hubo un error al enviar. Intentá de nuevo o escribime por WhatsApp.');
+      }
+    } catch {
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+      alert('Sin conexión. Intentá de nuevo.');
+    }
+  });
+});
+
 // PHOTO GRID EXPAND
 document.addEventListener('DOMContentLoaded', () => {
   const btnExpand = document.querySelector('.btn-photo-expand');
@@ -476,7 +527,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const observerOptions = {
     root: null, // viewport
     rootMargin: '0px',
-    threshold: 0.5 // 50% del video debe estar visible
+    threshold: 0.1 // 10% del video debe estar visible para no pausar
   };
 
   const videoObserver = new IntersectionObserver((entries) => {

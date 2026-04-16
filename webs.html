@@ -139,13 +139,14 @@
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Saltar al contenido</a>
   <header class="site-header">
     <div class="header-inner">
       <a href="index.html#inicio" class="brand">
         Forma <span class="brand-accent">&amp; Fondo</span>
       </a>
       <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="index.html#servicios">Servicios</a></li>
           <li><a href="index.html#trabajo">Proyectos</a></li>
@@ -155,7 +156,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="section">
       <div class="container">
 
@@ -169,13 +170,13 @@
 
         <!-- TABS -->
         <div class="tab-list" role="tablist">
-          <button class="tab-button active" data-tab-target="#portfolio-panel" role="tab" aria-selected="true">Portfolios</button>
-          <button class="tab-button" data-tab-target="#landings-panel" role="tab" aria-selected="false">Landings</button>
-          <button class="tab-button" data-tab-target="#corporativas-panel" role="tab" aria-selected="false">Corporativas</button>
+          <button class="tab-button active" id="tab-portfolio" data-tab-target="#portfolio-panel" role="tab" aria-selected="true" aria-controls="portfolio-panel">Portfolios</button>
+          <button class="tab-button" id="tab-landings" data-tab-target="#landings-panel" role="tab" aria-selected="false" aria-controls="landings-panel">Landings</button>
+          <button class="tab-button" id="tab-corporativas" data-tab-target="#corporativas-panel" role="tab" aria-selected="false" aria-controls="corporativas-panel">Corporativas</button>
         </div>
 
         <!-- PANEL PORTFOLIOS -->
-        <div id="portfolio-panel" class="tab-panel active" role="tabpanel">
+        <div id="portfolio-panel" class="tab-panel active" role="tabpanel" aria-labelledby="tab-portfolio">
           <div class="tab-layout">
             <div class="tab-copy">
               <h3>Portfolios creativos</h3>
@@ -196,7 +197,7 @@
             <div class="tab-grid">
               <article class="work-card">
                 <div class="work-card-image">
-                  <video class="work-card-video" src="video/webLunaVarela.mp4" controls playsinline preload="metadata"></video>
+                  <video class="work-card-video" src="video/webLunaVarela.mp4" controls playsinline preload="none"></video>
                 </div>
                 <h4>Portfolio fotográfico</h4>
                 <p>Galería organizada que destaca el trabajo profesional con navegación intuitiva.</p>
@@ -207,7 +208,7 @@
         </div>
 
         <!-- PANEL LANDINGS -->
-        <div id="landings-panel" class="tab-panel" role="tabpanel">
+        <div id="landings-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-landings">
           <div class="tab-layout">
             <div class="tab-copy">
               <h3>Landings comerciales</h3>
@@ -228,7 +229,7 @@
             <div class="tab-grid">
               <article class="work-card">
                 <div class="work-card-image">
-                  <video class="work-card-video" src="video/webLauraMendez.mp4" controls playsinline preload="metadata"></video>
+                  <video class="work-card-video" src="video/webLauraMendez.mp4" controls playsinline preload="none"></video>
                 </div>
                 <h4>Landing de servicios</h4>
                 <p>Página enfocada en captar leads y agendar consultas con claridad y confianza.</p>
@@ -239,7 +240,7 @@
         </div>
 
         <!-- PANEL CORPORATIVAS -->
-        <div id="corporativas-panel" class="tab-panel" role="tabpanel">
+        <div id="corporativas-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-corporativas">
           <div class="tab-layout">
             <div class="tab-copy">
               <h3>Webs corporativas</h3>
@@ -260,7 +261,7 @@
             <div class="tab-grid">
               <article class="work-card">
                 <div class="work-card-image">
-                  <video class="work-card-video" src="video/webFormaYFondo.mp4" controls playsinline preload="metadata"></video>
+                  <video class="work-card-video" src="video/webFormaYFondo.mp4" controls playsinline preload="none"></video>
                 </div>
                 <h4>Web corporativa completa</h4>
                 <p>Sitio profesional con múltiples secciones que representa la marca integralmente.</p>
@@ -311,21 +312,14 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div>
-        <div class="footer-brand">
-          Forma <span class="footer-brand-accent">&amp; Fondo</span>
-        </div>
-        <div class="footer-copy">
-          &copy; <span id="year"></span> · Jess
-        </div>
+        <div class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></div>
+        <div class="footer-copy">&copy; <span id="year"></span> · Jess André</div>
       </div>
-      <nav class="footer-nav">
-        <a href="index.html#servicios">Servicios</a>
-        <a href="index.html#trabajo">Proyectos</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
-      <a href="https://instagram.com/formayfondo__"
-         class="footer-ig" target="_blank" rel="noopener">
-        Instagram
+      <a href="https://instagram.com/formayfondo__" class="footer-ig" target="_blank" rel="noopener" aria-label="Instagram de Forma &amp; Fondo">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.7 2.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7.2A4.8 4.8 0 1 1 12 16.8 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/>
+        </svg>
+        <span>Instagram</span>
       </a>
     </div>
   </footer>
