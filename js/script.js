@@ -90,8 +90,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  if (window.location.hash) {
+  const scrollToHashTarget = (hash) => {
+    if (!hash) return;
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    target.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start'
+    });
     cleanUrl();
+  };
+
+  if (window.location.hash) {
+    scrollToHashTarget(window.location.hash);
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
