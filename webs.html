@@ -70,8 +70,15 @@
     .nav-cta:hover { opacity: 0.8; }
     .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--color-negro); }
     @media (max-width: 640px) {
-      .main-nav { position: relative; width: 100%; }
-      .nav-toggle { display: block !important; }
+      .main-nav {
+        position: relative;
+        width: auto;
+        justify-content: flex-end;
+      }
+      .nav-toggle {
+        display: block !important;
+        margin-left: auto;
+      }
       .nav-list { display: none !important; }
       .nav-list.open,
       .nav-list.nav-open {

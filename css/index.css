@@ -164,8 +164,15 @@
       color: var(--color-crema);
     }
     @media (max-width: 640px) {
-      .main-nav { position: relative; width: 100%; }
-      .nav-toggle { display: block !important; }
+      .main-nav {
+        position: relative;
+        width: auto;
+        justify-content: flex-end;
+      }
+      .nav-toggle {
+        display: block !important;
+        margin-left: auto;
+      }
       .nav-list { display: none !important; }
       .nav-list.open,
       .nav-list.nav-open {
