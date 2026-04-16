@@ -164,9 +164,25 @@
       color: var(--color-crema);
     }
     @media (max-width: 640px) {
+      .main-nav { position: relative; }
       .nav-toggle { display: block; }
       .nav-list { display: none; }
-      .nav-list.open { display: flex; flex-direction: column; position: absolute; top: 58px; left: 0; right: 0; background: #2E2926; border: 1px solid rgba(242, 234, 225, 0.14); border-top: 0; padding: 16px 24px 24px; gap: 16px; }
+      .nav-list.open,
+      .nav-list.nav-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 58px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #2E2926;
+        border: 1px solid rgba(242, 234, 225, 0.14);
+        border-top: 0;
+        padding: 16px 24px 24px;
+        gap: 16px;
+        z-index: 45;
+      }
     }
 
     /* ══════════════════════════════════════
