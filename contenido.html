@@ -48,6 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
     .main-nav { display: flex; align-items: center; gap: 32px; }
     .main-nav a { font-size: 0.9rem; color: var(--color-gris); text-decoration: none; transition: color 0.2s; }
@@ -68,7 +69,7 @@
     .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--color-negro); }
     @media (max-width: 640px) {
       .main-nav {
-        position: relative;
+        position: static;
         width: auto;
         justify-content: flex-end;
       }

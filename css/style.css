@@ -125,6 +125,7 @@ a:hover {
   align-items: center;
   justify-content: space-between;
   padding: 14px 16px;
+  position: relative;
 }
 
 .brand {
@@ -1793,7 +1794,7 @@ textarea:focus::placeholder {
   }
 
   .main-nav {
-    position: relative;
+    position: static;
   }
 
   .nav-list {

@@ -165,7 +165,7 @@
     }
     @media (max-width: 640px) {
       .main-nav {
-        position: relative;
+        position: static;
         width: auto;
         justify-content: flex-end;
       }
