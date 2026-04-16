@@ -5,24 +5,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Forma &amp; Fondo · Diseño web y redes para profesionales de servicios</title>
+  <title>Forma &amp; Fondo | Diseño web y contenido estratégico</title>
 
   <meta name="description"
-    content="Diseño web, gestión de redes e identidad visual para coaches, psicólogos, consultoras y negocios de servicios. Jess + Cami · Con intención, no con ruido.">
+    content="Agencia creativa para diseño web, landings, contenido estratégico, branding y posicionamiento digital. Desde USD 300/mes.">
 
   <link rel="canonical" href="https://jessandre-design.netlify.app/">
   <link rel="icon" type="image/png" href="img/icon2.png">
 
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <meta property="og:title" content="Forma &amp; Fondo · Diseño web y redes para profesionales de servicios">
-  <meta property="og:description" content="Diseño web, redes e identidad para coaches, psicólogos, consultoras y negocios de servicios. Con intención, no con ruido.">
+  <meta property="og:title" content="Forma &amp; Fondo | Diseño web y contenido">
+  <meta property="og:description" content="Diseño web, contenido estratégico y posicionamiento digital para convertir presencia online en clientes.">
   <meta property="og:image" content="https://jessandre-design.netlify.app/img/jess-photo-perfil.jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://jessandre-design.netlify.app/">
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_AR">
+  <meta property="og:locale" content="es_ES">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#F2EAE1">
 
@@ -32,736 +32,17 @@
     "@type": "ProfessionalService",
     "name": "Forma & Fondo",
     "url": "https://jessandre-design.netlify.app/",
-    "description": "Diseño web, gestión de redes e identidad visual para coaches, psicólogos, consultoras y negocios de servicios.",
-    "founder": [
-      { "@type": "Person", "name": "Jessica André" },
-      { "@type": "Person", "name": "Cami" }
-    ],
-    "serviceType": ["Diseño web", "Community management", "Identidad visual"],
-    "areaServed": "Latinoamérica",
+    "description": "Agencia creativa para diseño web, landings, contenido estratégico, branding y posicionamiento digital.",
+    "founder": { "@type": "Person", "name": "Jessica André" },
+    "serviceType": ["Diseño web", "Contenido estratégico", "Identidad visual"],
+    "areaServed": ["América", "Europa"],
     "sameAs": ["https://www.instagram.com/formayfondo__/"]
   }
   </script>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* ══════════════════════════════════════
-       RESET / BASE
-    ══════════════════════════════════════ */
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--color-negro);
-      background-color: var(--color-crema);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    h1, h2, h3, h4, blockquote {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 400;
-    }
-
-    p, a, button, label, input, textarea,
-    select, li, span, small {
-      font-family: 'Inter', system-ui, sans-serif;
-    }
-
-    /* ══════════════════════════════════════
-       UTILIDADES
-    ══════════════════════════════════════ */
-    .eyebrow {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--color-violeta);
-      margin-bottom: 14px;
-    }
-
-    .section-wrap {
-      padding: 96px 24px;
-    }
-    .section-wrap--alt {
-      background-color: var(--color-crema-claro);
-    }
-    .section-wrap--dark {
-      background-color: var(--color-negro);
-      color: #fff;
-    }
-
-    .inner {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .inner--narrow {
-      max-width: 720px;
-      margin: 0 auto;
-    }
-    .inner--medium {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    /* ══════════════════════════════════════
-       HEADER
-    ══════════════════════════════════════ */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: var(--color-crema);
-      border-bottom: 1px solid var(--color-borde);
-    }
-    .header-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .brand {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-      text-decoration: none;
-      color: var(--color-negro);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .brand-accent {
-      color: var(--color-violeta);
-    }
-    .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-    }
-    .main-nav a {
-      font-size: 0.9rem;
-      color: var(--color-gris);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .main-nav a:hover {
-      color: var(--color-negro);
-      text-decoration: none;
-    }
-    .nav-cta {
-      background-color: var(--color-violeta);
-      color: #ffffff !important;
-      padding: 9px 20px;
-      border-radius: 6px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.85; color: #fff !important; }
-    .nav-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.4rem;
-      cursor: pointer;
-      color: var(--color-negro);
-    }
-    @media (max-width: 640px) {
-      .nav-toggle { display: block; }
-      .nav-list { display: none; }
-      .nav-list.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--color-crema); border-bottom: 1px solid var(--color-borde); padding: 16px 24px 24px; gap: 16px; }
-    }
-
-    /* ══════════════════════════════════════
-       HERO
-    ══════════════════════════════════════ */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 24px;
-      background-color: var(--color-crema);
-    }
-    .hero-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      max-width: 640px;
-      width: 100%;
-      gap: 20px;
-    }
-    .hero-tag {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--color-violeta);
-      margin: 0;
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4.5vw, 2.8rem);
-      font-weight: 400;
-      line-height: 1.2;
-      color: var(--color-negro);
-      margin: 0;
-    }
-    .hero-text, .hero-lead {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--color-gris);
-      max-width: 520px;
-      margin: 0;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 12px;
-    }
-    .hero-divider {
-      width: 48px;
-      height: 1px;
-      background-color: var(--color-borde);
-      margin-top: 8px;
-    }
-    @media (max-width: 480px) {
-      .hero { padding: 64px 20px; }
-      .hero h1 { font-size: 1.85rem; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
-    }
-
-    /* ══════════════════════════════════════
-       BOTONES
-    ══════════════════════════════════════ */
-    .btn {
-      display: inline-block;
-      padding: 13px 28px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      border-radius: 6px;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity 0.2s, background 0.2s;
-      border: none;
-    }
-    .btn:hover { text-decoration: none; opacity: 0.85; }
-    .btn-primary {
-      background-color: var(--color-violeta);
-      color: #fff;
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--color-negro);
-      color: var(--color-negro);
-    }
-    .btn-full { width: 100%; text-align: center; }
-
-    /* ══════════════════════════════════════
-       DOLOR DEL CLIENTE
-    ══════════════════════════════════════ */
-    .dolor {
-      background-color: var(--color-crema-claro);
-      padding: 80px 24px;
-      text-align: center;
-    }
-    .dolor-quote {
-      font-family: var(--font-serif);
-      font-size: clamp(1.2rem, 2.5vw, 1.45rem);
-      line-height: 1.8;
-      color: var(--color-negro);
-      margin: 0 auto 20px;
-      max-width: 720px;
-    }
-    .dolor-sub {
-      font-size: 1rem;
-      color: var(--color-gris);
-      margin: 0 auto;
-      max-width: 520px;
-    }
-
-    /* ══════════════════════════════════════
-       QUIÉNES SOMOS
-    ══════════════════════════════════════ */
-    .quienes {
-      background-color: var(--color-crema);
-      padding: 96px 24px;
-    }
-    .quienes-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: center;
-    }
-    .quienes-foto {
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-    }
-    .quienes-foto::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(59, 47, 42, 0.16);
-      z-index: 1;
-      pointer-events: none;
-      border-radius: 12px;
-    }
-    .quienes-foto img {
-      width: 100%;
-      max-height: 420px;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-    }
-    .quienes-copy h2 {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--color-negro);
-      margin: 0 0 20px;
-      line-height: 1.25;
-    }
-    .quienes-copy p {
-      color: var(--color-gris);
-      line-height: 1.75;
-      margin: 0 0 16px;
-      font-size: 0.97rem;
-    }
-    .quienes-copy p:last-child { margin-bottom: 0; }
-
-    @media (max-width: 768px) {
-      .quienes-grid {
-        grid-template-columns: 1fr;
-        gap: 36px;
-      }
-    }
-
-    /* ══════════════════════════════════════
-       SERVICIOS
-    ══════════════════════════════════════ */
-    .servicios {
-      background-color: var(--color-crema-claro);
-      padding: 96px 24px;
-    }
-    .servicios-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .servicios-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 500;
-      color: var(--color-negro);
-      margin: 0 0 14px;
-    }
-    .servicios-header p {
-      color: var(--color-gris);
-      font-size: 1rem;
-      max-width: 560px;
-      margin: 0 auto;
-      line-height: 1.7;
-    }
-    .servicios-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .servicio-card {
-      background: #fff;
-      border: 1px solid var(--color-borde);
-      border-radius: 12px;
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-    }
-    .servicio-card h3 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--color-negro);
-      margin: 0 0 6px;
-    }
-    .servicio-subtitulo {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--color-violeta);
-      margin: 0 0 18px;
-    }
-    .servicio-card p {
-      color: var(--color-gris);
-      font-size: 0.97rem;
-      line-height: 1.75;
-      margin: 0 0 20px;
-      flex: 1;
-    }
-    .servicio-precio {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--color-negro);
-      margin: 0 0 16px;
-    }
-    .servicio-link {
-      font-size: 0.9rem;
-      color: var(--color-violeta);
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .servicio-link:hover {
-      text-decoration: underline;
-    }
-    .servicios-disclaimer {
-      text-align: center;
-      font-size: 0.9rem;
-      font-style: italic;
-      color: var(--color-gris);
-      margin-top: 32px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    @media (max-width: 768px) {
-      .servicios-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ══════════════════════════════════════
-       PROCESO
-    ══════════════════════════════════════ */
-    .proceso {
-      background-color: var(--color-crema);
-      padding: 96px 24px;
-    }
-    .proceso-header {
-      text-align: center;
-      margin-bottom: 64px;
-    }
-    .proceso-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 500;
-      color: var(--color-negro);
-      margin: 0;
-    }
-    .proceso-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-    }
-    .paso {
-      display: flex;
-      flex-direction: column;
-    }
-    .paso-num {
-      font-family: var(--font-serif);
-      font-size: 3rem;
-      line-height: 1;
-      color: var(--color-violeta);
-      opacity: 0.3;
-      margin-bottom: 12px;
-    }
-    .paso h3 {
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: var(--color-negro);
-      margin: 0 0 10px;
-    }
-    .paso p {
-      font-size: 0.88rem;
-      color: var(--color-gris);
-      line-height: 1.7;
-      margin: 0;
-    }
-    .proceso-nota {
-      text-align: center;
-      font-size: 0.88rem;
-      font-style: italic;
-      color: var(--color-gris);
-      max-width: 620px;
-      margin: 56px auto 0;
-      line-height: 1.7;
-    }
-    @media (max-width: 768px) {
-      .proceso-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px 24px;
-      }
-    }
-    @media (max-width: 480px) {
-      .proceso-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ══════════════════════════════════════
-       TESTIMONIOS
-    ══════════════════════════════════════ */
-    .testimonios {
-      background-color: var(--color-crema-claro);
-      padding: 96px 24px;
-    }
-    .testimonios-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-    .testimonios-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 500;
-      color: var(--color-negro);
-      margin: 0;
-    }
-    .testimonios-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-    }
-    .testimonio-card {
-      background: #fff;
-      border: 1px solid var(--color-borde);
-      border-radius: 12px;
-      padding: 36px 32px;
-      position: relative;
-    }
-    .testimonio-comilla {
-      font-family: var(--font-serif);
-      font-size: 4rem;
-      line-height: 1;
-      color: var(--color-violeta);
-      opacity: 0.25;
-      display: block;
-      margin-bottom: 8px;
-    }
-    .testimonio-texto {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: var(--color-gris);
-      margin: 0 0 24px;
-    }
-    .testimonio-nombre {
-      font-weight: 600;
-      font-size: 0.92rem;
-      color: var(--color-negro);
-      margin: 0 0 2px;
-    }
-    .testimonio-rubro {
-      font-size: 0.83rem;
-      color: var(--color-gris);
-      margin: 0;
-    }
-    @media (max-width: 640px) {
-      .testimonios-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ══════════════════════════════════════
-       CONTACTO
-    ══════════════════════════════════════ */
-    .contacto {
-      background-color: var(--color-crema);
-      padding: 96px 24px;
-    }
-    .contacto-grid {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 72px;
-      align-items: start;
-    }
-    .contacto-copy h2 {
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 500;
-      color: var(--color-negro);
-      margin: 0 0 20px;
-      line-height: 1.25;
-    }
-    .contacto-copy p {
-      color: var(--color-gris);
-      font-size: 0.97rem;
-      line-height: 1.75;
-      margin: 0 0 16px;
-    }
-    .contacto-copy p:last-child { margin-bottom: 0; }
-    .contacto-wa {
-      color: var(--color-violeta);
-      font-weight: 500;
-      font-size: 0.97rem;
-      text-decoration: none;
-    }
-    .contacto-wa:hover { text-decoration: underline; }
-
-    /* form */
-    .contact-form { display: flex; flex-direction: column; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label {
-      font-size: 0.83rem;
-      font-weight: 500;
-      color: var(--color-negro);
-      letter-spacing: 0.02em;
-    }
-    .form-group input,
-    .form-group textarea {
-      padding: 11px 14px;
-      border: 1px solid var(--color-borde);
-      border-radius: 6px;
-      font-size: 0.93rem;
-      font-family: var(--font-sans);
-      color: var(--color-negro);
-      background: #fff;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: var(--color-violeta);
-    }
-    .form-group textarea { resize: vertical; }
-
-    /* custom select */
-    .custom-select { position: relative; }
-    .custom-select-trigger {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--color-borde);
-      border-radius: 6px;
-      font-size: 0.93rem;
-      font-family: var(--font-sans);
-      color: var(--color-gris);
-      background: #fff;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .custom-select-trigger.selected { color: var(--color-negro); }
-    .custom-select-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 0; right: 0;
-      background: #fff;
-      border: 1px solid var(--color-borde);
-      border-radius: 6px;
-      list-style: none;
-      margin: 0; padding: 6px 0;
-      z-index: 10;
-    }
-    .custom-select-menu.open { display: block; }
-    .custom-select-menu li {
-      padding: 10px 14px;
-      font-size: 0.93rem;
-      cursor: pointer;
-      color: var(--color-negro);
-    }
-    .custom-select-menu li:hover { background: var(--color-crema-claro); }
-
-    @media (max-width: 768px) {
-      .contacto-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-    }
-
-    /* ══════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════ */
-    .site-footer {
-      background-color: var(--color-negro);
-      padding: 48px 24px;
-    }
-    .footer-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .footer-brand {
-      font-family: var(--font-serif);
-      font-size: 1.1rem;
-      color: #fff;
-      font-weight: 500;
-    }
-    .footer-brand-accent { color: var(--color-violeta); }
-    .footer-copy {
-      font-size: 0.8rem;
-      color: #888;
-      margin-top: 4px;
-    }
-    .footer-nav {
-      display: flex;
-      gap: 24px;
-    }
-    .footer-nav a {
-      font-size: 0.9rem;
-      color: #aaa;
-      text-decoration: none;
-    }
-    .footer-nav a:hover { color: #fff; text-decoration: none; }
-    .footer-ig {
-      font-size: 0.9rem;
-      color: #aaa;
-      text-decoration: none;
-    }
-    .footer-ig:hover { color: #fff; text-decoration: none; }
-
-    @media (max-width: 640px) {
-      .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    }
-
-    /* ══════════════════════════════════════
-       WHATSAPP FLOTANTE
-    ══════════════════════════════════════ */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 52px;
-      height: 52px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      z-index: 100;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-      transition: transform 0.2s;
-    }
-    .whatsapp-float:hover { transform: scale(1.08); text-decoration: none; }
-    .whatsapp-float svg { width: 28px; height: 28px; }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -773,11 +54,11 @@
         Forma <span class="brand-accent">&amp; Fondo</span>
       </a>
       <nav class="main-nav">
-        <button class="nav-toggle" aria-label="Abrir menú">☰</button>
+        <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#trabajo">Proyectos</a></li>
-          <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+          <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
         </ul>
       </nav>
     </div>
@@ -787,25 +68,64 @@
 
     <!-- ══ HERO ══ -->
     <section class="hero">
-      <div class="hero-inner">
-        <span class="eyebrow">Diseño web · Redes · Identidad</span>
-        <h1>Tu presencia digital debería conseguirte clientes.</h1>
-        <p class="hero-lead">
-          Si tenés un buen servicio pero no sabés cómo comunicarlo, estás perdiendo
-          clientes antes de que te lean. Eso es exactamente lo que resolvemos.
-        </p>
-        <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary">Agendar reunión</a>
-          <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+      <div class="hero-shell">
+        <div class="hero-browser" aria-label="Forma & Fondo">
+          <div class="hero-browser-bar">
+            <span></span>
+            <span></span>
+            <span></span>
+            <div class="hero-browser-url">formayfondo.studio</div>
+          </div>
+
+          <div class="hero-stage">
+            <div class="hero-copy">
+              <span class="eyebrow">Agencia digital · Diseño web · Contenido</span>
+              <h1>Tu presencia digital debería conseguirte clientes.</h1>
+              <p class="hero-lead">
+                Ayudamos a marcas y profesionales a comunicar mejor, verse más confiables
+                y convertir su presencia digital en oportunidades reales.
+              </p>
+              <div class="hero-actions">
+                <a href="#contacto" class="btn btn-primary">Cotizar mi proyecto</a>
+                <a href="#servicios" class="btn btn-outline">Ver qué podemos hacer</a>
+              </div>
+            </div>
+
+            <div class="hero-proof">
+              <span>Dirección estratégica</span>
+              <strong>Web · Contenido · Branding</strong>
+              <small>Diseño con intención, no ruido.</small>
+            </div>
+          </div>
+
+          <div class="hero-marquee" aria-hidden="true">
+            <div class="hero-marquee-track">
+              <span>Diseño web</span>
+              <span>→</span>
+              <span>Contenido estratégico</span>
+              <span>→</span>
+              <span>Branding</span>
+              <span>→</span>
+              <span>SEO</span>
+              <span>→</span>
+              <span>Diseño web</span>
+              <span>→</span>
+              <span>Contenido estratégico</span>
+              <span>→</span>
+              <span>Branding</span>
+              <span>→</span>
+              <span>SEO</span>
+              <span>→</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-divider"></div>
       </div>
     </section>
 
     <!-- ══ DOLOR DEL CLIENTE ══ -->
     <section class="dolor">
       <p class="dolor-quote">
-        La mayoría de los profesionales que llegan a nosotras tienen algo en común:
+        La mayoría de los profesionales que llegan a Forma &amp; Fondo tienen algo en común:
         saben muy bien lo que hacen, pero cuando alguien llega a su web o a su
         Instagram, eso no queda claro.
       </p>
@@ -815,70 +135,70 @@
       </p>
     </section>
 
-    <!-- ══ QUIÉNES SOMOS ══ -->
+    <!-- ══ SOBRE MI ══ -->
     <section class="quienes">
       <div class="quienes-grid">
         <div class="quienes-foto">
-          <img src="img/jess-cami.jpg" alt="Jess y Cami — Forma &amp; Fondo" loading="lazy">
+          <img src="img/jess-photo-perfil.jpeg" alt="Jess André, fundadora de Forma &amp; Fondo" loading="lazy">
         </div>
         <div class="quienes-copy">
-          <span class="eyebrow">Sobre nosotras</span>
-          <h2>Dos especialidades, una sola dirección.</h2>
+          <span class="eyebrow">Sobre mí</span>
+          <h2>Agencia creativa.</h2>
           <p>
-            Jess diseña y programa — webs, landings e identidad visual construidas
-            para convertir. Cami crea y edita — contenido, reels y estrategia de
-            redes que conectan con la audiencia correcta.
+            Forma &amp; Fondo es una agencia de diseño web, contenido e identidad visual
+            dirigida por Jess André. Cada proyecto se trabaja con mirada estratégica,
+            diseño cuidado y foco en resultados concretos.
           </p>
           <p>
-            Trabajamos con profesionales de servicios que quieren que su presencia
-            sea tan buena como lo que ofrecen. Sin ruido, sin genérico, sin perder tiempo.
+            Según el alcance, contamos con colaboradores especializados para resolver
+            cada etapa con el mismo nivel de exigencia.
           </p>
         </div>
       </div>
     </section>
 
     <!-- ══ SERVICIOS ══ -->
-    <span id="trabajo" style="display:block;height:0;visibility:hidden;"></span>
+    <span id="trabajo" class="anchor-target"></span>
     <section class="servicios" id="servicios">
       <div class="servicios-header inner--narrow">
         <span class="eyebrow">Qué hacemos</span>
         <h2>La presencia digital completa para tu negocio.</h2>
         <p>
-          Cubrimos todo lo que necesitás para que alguien que llega a tu perfil
-          o a tu web entienda, confíe y te contacte.
+          En Forma &amp; Fondo construimos lo que necesitas para que alguien que llega
+          a tu perfil o a tu web entienda, confíe y te contacte.
         </p>
       </div>
 
       <div class="servicios-grid">
         <div class="servicio-card">
-          <img src="img/card-webs.jpg" alt="Diseño y programación web" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:24px;">
+          <img src="img/card-webs.jpg" alt="Diseño y programación web" loading="lazy">
           <h3>Diseño &amp; Web</h3>
-          <p class="servicio-subtitulo">A cargo de Jess</p>
+          <p class="servicio-subtitulo">Diseño, desarrollo y estrategia</p>
           <p>
-            Webs, landings y portfolios que comunican lo que hacés con claridad y
+            Webs, landings y portfolios que comunican lo que haces con claridad y
             estética. Desde el diseño hasta el código — para que tu sitio trabaje
-            para vos aunque no estés.
+            por ti aunque no estés.
           </p>
           <p class="servicio-precio">Landings desde USD 500 · Sitios completos desde USD 800</p>
-          <a href="webs.html" class="servicio-link">Ver proyectos de web →</a>
+          <a href="webs.html" class="servicio-link">Ver ejemplos de sitios web →</a>
         </div>
 
         <div class="servicio-card">
-          <img src="img/card-community.jpg" alt="Contenido y redes sociales" loading="lazy" style="width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:24px;">
+          <img src="img/card-community.jpg" alt="Contenido y redes sociales" loading="lazy">
           <h3>Contenido &amp; Social Media</h3>
-          <p class="servicio-subtitulo">A cargo de Cami</p>
+          <p class="servicio-subtitulo">Contenido estratégico mensual</p>
           <p>
-            Estrategia, reels, calendarios y copy que mantienen tu presencia activa
-            y coherente. Contenido que no solo se ve bien — que genera conversaciones
-            y clientes.
+            Estrategia, reels, calendario de contenido y copywriting para mantener
+            tu presencia activa, coherente y orientada a generar conversaciones
+            con clientes reales.
           </p>
-          <p class="servicio-precio">Desde USD 300/mes</p>
-          <a href="contenido.html" class="servicio-link">Ver proyectos de contenido →</a>
+          <p class="servicio-precio">Planes de contenido desde USD 300/mes</p>
+          <a href="contenido.html" class="servicio-link">Ver contenido trabajado →</a>
         </div>
       </div>
 
       <p class="servicios-disclaimer">
-        Cada proyecto es único. Hablemos para armar una propuesta a medida.
+        Los valores son referenciales. Cada proyecto se cotiza según alcance, objetivos y tiempos de trabajo.
       </p>
     </section>
 
@@ -895,7 +215,7 @@
           <h3>Reunión inicial</h3>
           <p>
             Agendamos una llamada para conocer tu proyecto, tus objetivos y ver
-            si somos el equipo indicado para ayudarte.
+            si Forma &amp; Fondo es la agencia indicada para ayudarte.
           </p>
         </div>
         <div class="paso">
@@ -910,7 +230,7 @@
           <span class="paso-num">03</span>
           <h3>Propuesta</h3>
           <p>
-            Te presentamos un plan concreto: qué hacemos, en qué tiempo y con
+            Te presentamos un plan concreto: qué se hará, en qué tiempo y con
             qué inversión. Sin ambigüedades.
           </p>
         </div>
@@ -918,44 +238,104 @@
           <span class="paso-num">04</span>
           <h3>Ejecución</h3>
           <p>
-            Trabajamos. Tenés acceso al proceso y feedback en cada etapa.
+            Ejecutamos el proyecto con seguimiento claro y feedback en cada etapa.
             Entregamos cuando está bien hecho, no cuando se cumple un plazo arbitrario.
           </p>
         </div>
       </div>
 
       <p class="proceso-nota">
-        Trabajamos con personas que quieren crecer y que valoran el proceso tanto
-        como el resultado. Si buscás algo rápido y barato, no somos tu equipo.
+        Trabajamos con personas que quieren crecer y valoran el proceso tanto como
+        el resultado. Si buscas algo rápido y barato, probablemente no sea el mejor match.
       </p>
     </section>
 
-    <!-- ══ TESTIMONIOS ══ -->
-    <section class="testimonios">
-      <div class="testimonios-header">
-        <span class="eyebrow">Lo que dicen</span>
-        <h2>Resultados que hablan.</h2>
+    <!-- ══ EXPERIENCIA REAL ══ -->
+    <section class="experiencia">
+      <div class="experiencia-header">
+        <span class="eyebrow">Experiencia real</span>
+        <h2>Marcas y proyectos trabajados.</h2>
+        <p>
+          Casos reales de community management, contenido, identidad visual, sitios web
+          y estrategia digital. Cuando el proyecto tiene presencia pública, puedes verlo directamente.
+        </p>
       </div>
 
-      <div class="testimonios-grid">
-        <div class="testimonio-card">
-          <span class="testimonio-comilla">&ldquo;</span>
-          <p class="testimonio-texto">
-            Desde que rediseñamos nuestra web con Jess, los clientes llegan mucho
-            más preparados. Ya saben lo que ofrecemos y llegan queriendo trabajar.
+      <div class="experiencia-carousel" aria-label="Experiencia real">
+        <div class="experiencia-viewport">
+        <div class="experiencia-track">
+        <article class="experiencia-card is-active">
+          <span class="experiencia-comilla">01</span>
+          <p class="experiencia-texto">
+            Community management dentro de agencia de marketing, trabajando en
+            contenidos, coordinación y comunicación para distintas cuentas.
           </p>
-          <p class="testimonio-nombre">Valentina M.</p>
-          <p class="testimonio-rubro">Coach de liderazgo</p>
+          <p class="experiencia-nombre">kings.agencia</p>
+          <p class="experiencia-rubro">Colaboración actual</p>
+          <a class="experiencia-link" href="https://www.instagram.com/kings.agencia/" target="_blank" rel="noopener noreferrer">Ver en Instagram →</a>
+        </article>
+
+        <article class="experiencia-card">
+          <span class="experiencia-comilla">02</span>
+          <p class="experiencia-texto">
+            Community management para centro de yoga, con estrategia de contenido
+            y presencia digital en etapa inicial de desarrollo.
+          </p>
+          <p class="experiencia-nombre">yogaluzdorada</p>
+          <p class="experiencia-rubro">Proyecto en proceso</p>
+          <a class="experiencia-link" href="https://www.instagram.com/yogaluzdorada/" target="_blank" rel="noopener noreferrer">Ver en Instagram →</a>
+        </article>
+
+        <article class="experiencia-card">
+          <span class="experiencia-comilla">03</span>
+          <p class="experiencia-texto">
+            Rediseño web y posicionamiento en Google para ordenar la presencia
+            digital y mejorar la llegada de clientes potenciales.
+          </p>
+          <p class="experiencia-nombre">aprgrupoabogados</p>
+          <p class="experiencia-rubro">Eduardo · Próximo a iniciar</p>
+          <span class="experiencia-link experiencia-link--muted">Sin enlace público todavía</span>
+        </article>
+
+        <article class="experiencia-card">
+          <span class="experiencia-comilla">04</span>
+          <p class="experiencia-texto">
+            Community management e identidad visual para una marca enfocada en
+            bienestar, comunicación sensible y presencia digital coherente.
+          </p>
+          <p class="experiencia-nombre">nhaisha_renacer</p>
+          <p class="experiencia-rubro">Julieta Ledesma</p>
+          <a class="experiencia-link" href="https://www.instagram.com/nhaisha_renacer/" target="_blank" rel="noopener noreferrer">Ver en Instagram →</a>
+        </article>
+
+        <article class="experiencia-card">
+          <span class="experiencia-comilla">05</span>
+          <p class="experiencia-texto">
+            Community management y creación de contenido para comunicar servicios,
+            sostener presencia online y ordenar la estrategia de redes.
+          </p>
+          <p class="experiencia-nombre">pulso_de_vida</p>
+          <p class="experiencia-rubro">Marcelo Rodríguez Arias</p>
+          <a class="experiencia-link" href="https://www.instagram.com/pulso_de_vida/" target="_blank" rel="noopener noreferrer">Ver en Instagram →</a>
+        </article>
+
+        <article class="experiencia-card">
+          <span class="experiencia-comilla">06</span>
+          <p class="experiencia-texto">
+            Community management para tienda de ropa, con foco en publicaciones,
+            comunicación de productos y presencia constante en redes.
+          </p>
+          <p class="experiencia-nombre">Back Store</p>
+          <p class="experiencia-rubro">Moda y retail</p>
+          <span class="experiencia-link experiencia-link--muted">Proyecto cerrado</span>
+        </article>
+        </div>
         </div>
 
-        <div class="testimonio-card">
-          <span class="testimonio-comilla">&ldquo;</span>
-          <p class="testimonio-texto">
-            Cami le dio voz a nuestra marca en redes. En dos meses pasamos de
-            publicar sin estrategia a tener una comunidad que realmente nos sigue.
-          </p>
-          <p class="testimonio-nombre">Martín R.</p>
-          <p class="testimonio-rubro">Consultora de RRHH</p>
+        <div class="experiencia-nav" aria-label="Navegación de casos">
+          <button class="experiencia-control experiencia-control--prev" type="button" aria-label="Ver caso anterior">‹</button>
+          <div class="experiencia-dots" aria-hidden="true"></div>
+          <button class="experiencia-control experiencia-control--next" type="button" aria-label="Ver caso siguiente">›</button>
         </div>
       </div>
     </section>
@@ -971,13 +351,13 @@
             El primer paso es una reunión sin costo donde evaluamos si podemos
             ayudarte. Si hay match, te presentamos una propuesta concreta.
           </p>
-          <p>Si preferís escribir directo:</p>
+          <p>Si prefieres escribir directo:</p>
           <a href="https://wa.me/56978941879" class="contacto-wa" target="_blank" rel="noopener noreferrer">
-            Escribinos por WhatsApp →
+            Escríbeme por WhatsApp →
           </a>
         </div>
 
-        <div>
+        <div class="contacto-form-panel">
           <form class="contact-form" action="https://formspree.io/f/xkgbwywv" method="POST">
             <div class="form-group">
               <label for="nombre">Nombre / marca</label>
@@ -990,17 +370,18 @@
             </div>
 
             <div class="form-group">
-              <label for="servicio">¿En qué te podemos ayudar?</label>
+              <label for="servicio" id="servicio-label">¿Qué necesitas trabajar?</label>
               <div class="custom-select" data-name="servicio">
-                <button type="button" class="custom-select-trigger">
-                  <span class="custom-select-label">Elegí una opción</span>
+                <button type="button" class="custom-select-trigger" id="servicio-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="servicio-label servicio-trigger">
+                  <span class="custom-select-label">Elige una opción</span>
                   <span class="custom-select-caret">▾</span>
                 </button>
-                <ul class="custom-select-menu">
-                  <li data-value="contenido">Contenido</li>
-                  <li data-value="webs">Diseño web</li>
-                  <li data-value="cm">Community Manager</li>
-                  <li data-value="no-se">No sé, necesito que me guíen</li>
+                <ul class="custom-select-menu" role="listbox">
+                  <li data-value="contenido" role="option">Contenido y redes</li>
+                  <li data-value="webs" role="option">Diseño web o landing</li>
+                  <li data-value="cm" role="option">Community Manager</li>
+                  <li data-value="seo" role="option">Posicionamiento en Google</li>
+                  <li data-value="no-se" role="option">No sé, necesito diagnóstico</li>
                 </ul>
                 <input type="hidden" name="servicio" id="servicio" value="">
               </div>
@@ -1009,11 +390,11 @@
             <div class="form-group">
               <label for="mensaje">Mensaje</label>
               <textarea id="mensaje" name="mensaje" rows="4"
-                placeholder="Contanos qué hacés, qué querés mejorar y si tenés alguna referencia o plazo."></textarea>
+                placeholder="Cuéntame qué haces, qué quieres mejorar y si tienes alguna referencia o plazo."></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-full">
-              Agendar reunión →
+              Enviar solicitud →
             </button>
           </form>
         </div>
@@ -1028,21 +409,19 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></div>
-        <div class="footer-copy">&copy; <span id="year"></span> · Jess + Cami</div>
+        <div class="footer-copy">&copy; <span id="year"></span> · Jess André</div>
       </div>
-      <nav class="footer-nav">
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-      <a href="https://instagram.com/formayfondo__" class="footer-ig" target="_blank" rel="noopener">
-        Instagram
+      <a href="https://instagram.com/formayfondo__" class="footer-ig" target="_blank" rel="noopener" aria-label="Instagram de Forma & Fondo">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8Zm8.7 2.2a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6ZM12 7.2A4.8 4.8 0 1 1 12 16.8 4.8 4.8 0 0 1 12 7.2Zm0 2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/>
+        </svg>
+        <span>Instagram</span>
       </a>
     </div>
   </footer>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="https://wa.me/56978941879?text=Hola! Me interesa conocer más sobre sus servicios"
+  <a href="https://wa.me/56978941879?text=Hola! Me interesa conocer más sobre tus servicios"
      class="whatsapp-float"
      target="_blank"
      rel="noopener noreferrer"
@@ -1052,29 +431,7 @@
     </svg>
   </a>
 
-  <script src="script.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // nav toggle mobile
-    const toggle = document.querySelector('.nav-toggle');
-    const navList = document.getElementById('navList');
-    if (toggle && navList) {
-      toggle.addEventListener('click', () => navList.classList.toggle('open'));
-      navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
-    }
-  </script>
-  <script>
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
-      });
-    }
-  </script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>

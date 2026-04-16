@@ -25,16 +25,157 @@ const navList = document.querySelector('.nav-list');
 // Robustez: comprobar que ambos elementos existen antes de usar
 if (navToggle && navList) {
   navToggle.addEventListener('click', () => {
-    navList.classList.toggle('nav-open');
+    const isOpen = navList.classList.toggle('nav-open');
+    navList.classList.toggle('open', isOpen);
     // Cambiar ícono entre hamburguesa y cruz
-    if (navList.classList.contains('nav-open')) {
+    if (isOpen) {
       navToggle.innerHTML = '✕';
       navToggle.setAttribute('aria-label', 'Cerrar menú');
+      navToggle.setAttribute('aria-expanded', 'true');
     } else {
       navToggle.innerHTML = '☰';
       navToggle.setAttribute('aria-label', 'Abrir menú');
+      navToggle.setAttribute('aria-expanded', 'false');
     }
   });
+
+  navList.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      navList.classList.remove('nav-open', 'open');
+      navToggle.innerHTML = '☰';
+      navToggle.setAttribute('aria-label', 'Abrir menú');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+// FOOTER YEAR
+const yearElement = document.getElementById('year');
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}
+
+// NETLIFY IDENTITY
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
+      });
+    }
+  });
+}
+
+// INTERACCIONES MODERNAS: CURSOR, PROGRESO Y REVEAL
+document.addEventListener('DOMContentLoaded', () => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  const progress = document.createElement('div');
+  progress.className = 'scroll-progress';
+  document.body.appendChild(progress);
+
+  const header = document.querySelector('.site-header');
+  const updateScrollUi = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progressValue = scrollable > 0 ? window.scrollY / scrollable : 0;
+    progress.style.transform = `scaleX(${Math.min(progressValue, 1)})`;
+    header?.classList.toggle('is-scrolled', window.scrollY > 24);
+  };
+
+  updateScrollUi();
+  window.addEventListener('scroll', updateScrollUi, { passive: true });
+
+  const revealTargets = document.querySelectorAll('section, .servicio-card, .experiencia-card, .content-block, .content-card, .webs-block');
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    revealTargets.forEach((target) => target.classList.add('reveal-in'));
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    revealTargets.forEach((target) => revealObserver.observe(target));
+  } else {
+    revealTargets.forEach((target) => target.classList.add('is-visible'));
+  }
+
+  if (!reduceMotion && finePointer && window.innerWidth >= 900) {
+    const dot = document.createElement('div');
+    const ring = document.createElement('div');
+    dot.className = 'cursor-dot';
+    ring.className = 'cursor-ring';
+    document.body.append(dot, ring);
+    document.body.classList.add('has-custom-cursor');
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+
+    window.addEventListener('mousemove', (event) => {
+      mouseX = event.clientX;
+      mouseY = event.clientY;
+      dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+      document.body.classList.add('cursor-ready');
+    }, { passive: true });
+
+    const animateCursor = () => {
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    document.querySelectorAll('a, button, input, textarea, select, .custom-select-trigger').forEach((item) => {
+      item.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+      item.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+    });
+
+    window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ready'));
+    window.addEventListener('mouseenter', () => document.body.classList.add('cursor-ready'));
+  }
+});
+
+// CARRUSEL EXPERIENCIA REAL
+const experienciaCarousel = document.querySelector('.experiencia-carousel');
+if (experienciaCarousel) {
+  const track = experienciaCarousel.querySelector('.experiencia-track');
+  const cards = Array.from(experienciaCarousel.querySelectorAll('.experiencia-card'));
+  const prev = experienciaCarousel.querySelector('.experiencia-control--prev');
+  const next = experienciaCarousel.querySelector('.experiencia-control--next');
+  const dotsWrap = experienciaCarousel.querySelector('.experiencia-dots');
+  let currentIndex = 0;
+
+  const dots = cards.map((_, index) => {
+    const dot = document.createElement('button');
+    dot.className = 'experiencia-dot';
+    dot.type = 'button';
+    dot.setAttribute('aria-label', `Ver caso ${index + 1}`);
+    dot.addEventListener('click', () => updateExperience(index));
+    dotsWrap?.appendChild(dot);
+    return dot;
+  });
+
+  const updateExperience = (index) => {
+    if (!track || cards.length === 0) return;
+    currentIndex = (index + cards.length) % cards.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    cards.forEach((card, cardIndex) => {
+      card.classList.toggle('is-active', cardIndex === currentIndex);
+      card.setAttribute('aria-hidden', String(cardIndex !== currentIndex));
+    });
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle('is-active', dotIndex === currentIndex);
+    });
+  };
+
+  prev?.addEventListener('click', () => updateExperience(currentIndex - 1));
+  next?.addEventListener('click', () => updateExperience(currentIndex + 1));
+  updateExperience(0);
 }
 
 // TABS seccion Proyectos
@@ -69,6 +210,7 @@ if (customSelect) {
   // abrir / cerrar al hacer clic en el "pill"
   trigger.addEventListener("click", () => {
     customSelect.classList.toggle("open");
+    trigger.setAttribute("aria-expanded", String(customSelect.classList.contains("open")));
   });
 
   // elegir opción
@@ -79,8 +221,10 @@ if (customSelect) {
 
       label.textContent = item.textContent;
       hidden.value = item.dataset.value || "";
+      trigger.classList.add("selected");
 
       customSelect.classList.remove("open");
+      trigger.setAttribute("aria-expanded", "false");
     });
   });
 
@@ -88,24 +232,15 @@ if (customSelect) {
   document.addEventListener("click", (e) => {
     if (!customSelect.contains(e.target)) {
       customSelect.classList.remove("open");
+      trigger.setAttribute("aria-expanded", "false");
     }
   });
 
   // cerrar cuando el mouse sale del menú (comportamiento tipo submenú nav)
   menu.addEventListener("mouseleave", () => {
     customSelect.classList.remove("open");
+    trigger.setAttribute("aria-expanded", "false");
   });
-}
-
-
-
-// -------------------------
-// AÑO FOOTER
-// -------------------------
-
-const yearSpan = document.getElementById('year');
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
 }
 
 // Simple carousel para `.content-card-image` que contengan múltiples `<img>`
