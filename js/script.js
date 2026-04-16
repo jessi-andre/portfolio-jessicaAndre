@@ -5,16 +5,20 @@ if ('scrollRestoration' in history) {
 }
 
 // Forzar scroll al top inmediatamente
-window.scrollTo(0, 0);
-document.documentElement.scrollTop = 0;
-document.body.scrollTop = 0;
+if (!window.location.hash) {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+}
 
 // También al cargar completamente la página
 window.addEventListener('load', () => {
   setTimeout(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
   }, 0);
 });
 
@@ -70,6 +74,33 @@ if (window.netlifyIdentity) {
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+  const cleanUrl = () => {
+    if (history.replaceState) {
+      history.replaceState(null, '', `${window.location.pathname}${window.location.search}`);
+    }
+  };
+
+  if (window.location.hash) {
+    cleanUrl();
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const targetId = link.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+
+      const target = document.querySelector(targetId);
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: 'start'
+      });
+      cleanUrl();
+    });
+  });
 
   const progress = document.createElement('div');
   progress.className = 'scroll-progress';
@@ -236,11 +267,6 @@ if (customSelect) {
     }
   });
 
-  // cerrar cuando el mouse sale del menú (comportamiento tipo submenú nav)
-  menu.addEventListener("mouseleave", () => {
-    customSelect.classList.remove("open");
-    trigger.setAttribute("aria-expanded", "false");
-  });
 }
 
 // Simple carousel para `.content-card-image` que contengan múltiples `<img>`
