@@ -119,85 +119,140 @@
           </p>
         </header>
 
-        <!-- BLOQUE 1 · REELS (este es el que lleva el tamaño tipo story) -->
-        <section class="content-block reels-block">
-          <div class="content-block-text">
-            <h3>Reels</h3>
-            <p>
-              Piezas audiovisuales creadas para captar atención inmediata, transmitir la personalidad de una marca y sostener una estética coherente. Desde presentar los elementos de un branding completo, hasta explicar conceptos educativos con recursos visuales atractivos, o mostrar productos de manera dinámica.
-            </p>
-            <ul>
-              <li>Contenido pensado desde la estrategia</li>
-              <li>Edición cuidada: ritmo, texto y encuadres</li>
-              <li>Ideal para lanzamientos, procesos creativos y storytelling visual</li>
-            </ul>
-          </div>
+        <!-- TABS -->
+        <div class="tab-list" role="tablist">
+          <button class="tab-button active" data-tab-target="#reels-panel" role="tab" aria-selected="true">Reels</button>
+          <button class="tab-button" data-tab-target="#fotos-panel" role="tab" aria-selected="false">Fotos</button>
+          <button class="tab-button" data-tab-target="#estrategia-panel" role="tab" aria-selected="false">Estrategia</button>
+        </div>
 
-          <div class="content-gallery">
-
-            <article class="content-card">
-              <div class="content-card-image">
-                <video class="content-card-video" src="video/reel-1.mp4" controls playsinline></video>
-              </div>
-              <h4 class="content-card-title">Presentación de branding</h4>
-            </article>
-
-            <article class="content-card">
-              <div class="content-card-image">
-                <video class="content-card-video" src="video/reel2.mp4" controls playsinline></video>
-              </div>
-              <h4 class="content-card-title">Contenido educativo</h4>
-            </article>
-
-            <article class="content-card">
-              <div class="content-card-image">
-                <video class="content-card-video" src="video/reel3.mp4" controls playsinline></video>
-              </div>
-              <h4 class="content-card-title">Producto lifestyle</h4>
-            </article>
-
-          </div>
-        </section>
-
-        <!-- BLOQUE 2 · FOTOS (cards normales) -->
-        <section class="content-block">
-          <div class="content-block-text">
-            <h3>Contenido fotográfico</h3>
-            <p>
-              Sesiones fotográficas pensadas para comunicar personalidad y estilo. Desde retratos naturales hasta
-              contenido lifestyle y producto, cada imagen está construida con luz cuidada, colores coherentes y una
-              narrativa visual clara.ena.
-            </p>
-          </div>
-
-          <div class="photo-grid-wrapper">
-            <div class="photo-grid">
-              <img src="img/photo-content-3.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-2.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-1.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-4.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-6.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-7.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-8.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-9.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-10.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-marce.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-marce1.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-marce2.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-marce3.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/photo-content-marce4.JPG" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma2.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma3.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma4.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma5.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma6.jpeg" alt="Sesión fotográfica" loading="lazy">
-              <img src="img/juliLedesma7.JPG" alt="Sesión fotográfica" loading="lazy">
+        <!-- PANEL REELS -->
+        <div id="reels-panel" class="tab-panel active" role="tabpanel">
+          <div class="tab-layout">
+            <div class="tab-copy">
+              <h3>Reels</h3>
+              <p>
+                Piezas audiovisuales creadas para captar atención inmediata, transmitir la personalidad de una marca y sostener una estética coherente. Desde presentar los elementos de un branding completo, hasta explicar conceptos educativos con recursos visuales atractivos, o mostrar productos de manera dinámica.
+              </p>
+              <ul class="bullet-list">
+                <li>Contenido pensado desde la estrategia</li>
+                <li>Edición cuidada: ritmo, texto y encuadres</li>
+                <li>Ideal para lanzamientos, procesos creativos y storytelling visual</li>
+              </ul>
             </div>
-            <div class="photo-grid-overlay">
-              <button class="btn-photo-expand">Ver todas las fotos</button>
+
+            <div class="tab-grid">
+              <article class="work-card">
+                <div class="work-card-image">
+                  <video class="work-card-video" src="video/reel-1.mp4" controls playsinline></video>
+                </div>
+                <h4>Presentación de branding</h4>
+                <p>Reel explicativo mostrando la identidad visual completa de una marca.</p>
+              </article>
+
+              <article class="work-card">
+                <div class="work-card-image">
+                  <video class="work-card-video" src="video/reel2.mp4" controls playsinline></video>
+                </div>
+                <h4>Contenido educativo</h4>
+                <p>Explicación de conceptos complejos de manera visual y atractiva.</p>
+              </article>
+
+              <article class="work-card">
+                <div class="work-card-image">
+                  <video class="work-card-video" src="video/reel3.mp4" controls playsinline></video>
+                </div>
+                <h4>Producto lifestyle</h4>
+                <p>Presentación dinámica de productos en contextos reales.</p>
+              </article>
             </div>
           </div>
+        </div>
+
+        <!-- PANEL FOTOS -->
+        <div id="fotos-panel" class="tab-panel" role="tabpanel">
+          <div class="tab-layout">
+            <div class="tab-copy">
+              <h3>Contenido fotográfico</h3>
+              <p>
+                Sesiones fotográficas pensadas para comunicar personalidad y estilo. Desde retratos naturales hasta contenido lifestyle y producto, cada imagen está construida con luz cuidada, colores coherentes y una narrativa visual clara.
+              </p>
+              <ul class="bullet-list">
+                <li>Iluminación y composición profesional</li>
+                <li>Estilo coherente con la marca</li>
+                <li>Optimizado para redes sociales</li>
+              </ul>
+            </div>
+
+            <div class="tab-grid">
+              <div class="photo-grid-wrapper">
+                <div class="photo-grid">
+                  <img src="img/photo-content-3.JPG" alt="Tercera imagen de sesión fotográfica profesional, composición artística" loading="lazy">
+                  <img src="img/photo-content-2.JPG" alt="Segunda toma de sesión fotográfica, retrato con iluminación natural" loading="lazy">
+                  <img src="img/photo-content-1.JPG" alt="Primera imagen de sesión fotográfica, enfoque en expresión y pose" loading="lazy">
+                  <img src="img/photo-content-4.JPG" alt="Cuarta fotografía de la sesión, composición alternativa" loading="lazy">
+                  <img src="img/photo-content-6.jpeg" alt="Sexta imagen de contenido fotográfico, estilo editorial" loading="lazy">
+                  <img src="img/photo-content-7.jpeg" alt="Séptima toma fotográfica, retrato con fondo texturizado" loading="lazy">
+                  <img src="img/photo-content-8.jpeg" alt="Octava fotografía de la sesión, enfoque en detalles faciales" loading="lazy">
+                  <img src="img/photo-content-9.jpeg" alt="Novena imagen, composición minimalista y elegante" loading="lazy">
+                  <img src="img/photo-content-10.jpeg" alt="Décima fotografía, retrato con expresión dinámica" loading="lazy">
+                  <img src="img/photo-content-marce.JPG" alt="Sesión fotográfica de Marce, retrato profesional con iluminación de estudio" loading="lazy">
+                  <img src="img/photo-content-marce1.JPG" alt="Primera toma de la sesión fotográfica de Marce, composición centrada" loading="lazy">
+                  <img src="img/photo-content-marce2.JPG" alt="Segunda imagen de Marce, retrato con expresión natural" loading="lazy">
+                  <img src="img/photo-content-marce3.JPG" alt="Tercera fotografía de la sesión de Marce, enfoque en detalles" loading="lazy">
+                  <img src="img/photo-content-marce4.JPG" alt="Última toma de Marce, retrato completo con fondo limpio" loading="lazy">
+                  <img src="img/juliLedesma.jpeg" alt="Sesión fotográfica profesional de Juli Ledesma, retratos artísticos en estudio" loading="lazy">
+                  <img src="img/juliLedesma2.jpeg" alt="Fotografía de retrato de Juli Ledesma con iluminación natural y composición cuidada" loading="lazy">
+                  <img src="img/juliLedesma3.jpeg" alt="Tercera toma de la sesión fotográfica de Juli Ledesma, enfoque en expresión facial" loading="lazy">
+                  <img src="img/juliLedesma4.jpeg" alt="Retrato artístico de Juli Ledesma con fondo neutro y luz lateral" loading="lazy">
+                  <img src="img/juliLedesma5.jpeg" alt="Quinta imagen de la sesión de Juli Ledesma, composición minimalista" loading="lazy">
+                  <img src="img/juliLedesma6.jpeg" alt="Fotografía de perfil de Juli Ledesma con iluminación dramática" loading="lazy">
+                  <img src="img/juliLedesma7.JPG" alt="Última toma de la sesión fotográfica de Juli Ledesma, retrato completo" loading="lazy">
+                </div>
+                <div class="photo-grid-overlay">
+                  <button class="btn-photo-expand">Ver todas las fotos</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL ESTRATEGIA -->
+        <div id="estrategia-panel" class="tab-panel" role="tabpanel">
+          <div class="tab-layout">
+            <div class="tab-copy">
+              <h3>Estrategia de contenido</h3>
+              <p>
+                Planificación estratégica que va más allá de las publicaciones individuales. Desarrollo de calendarios de contenido, definición de pilares temáticos, análisis de audiencias y métricas que guían cada decisión.
+              </p>
+              <ul class="bullet-list">
+                <li>Calendario editorial mensual</li>
+                <li>Análisis de rendimiento y optimización</li>
+                <li>Alineación con objetivos de negocio</li>
+              </ul>
+              <p class="tab-note">
+                La estrategia es la base que sostiene todo el contenido. Sin ella, las publicaciones pierden coherencia y los resultados se diluyen.
+              </p>
+            </div>
+
+            <div class="tab-grid">
+              <article class="work-card">
+                <h4>Calendario de contenido</h4>
+                <p>Planificación mensual con temas, formatos y fechas específicas para mantener consistencia.</p>
+              </article>
+
+              <article class="work-card">
+                <h4>Análisis de métricas</h4>
+                <p>Seguimiento de engagement, reach y conversiones para optimizar la estrategia continuamente.</p>
+              </article>
+
+              <article class="work-card">
+                <h4>Pilares temáticos</h4>
+                <p>Definición de temas centrales que estructuran la narrativa de la marca a largo plazo.</p>
+              </article>
+            </div>
+          </div>
+        </div>
         </section>
 
         <!-- BLOQUE 3 · PIEZAS ESTÁTICAS (cards normales) -->
@@ -214,9 +269,9 @@
           <div class="content-gallery">
             <article class="content-card">
               <div class="content-card-image">
-                <img src="img/1.png" alt="Carrusel educativo diseñado en Canva" loading="lazy">
-                <img src="img/2.png" alt="Canva alternativa" loading="lazy">
-                <img src="img/3.png" alt="Canva alternativa 2" loading="lazy">
+                <img src="img/1.png" alt="Carrusel educativo diseñado en Canva mostrando contenido interactivo" loading="lazy">
+                <img src="img/2.png" alt="Diseño alternativo de carrusel en Canva con elementos visuales atractivos" loading="lazy">
+                <img src="img/3.png" alt="Segunda alternativa de carrusel educativo en plataforma Canva" loading="lazy">
               </div>
               <p class="content-card-instagram">
                 <a href="https://www.instagram.com/p/CvGCwcLr8vP/?img_index=1" target="_blank" rel="noopener noreferrer">
@@ -227,11 +282,11 @@
 
             <article class="content-card">
               <div class="content-card-image">
-                <img src="img/elSonidoDelCuerpo.png" alt="Piezas estáticas diseñadas en Figma" loading="lazy">
-                <img src="img/elSonidoDelCuerpo2.png" alt="Mock 2" loading="lazy">
-                <img src="img/elSonidoDelCuerpo3.png" alt="Mock 3" loading="lazy">
-                <img src="img/elSonidoDelCuerpo4.png" alt="Mock 4" loading="lazy">
-                <img src="img/elSonidoDelCuerpo5.png" alt="Mock 5" loading="lazy">
+                <img src="img/elSonidoDelCuerpo.png" alt="Piezas estáticas diseñadas en Figma para proyecto 'El sonido del cuerpo'" loading="lazy">
+                <img src="img/elSonidoDelCuerpo2.png" alt="Mockup alternativo del proyecto 'El sonido del cuerpo' en Figma" loading="lazy">
+                <img src="img/elSonidoDelCuerpo3.png" alt="Tercera variante de diseño para 'El sonido del cuerpo'" loading="lazy">
+                <img src="img/elSonidoDelCuerpo4.png" alt="Cuarta iteración del diseño estático en Figma" loading="lazy">
+                <img src="img/elSonidoDelCuerpo5.png" alt="Quinta versión del mockup para proyecto artístico" loading="lazy">
               </div>
               <p class="content-card-instagram">
                 <a href="https://www.instagram.com/p/C7PWvQDuPya/?img_index=1" target="_blank" rel="noopener noreferrer">
@@ -242,10 +297,10 @@
 
             <article class="content-card">
               <div class="content-card-image">
-                <img src="img/energia.png" alt="Layouts y estructuras de contenido" loading="lazy">
-                <img src="img/energia1.png" alt="Logo 2" loading="lazy">
-                <img src="img/energia2.png" alt="Logo 3" loading="lazy">
-                <img src="img/energia3.png" alt="Logo 3" loading="lazy">
+                <img src="img/energia.png" alt="Layouts y estructuras de contenido para proyecto energético" loading="lazy">
+                <img src="img/energia1.png" alt="Diseño de logo alternativo para marca de energía" loading="lazy">
+                <img src="img/energia2.png" alt="Tercera variante de logo para proyecto energético" loading="lazy">
+                <img src="img/energia3.png" alt="Cuarta versión del diseño de identidad para energía" loading="lazy">
               </div>
               <p class="content-card-instagram">
                 <a href="https://www.instagram.com/p/C56tIRhN32g/?img_index=1" target="_blank" rel="noopener noreferrer">
@@ -260,7 +315,7 @@
               <a href="https://www.instagram.com/p/C8kpCtwMm6j/?img_index=1" target="_blank" rel="noopener noreferrer"
                 class="content-card-link">
                 <div class="content-card-image-static">
-                  <img src="img/contenidoestatico1.png" alt="Pieza estática" loading="lazy">
+                  <img src="img/contenidoestatico1.png" alt="Primera pieza de contenido estático con diseño gráfico profesional" loading="lazy">
                 </div>
                 <h4 class="content-card-title">Post reflexivo</h4>
               </a>
@@ -270,7 +325,7 @@
               <a href="https://www.instagram.com/p/C87aevcusHw/" target="_blank" rel="noopener noreferrer"
                 class="content-card-link">
                 <div class="content-card-image-static">
-                  <img src="img/contenidoestatico2.png" alt="Pieza estática" loading="lazy">
+                  <img src="img/contenidoestatico2.png" alt="Segunda variante de contenido estático con elementos visuales atractivos" loading="lazy">
                 </div>
                 <h4 class="content-card-title">Diseño editorial</h4>
               </a>
@@ -280,7 +335,7 @@
               <a href="https://www.instagram.com/p/C8Ng3YvPayT/" target="_blank" rel="noopener noreferrer"
                 class="content-card-link">
                 <div class="content-card-image-static">
-                  <img src="img/contenidoEstatico3.png" alt="Pieza estática" loading="lazy">
+                  <img src="img/contenidoEstatico3.png" alt="Tercera versión de contenido estático con composición gráfica equilibrada" loading="lazy">
                 </div>
                 <h4 class="content-card-title">Contenido promocional</h4>
               </a>
