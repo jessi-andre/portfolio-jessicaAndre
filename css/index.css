@@ -289,10 +289,10 @@
     }
     .hero-marquee {
       overflow: hidden;
-      border-top: 1px solid rgba(242, 234, 225, 0.1);
-      border-bottom: 1px solid rgba(242, 234, 225, 0.1);
-      background: #111111;
-      color: rgba(242, 234, 225, 0.82);
+      border-top: 1px solid rgba(139, 127, 212, 0.24);
+      border-bottom: 1px solid rgba(139, 127, 212, 0.24);
+      background: var(--color-violeta-suave);
+      color: var(--color-negro);
     }
     .hero-marquee-track {
       display: flex;
@@ -983,6 +983,7 @@
     .site-footer {
       background-color: var(--color-negro);
       margin-top: 0;
+      border-top: 1px solid rgba(139, 127, 212, 0.55);
       padding: 48px 24px;
     }
     .footer-inner {
