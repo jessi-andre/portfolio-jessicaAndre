@@ -470,7 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (res.ok) {
-        form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! Te contacto pronto.</p></div>';
+        form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, podés escribirme por WhatsApp si necesitás respuesta urgente.</small></div>';
+        form.querySelector('.form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
