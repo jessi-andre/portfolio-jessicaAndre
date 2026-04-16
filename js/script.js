@@ -28,6 +28,14 @@ const navList = document.querySelector('.nav-list');
 
 // Robustez: comprobar que ambos elementos existen antes de usar
 if (navToggle && navList) {
+  const closeNavMenu = () => {
+    if (!navList.classList.contains('nav-open') && !navList.classList.contains('open')) return;
+    navList.classList.remove('nav-open', 'open');
+    navToggle.innerHTML = '☰';
+    navToggle.setAttribute('aria-label', 'Abrir menú');
+    navToggle.setAttribute('aria-expanded', 'false');
+  };
+
   navToggle.addEventListener('click', () => {
     const isOpen = navList.classList.toggle('nav-open');
     navList.classList.toggle('open', isOpen);
@@ -44,13 +52,14 @@ if (navToggle && navList) {
   });
 
   navList.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      navList.classList.remove('nav-open', 'open');
-      navToggle.innerHTML = '☰';
-      navToggle.setAttribute('aria-label', 'Abrir menú');
-      navToggle.setAttribute('aria-expanded', 'false');
-    });
+    link.addEventListener('click', closeNavMenu);
   });
+
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+      closeNavMenu();
+    }
+  }, { passive: true });
 }
 
 // FOOTER YEAR

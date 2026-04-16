@@ -70,9 +70,24 @@
     .nav-cta:hover { opacity: 0.8; }
     .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--color-negro); }
     @media (max-width: 640px) {
+      .main-nav { position: relative; width: 100%; }
       .nav-toggle { display: block; }
       .nav-list { display: none; }
-      .nav-list.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--color-crema); border-bottom: 1px solid var(--color-borde); padding: 16px 24px 24px; gap: 16px; z-index: 40; }
+      .nav-list.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        background: var(--color-crema);
+        border-bottom: 1px solid var(--color-borde);
+        padding: 16px 24px 24px;
+        gap: 16px;
+        z-index: 999;
+      }
     }
 
     /* ── FOOTER ── */
@@ -322,14 +337,6 @@
   </a>
 
   <script src="js/script.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    const toggle = document.querySelector('.nav-toggle');
-    const navList = document.getElementById('navList');
-    if (toggle && navList) {
-      toggle.addEventListener('click', () => navList.classList.toggle('open'));
-    }
-  </script>
 </body>
 
 </html>

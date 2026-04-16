@@ -509,8 +509,45 @@ a:hover {
     padding: 16px;
   }
 
+  .work-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-suave);
+  }
+
   .work-card-video {
     aspect-ratio: 16/9;
+  }
+
+  .tab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-gallery {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+
+  .content-gallery .content-card {
+    width: 100%;
+  }
+
+  .content-card-image {
+    min-height: auto;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .content-card-image:hover {
+    overflow: hidden;
+    z-index: auto;
+    box-shadow: none;
+  }
+
+  .content-card-image img {
+    transition: none;
+    transform: none;
+    object-fit: cover;
   }
 }
 
