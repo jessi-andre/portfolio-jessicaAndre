@@ -122,95 +122,132 @@
           </p>
         </header>
 
-        <section class="content-block webs-block">
-          
-          <article class="web-item">
-            <div class="web-item-header">
-              <h3 class="web-item-title">Portfolio creativo</h3>
-              <p class="web-item-description">Tu carta de presentación digital que trabaja 24/7. Mostrá tu trabajo, comunicá tu identidad y convertí visitas en oportunidades reales.</p>
-              <ul class="web-item-features">
+        <!-- TABS -->
+        <div class="tab-list" role="tablist">
+          <button class="tab-button active" data-tab-target="#portfolio-panel" role="tab" aria-selected="true">Portfolios</button>
+          <button class="tab-button" data-tab-target="#landings-panel" role="tab" aria-selected="false">Landings</button>
+          <button class="tab-button" data-tab-target="#corporativas-panel" role="tab" aria-selected="false">Corporativas</button>
+        </div>
+
+        <!-- PANEL PORTFOLIOS -->
+        <div id="portfolio-panel" class="tab-panel active" role="tabpanel">
+          <div class="tab-layout">
+            <div class="tab-copy">
+              <h3>Portfolios creativos</h3>
+              <p>
+                Tu carta de presentación digital que trabaja 24/7. Mostrá tu trabajo, comunicá tu identidad y convertí visitas en oportunidades reales.
+              </p>
+              <ul class="bullet-list">
                 <li>Se ve perfecta en celular, tablet y computadora</li>
                 <li>Tus proyectos organizados para que brillen</li>
                 <li>Los clientes te contactan directo desde tu web</li>
                 <li>Actualizaciones fáciles cuando agregues nuevos trabajos</li>
               </ul>
-              <div class="web-item-meta">
-                <span class="web-meta-item">
-                  <strong>Inversión:</strong> desde USD 500
-                  <em>(sin dominio ni hosting)</em>
-                </span>
-                <span class="web-meta-item"><strong>Entrega:</strong> 2-3 semanas</span>
-                <span class="web-meta-item"><strong>Ejemplo:</strong> <a href="https://www.instagram.com/luna.varela.photo" target="_blank" rel="noopener">@luna.varela.photo</a></span>
-              </div>
+              <p class="tab-note">
+                <strong>Inversión:</strong> desde USD 500 • <strong>Entrega:</strong> 2-3 semanas
+              </p>
             </div>
-            <div class="content-card">
-              <div class="content-card-image">
-                <video class="content-card-video" src="video/webLunaVarela.mp4" controls playsinline preload="metadata"></video>
-              </div>
-            </div>
-            <div class="web-item-cta">
-              <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero un portfolio así</a>
-            </div>
-          </article>
 
-          <article class="web-item">
-            <div class="web-item-header">
-              <h3 class="web-item-title">Landing comercial</h3>
-              <p class="web-item-description">Diseñada para un solo objetivo: convertir. Cada elemento guía al usuario hacia la acción que querés que tome.</p>
-              <ul class="web-item-features">
+            <div class="tab-grid">
+              <article class="work-card">
+                <div class="work-card-image">
+                  <video class="work-card-video" src="video/webLunaVarela.mp4" controls playsinline preload="metadata"></video>
+                </div>
+                <h4>Portfolio fotográfico</h4>
+                <p>Galería organizada que destaca el trabajo profesional con navegación intuitiva.</p>
+                <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero un portfolio así</a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL LANDINGS -->
+        <div id="landings-panel" class="tab-panel" role="tabpanel">
+          <div class="tab-layout">
+            <div class="tab-copy">
+              <h3>Landings comerciales</h3>
+              <p>
+                Diseñadas para un solo objetivo: convertir. Cada elemento guía al usuario hacia la acción que querés que tome.
+              </p>
+              <ul class="bullet-list">
                 <li>Tu cliente sabe qué hacer en segundos</li>
                 <li>Cada sección empuja hacia la compra o contacto</li>
                 <li>Sin menús que distraigan: foco total en convertir</li>
                 <li>Perfecta para campañas de ads que necesitan resultados</li>
               </ul>
-              <div class="web-item-meta">
-                <span class="web-meta-item">
-                  <strong>Inversión:</strong> desde USD 300
-                  <em>(sin dominio ni hosting)</em>
-                </span>
-                <span class="web-meta-item"><strong>Entrega:</strong> 1-2 semanas</span>
-                <span class="web-meta-item"><strong>Ejemplo:</strong> <a href="https://www.instagram.com/lauramendezpsicologa" target="_blank" rel="noopener">@lauramendezpsicologa</a></span>
-              </div>
+              <p class="tab-note">
+                <strong>Inversión:</strong> desde USD 300 • <strong>Entrega:</strong> 1-2 semanas
+              </p>
             </div>
-            <div class="content-card">
-              <div class="content-card-image">
-                <video class="content-card-video" src="video/webLauraMendez.mp4" controls playsinline preload="metadata"></video>
-              </div>
-            </div>
-            <div class="web-item-cta">
-              <a href="index.html#contacto" class="btn btn-primary btn-web">Necesito una landing</a>
-            </div>
-          </article>
 
-          <article class="web-item">
-            <div class="web-item-header">
-              <h3 class="web-item-title">Web corporativa</h3>
-              <p class="web-item-description">Presencia digital profesional que genera confianza y trabaja para tu marca las 24 horas. Todo lo que tu empresa necesita en un solo lugar.</p>
-              <ul class="web-item-features">
+            <div class="tab-grid">
+              <article class="work-card">
+                <div class="work-card-image">
+                  <video class="work-card-video" src="video/webLauraMendez.mp4" controls playsinline preload="metadata"></video>
+                </div>
+                <h4>Landing de servicios</h4>
+                <p>Página enfocada en captar leads y agendar consultas con claridad y confianza.</p>
+                <a href="index.html#contacto" class="btn btn-primary btn-web">Necesito una landing</a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- PANEL CORPORATIVAS -->
+        <div id="corporativas-panel" class="tab-panel" role="tabpanel">
+          <div class="tab-layout">
+            <div class="tab-copy">
+              <h3>Webs corporativas</h3>
+              <p>
+                Presencia digital profesional que genera confianza y trabaja para tu marca las 24 horas. Todo lo que tu empresa necesita en un solo lugar.
+              </p>
+              <ul class="bullet-list">
                 <li>Tus clientes encuentran toda tu info fácilmente</li>
                 <li>Páginas completas: Inicio, Servicios, Portfolio, Contacto</li>
                 <li>Tu empresa se ve sólida y confiable desde el primer click</li>
                 <li>Genera consultas mientras dormís</li>
               </ul>
-              <div class="web-item-meta">
-                <span class="web-meta-item">
-                  <strong>Inversión:</strong> desde USD 800
-                  <em>(sin dominio ni hosting)</em>
-                </span>
-                <span class="web-meta-item"><strong>Entrega:</strong> 3-4 semanas</span>
-                <span class="web-meta-item"><strong>Ejemplo:</strong> <a href="https://www.instagram.com/formayfondo__/" target="_blank" rel="noopener">@formayfondo__</a></span>
-              </div>
+              <p class="tab-note">
+                <strong>Inversión:</strong> desde USD 800 • <strong>Entrega:</strong> 3-4 semanas
+              </p>
             </div>
-            <div class="content-card">
-              <div class="content-card-image">
-                <video class="content-card-video" src="video/webFormaYFondo.mp4" controls playsinline preload="metadata"></video>
-              </div>
-            </div>
-            <div class="web-item-cta">
-              <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero cotizar mi web</a>
-            </div>
-          </article>
 
+            <div class="tab-grid">
+              <article class="work-card">
+                <div class="work-card-image">
+                  <video class="work-card-video" src="video/webFormaYFondo.mp4" controls playsinline preload="metadata"></video>
+                </div>
+                <h4>Web corporativa completa</h4>
+                <p>Sitio profesional con múltiples secciones que representa la marca integralmente.</p>
+                <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero cotizar mi web</a>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section">
+          <h3 class="faq-title">Preguntas frecuentes</h3>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Incluye hosting y dominio?</summary>
+            <p class="faq-answer">No, el precio es solo por el diseño y desarrollo. Te asesoro para que contrates hosting y dominio por tu cuenta (aprox. $10-15 USD/mes). Así vos tenés el control total de tu web.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Puedo actualizar el contenido yo mismo/a después?</summary>
+            <p class="faq-answer">Sí. Te entrego la web lista para que puedas editar textos, fotos y contenido básico sin necesidad de programar. También te doy un tutorial grabado explicando cómo hacerlo.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Qué pasa si necesito cambios después de la entrega?</summary>
+            <p class="faq-answer">Tenés 2 rondas de ajustes incluidos dentro de los 15 días posteriores a la entrega. Después de eso, los cambios se cotizan por separado según complejidad.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">¿Cómo es el proceso de trabajo?</summary>
+            <p class="faq-answer">1) Briefing inicial (llamada o formulario), 2) Propuesta de estructura y diseño, 3) Desarrollo, 4) Revisión y ajustes, 5) Entrega final. Te mantengo al tanto en cada etapa.</p>
+          </details>
         </section>
 
         <!-- FAQ SECTION -->
