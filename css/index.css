@@ -164,12 +164,12 @@
       color: var(--color-crema);
     }
     @media (max-width: 640px) {
-      .main-nav { position: relative; }
-      .nav-toggle { display: block; }
-      .nav-list { display: none; }
+      .main-nav { position: relative; width: 100%; }
+      .nav-toggle { display: block !important; }
+      .nav-list { display: none !important; }
       .nav-list.open,
       .nav-list.nav-open {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -181,7 +181,7 @@
         border-top: 0;
         padding: 16px 24px 24px;
         gap: 16px;
-        z-index: 999;
+        z-index: 9999;
       }
     }
 
