@@ -1160,3 +1160,22 @@
     }
     .whatsapp-float:hover { transform: scale(1.08); text-decoration: none; }
     .whatsapp-float svg { width: 28px; height: 28px; }
+
+    @media (max-width: 480px) {
+      .dolor,
+      .quienes,
+      .servicios,
+      .proceso,
+      .experiencia,
+      .contacto,
+      .testimonios {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+      .dolor-quote {
+        font-size: 1.4rem;
+      }
+      .servicio-card {
+        padding: 28px 20px;
+      }
+    }
