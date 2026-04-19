@@ -1069,6 +1069,8 @@ textarea:focus::placeholder {
   display: block;
   margin-top: 56px;
   margin-bottom: 80px;
+  padding-left: clamp(24px, 6vw, 40px);
+  padding-right: clamp(24px, 6vw, 40px);
 }
 
 .content-block-text h3 {
