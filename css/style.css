@@ -98,6 +98,10 @@ a:hover {
 
 /* ==================== HEADER / NAV ==================== */
 
+section[id] {
+  scroll-margin-top: 80px;
+}
+
 .site-header {
   position: sticky;
   top: 0;
