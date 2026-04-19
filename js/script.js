@@ -103,7 +103,10 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (window.location.hash) {
-    scrollToHashTarget(window.location.hash);
+    const _hash = window.location.hash;
+    window.addEventListener('load', () => {
+      setTimeout(() => scrollToHashTarget(_hash), 200);
+    });
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
