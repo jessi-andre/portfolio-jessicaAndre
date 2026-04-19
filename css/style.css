@@ -533,7 +533,7 @@ a:hover {
   }
 
   .work-card-video {
-    aspect-ratio: 9/16;
+    aspect-ratio: 16/9;
     max-height: 420px;
   }
 
@@ -717,7 +717,7 @@ a:hover {
 .work-card-video {
   width: 100%;
   height: auto;
-  aspect-ratio: 9/16;
+  aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: var(--radius-sm);
 }
@@ -1625,6 +1625,7 @@ textarea:focus::placeholder {
   min-width: 220px;
   padding: 13px 28px;
   font-size: 1rem;
+  margin-top: 20px;
 }
 
 /* FAQ Section */

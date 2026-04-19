@@ -322,7 +322,7 @@
     .hero-marquee-track {
       display: flex;
       width: max-content;
-      gap: 18px;
+      gap: 0;
       padding: 12px 0;
       font-size: 0.84rem;
       font-weight: 700;
@@ -333,6 +333,7 @@
     }
     .hero-marquee-track span {
       display: inline-block;
+      padding-right: 18px;
     }
     .hero-marquee-track span:nth-child(2n) {
       color: var(--color-violeta);
@@ -829,6 +830,73 @@
       .experiencia-nav {
         gap: 12px;
       }
+    }
+
+    /* ══════════════════════════════════════
+       TESTIMONIOS
+    ══════════════════════════════════════ */
+    .testimonios {
+      background-color: var(--color-crema);
+      padding: 96px 24px;
+    }
+    .testimonios-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .testimonios-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .testimonios-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-weight: 500;
+      color: var(--color-negro);
+      margin: 0;
+    }
+    .testimonios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testimonio-card {
+      background: var(--color-negro);
+      border: 1px solid rgba(139, 127, 212, 0.22);
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .testimonio-texto {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: clamp(1rem, 1.3vw, 1.15rem);
+      line-height: 1.65;
+      color: rgba(242, 234, 225, 0.82);
+      margin: 0;
+      flex: 1;
+    }
+    .testimonio-footer {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-top: 1px solid rgba(242, 234, 225, 0.12);
+      padding-top: 18px;
+    }
+    .testimonio-nombre {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--color-crema);
+    }
+    .testimonio-rubro {
+      font-size: 0.82rem;
+      color: #C9C2F1;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 900px) {
+      .testimonios-grid { grid-template-columns: 1fr; gap: 16px; }
     }
 
     /* ══════════════════════════════════════
