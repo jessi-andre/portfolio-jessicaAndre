@@ -205,6 +205,12 @@ if (experienciaCarousel) {
   const dotsWrap = experienciaCarousel.querySelector('.experiencia-dots');
   let currentIndex = 0;
 
+  const getExperienceStep = () => {
+    if (!cards[0]) return 0;
+    const trackStyles = window.getComputedStyle(track);
+    return cards[0].offsetWidth + parseFloat(trackStyles.columnGap || trackStyles.gap || 0);
+  };
+
   const dots = cards.map((_, index) => {
     const dot = document.createElement('button');
     dot.className = 'experiencia-dot';
@@ -218,7 +224,7 @@ if (experienciaCarousel) {
   const updateExperience = (index) => {
     if (!track || cards.length === 0) return;
     currentIndex = (index + cards.length) % cards.length;
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    track.style.transform = `translateX(-${currentIndex * getExperienceStep()}px)`;
     cards.forEach((card, cardIndex) => {
       card.classList.toggle('is-active', cardIndex === currentIndex);
       card.setAttribute('aria-hidden', String(cardIndex !== currentIndex));
@@ -230,6 +236,7 @@ if (experienciaCarousel) {
 
   prev?.addEventListener('click', () => updateExperience(currentIndex - 1));
   next?.addEventListener('click', () => updateExperience(currentIndex + 1));
+  window.addEventListener('resize', () => updateExperience(currentIndex));
   updateExperience(0);
 }
 
@@ -237,9 +244,20 @@ if (experienciaCarousel) {
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabPanels = document.querySelectorAll('.tab-panel');
 
+function updateTabIndicator(tabList, activeButton) {
+  if (!tabList || !activeButton) return;
+  tabList.style.setProperty('--tab-indicator-left', `${activeButton.offsetLeft}px`);
+  tabList.style.setProperty('--tab-indicator-width', `${activeButton.offsetWidth}px`);
+}
+
+document.querySelectorAll('.tab-list').forEach((tabList) => {
+  updateTabIndicator(tabList, tabList.querySelector('.tab-button.active'));
+});
+
 tabButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const target = document.querySelector(button.dataset.tabTarget);
+    const tabList = button.closest('.tab-list');
 
     tabButtons.forEach((btn) => {
       btn.classList.remove('active');
@@ -249,11 +267,22 @@ tabButtons.forEach((button) => {
 
     button.classList.add('active');
     button.setAttribute('aria-selected', 'true');
+    if (tabList) {
+      tabList.classList.remove('tab-list--portfolio', 'tab-list--landings', 'tab-list--corporativas');
+      tabList.classList.add(`tab-list--${button.id.replace('tab-', '')}`);
+      updateTabIndicator(tabList, button);
+    }
     if (target) {
       target.classList.add('active');
       target.setAttribute('tabindex', '-1');
       target.focus({ preventScroll: true });
     }
+  });
+});
+
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.tab-list').forEach((tabList) => {
+    updateTabIndicator(tabList, tabList.querySelector('.tab-button.active'));
   });
 });
 
@@ -551,4 +580,21 @@ document.addEventListener('DOMContentLoaded', () => {
   videos.forEach(video => {
     videoObserver.observe(video);
   });
+});
+
+// BOTON VOLVER ARRIBA
+document.addEventListener('DOMContentLoaded', () => {
+  const backToTop = document.querySelector('.back-to-top');
+  if (!backToTop) return;
+
+  const toggleBackToTop = () => {
+    backToTop.classList.toggle('is-visible', window.scrollY > 420);
+  };
+
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  toggleBackToTop();
+  window.addEventListener('scroll', toggleBackToTop, { passive: true });
 });

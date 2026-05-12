@@ -7,7 +7,7 @@
 
   <title>Diseño Web · Forma & Fondo</title>
   <meta name="description"
-    content="Diseño web en Chile para profesionales: webs profesionales desde USD 300, landings desde USD 400 y sitios corporativos. Para nutricionistas, psicólogas, abogados y emprendedores.">
+    content="Diseño web en Chile para marcas personales, profesionales y negocios locales: landings, portfolios y webs profesionales para comunicar mejor y generar confianza.">
 
   <link rel="icon" type="image/png" href="img/icon2.png" />
 
@@ -55,8 +55,8 @@
     .header-inner {
       max-width: none;
       margin: 0 auto;
-      padding: 0 20px 0 72px;
-      height: 58px;
+      padding: 0 16px 0 46px;
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -67,35 +67,59 @@
     }
     .header-inner::before {
       content: '';
-      width: 42px;
-      height: 8px;
+      width: 24px;
+      height: 5px;
       border-radius: 999px;
       background:
-        radial-gradient(circle at 4px 50%, rgba(242,234,225,0.46) 0 3px, transparent 3.5px),
-        radial-gradient(circle at 18px 50%, rgba(242,234,225,0.34) 0 3px, transparent 3.5px),
-        radial-gradient(circle at 32px 50%, rgba(242,234,225,0.28) 0 3px, transparent 3.5px);
+        radial-gradient(circle at 2.5px 50%, rgba(242,234,225,0.46) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 12px 50%, rgba(242,234,225,0.34) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 21.5px 50%, rgba(242,234,225,0.28) 0 2px, transparent 2.5px);
       position: absolute;
-      left: 22px;
+      left: 14px;
       top: 50%;
       transform: translateY(-50%);
     }
-    .main-nav { display: flex; align-items: center; gap: 32px; margin-left: auto; }
-    .main-nav a { font-size: 0.78rem; color: rgba(242,234,225,0.68); text-decoration: none; letter-spacing: 0.2em; text-transform: uppercase; transition: color 0.2s; }
+    .main-nav { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+    .main-nav a { font-size: 0.68rem; color: rgba(242,234,225,0.68); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s; }
     .main-nav a:hover { color: var(--color-crema); text-decoration: none; }
     .nav-cta {
-      background-color: var(--color-violeta);
-      color: #ffffff !important;
-      padding: 9px 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background-color: transparent;
+      color: var(--color-crema) !important;
+      padding: 7px 13px;
+      border: 1px solid var(--color-violeta);
       border-radius: 6px;
       font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.2s, color 0.2s, transform 0.2s;
+      line-height: 1;
+      transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
     }
-    .nav-cta:hover { background: var(--color-violeta-suave); color: var(--color-negro) !important; transform: translateY(-1px); }
+    .nav-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: var(--color-violeta);
+      transform: translateX(-101%);
+      transition: transform 0.32s ease;
+    }
+    .nav-cta:hover {
+      border-color: var(--color-violeta);
+      color: #ffffff !important;
+      transform: translateY(-1px);
+    }
+    .nav-cta:hover::before {
+      transform: translateX(0);
+    }
     .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--color-crema); }
     @media (max-width: 640px) {
       .header-inner { padding: 0 16px; }
@@ -173,44 +197,44 @@
           <h2>Webs que trabajan para tu marca</h2>
           <p class="section-intro">
             Diseño web estratégico pensado para comunicar, convertir y construir presencia digital.
-            Desde webs profesionales hasta landings comerciales, con orden, estética y claridad.
+            Elegí entre landing, portfolio profesional o web completa según la etapa de tu marca o negocio.
           </p>
         </header>
 
         <!-- TABS -->
-        <div class="tab-list" role="tablist">
-          <button class="tab-button active" id="tab-portfolio" data-tab-target="#portfolio-panel" role="tab" aria-selected="true" aria-controls="portfolio-panel">Web profesional</button>
-          <button class="tab-button" id="tab-landings" data-tab-target="#landings-panel" role="tab" aria-selected="false" aria-controls="landings-panel">Landings</button>
-          <button class="tab-button" id="tab-corporativas" data-tab-target="#corporativas-panel" role="tab" aria-selected="false" aria-controls="corporativas-panel">Corporativas</button>
+        <div class="tab-list tab-list--portfolio" role="tablist">
+          <button class="tab-button active" id="tab-portfolio" data-tab-target="#portfolio-panel" role="tab" aria-selected="true" aria-controls="portfolio-panel">Portfolio</button>
+          <button class="tab-button" id="tab-landings" data-tab-target="#landings-panel" role="tab" aria-selected="false" aria-controls="landings-panel">Landing</button>
+          <button class="tab-button" id="tab-corporativas" data-tab-target="#corporativas-panel" role="tab" aria-selected="false" aria-controls="corporativas-panel">Web profesional</button>
         </div>
 
         <!-- PANEL PORTFOLIOS -->
         <div id="portfolio-panel" class="tab-panel active" role="tabpanel" aria-labelledby="tab-portfolio">
           <div class="tab-layout">
             <div class="tab-copy">
-              <h3>Web profesional</h3>
+              <h3>Portfolio profesional</h3>
               <p>
-                Tu carta de presentación digital que trabaja 24/7. Mostrá tu trabajo, comunicá tu identidad y convertí visitas en oportunidades reales.
+                Tu carta de presentación digital para mostrar tu trabajo, trayectoria y estilo con una web clara, estética y preparada para recibir consultas.
               </p>
               <ul class="bullet-list">
                 <li>Se ve perfecta en celular, tablet y computadora</li>
-                <li>Tus proyectos organizados para que brillen</li>
+                <li>Tu trabajo queda organizado en secciones fáciles de recorrer</li>
                 <li>Los clientes te contactan directo desde tu web</li>
-                <li>Actualizaciones fáciles cuando agregues nuevos trabajos</li>
+                <li>Ideal para marcas personales, profesionales creativas y servicios independientes</li>
               </ul>
               <p class="tab-note">
-                <strong>Inversión:</strong> desde USD 300 • <strong>Entrega:</strong> 2-3 semanas
+                <strong>Inversión:</strong> desde $350.000 CLP • <strong>Referencia:</strong> USD 390 aprox. • <strong>Entrega:</strong> 2-3 semanas
               </p>
             </div>
 
             <div class="tab-grid">
               <article class="work-card">
                 <div class="work-card-image">
-                  <video class="work-card-video" src="video/webLunaVarela.mp4" poster="img/poster-luna-varela.jpg" controls playsinline preload="metadata"></video>
+                  <video class="work-card-video" src="video/optimized/webLunaVarela-720p.mp4" poster="img/poster-luna-varela.jpg" controls playsinline preload="metadata"></video>
                 </div>
-                <h4>Web fotográfica</h4>
+                <h4>Portfolio fotográfico</h4>
                 <p>Galería organizada que destaca el trabajo profesional con navegación intuitiva.</p>
-                <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero una web así</a>
+                <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero un portfolio así</a>
               </article>
             </div>
           </div>
@@ -220,25 +244,25 @@
         <div id="landings-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-landings">
           <div class="tab-layout">
             <div class="tab-copy">
-              <h3>Landings comerciales</h3>
+              <h3>Landing estratégica</h3>
               <p>
-                Diseñadas para un solo objetivo: convertir. Cada elemento guía al usuario hacia la acción que querés que tome.
+                Una página enfocada en un solo objetivo: presentar una oferta, captar consultas o impulsar una campaña sin distracciones.
               </p>
               <ul class="bullet-list">
                 <li>Tu cliente sabe qué hacer en segundos</li>
                 <li>Cada sección empuja hacia la compra o contacto</li>
-                <li>Sin menús que distraigan: foco total en convertir</li>
-                <li>Perfecta para campañas de ads que necesitan resultados</li>
+                <li>Perfecta para campañas, lanzamientos, eventos o servicios puntuales</li>
+                <li>Texto, estructura y diseño pensados para convertir</li>
               </ul>
               <p class="tab-note">
-                <strong>Inversión:</strong> desde USD 400 • <strong>Entrega:</strong> 1-2 semanas
+                <strong>Inversión:</strong> desde $300.000 CLP • <strong>Referencia:</strong> USD 330 aprox. • <strong>Entrega:</strong> 1-2 semanas
               </p>
             </div>
 
             <div class="tab-grid">
               <article class="work-card">
                 <div class="work-card-image">
-                  <video class="work-card-video" src="video/webLauraMendez.mp4" poster="img/poster-laura-mendez.jpg" controls playsinline preload="metadata"></video>
+                  <video class="work-card-video" src="video/optimized/webLauraMendez-720p.mp4" poster="img/poster-laura-mendez.jpg" controls playsinline preload="metadata"></video>
                 </div>
                 <h4>Landing de servicios</h4>
                 <p>Página enfocada en captar leads y agendar consultas con claridad y confianza.</p>
@@ -252,27 +276,27 @@
         <div id="corporativas-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-corporativas">
           <div class="tab-layout">
             <div class="tab-copy">
-              <h3>Webs corporativas</h3>
+              <h3>Web profesional completa</h3>
               <p>
-                Presencia digital profesional que genera confianza y trabaja para tu marca las 24 horas. Todo lo que tu empresa necesita en un solo lugar.
+                Para marcas y negocios que necesitan una presencia más sólida: varias secciones, contenido estratégico, confianza y una estructura lista para crecer.
               </p>
               <ul class="bullet-list">
                 <li>Tus clientes encuentran toda tu info fácilmente</li>
-                <li>Páginas completas: Inicio, Servicios, Portfolio, Contacto</li>
-                <li>Tu empresa se ve sólida y confiable desde el primer click</li>
-                <li>Genera consultas mientras dormís</li>
+                <li>Páginas completas: inicio, servicios, sobre mí o empresa, portfolio y contacto</li>
+                <li>Tu marca se ve sólida y confiable desde el primer click</li>
+                <li>SEO base, formularios y llamadas a la acción bien ubicadas</li>
               </ul>
               <p class="tab-note">
-                <strong>Inversión:</strong> desde USD 800 • <strong>Entrega:</strong> 3-4 semanas
+                <strong>Inversión:</strong> desde $800.000 CLP • <strong>Referencia:</strong> USD 895 aprox. • <strong>Entrega:</strong> 3-4 semanas
               </p>
             </div>
 
             <div class="tab-grid">
               <article class="work-card">
                 <div class="work-card-image">
-                  <video class="work-card-video" src="video/webFormaYFondo.mp4" poster="img/poster-forma-fondo.jpg" controls playsinline preload="metadata"></video>
+                  <video class="work-card-video" src="video/optimized/webFormaYFondo-720p.mp4" poster="img/poster-forma-fondo.jpg" controls playsinline preload="metadata"></video>
                 </div>
-                <h4>Web corporativa completa</h4>
+                <h4>Web profesional completa</h4>
                 <p>Sitio profesional con múltiples secciones que representa la marca integralmente.</p>
                 <a href="index.html#contacto" class="btn btn-primary btn-web">Quiero cotizar mi web</a>
               </article>
@@ -286,12 +310,12 @@
 
           <details class="faq-item">
             <summary class="faq-question">¿Incluye hosting y dominio?</summary>
-            <p class="faq-answer">No, el precio es solo por el diseño y desarrollo. Te asesoro para que contrates hosting y dominio por tu cuenta (aprox. $10-15 USD/mes). Así vos tenés el control total de tu web.</p>
+            <p class="faq-answer">No. El valor del proyecto incluye diseño y desarrollo de la web. Hosting, dominio y servicios externos se contratan aparte, pero te oriento para elegir una opción adecuada según tu proyecto y presupuesto.</p>
           </details>
 
           <details class="faq-item">
-            <summary class="faq-question">¿Puedo actualizar el contenido yo mismo/a después?</summary>
-            <p class="faq-answer">Sí. Te entrego la web lista para que puedas editar textos, fotos y contenido básico sin necesidad de programar. También te doy un tutorial grabado explicando cómo hacerlo.</p>
+            <summary class="faq-question">¿Puedo actualizar contenido después?</summary>
+            <p class="faq-answer">Depende del tipo de web. En algunos proyectos puedo dejar secciones editables o una guía básica de uso. Si necesitas autonomía total para actualizar contenido, lo definimos desde el inicio para elegir la mejor estructura.</p>
           </details>
 
           <details class="faq-item">
