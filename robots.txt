@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jessandre-design.netlify.app/sitemap.xml
+Sitemap: https://www.formayfondoestudio.com/sitemap.xml
