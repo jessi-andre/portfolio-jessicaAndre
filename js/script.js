@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateScrollUi();
   window.addEventListener('scroll', updateScrollUi, { passive: true });
 
-  const revealTargets = document.querySelectorAll('section, .servicio-card, .experiencia-card, .content-block, .content-card, .webs-block');
+  const revealTargets = document.querySelectorAll('section, .servicio-card, .experiencia-card, .testimonio-card, .content-block, .content-card, .webs-block');
   if (!reduceMotion && 'IntersectionObserver' in window) {
     revealTargets.forEach((target) => target.classList.add('reveal-in'));
     const revealObserver = new IntersectionObserver((entries) => {
@@ -203,7 +203,12 @@ if (experienciaCarousel) {
   const prev = experienciaCarousel.querySelector('.experiencia-control--prev');
   const next = experienciaCarousel.querySelector('.experiencia-control--next');
   const dotsWrap = experienciaCarousel.querySelector('.experiencia-dots');
+  const viewport = experienciaCarousel.querySelector('.experiencia-viewport');
   let currentIndex = 0;
+  let dots = [];
+  let dragStartX = 0;
+  let dragDeltaX = 0;
+  let isDragging = false;
 
   const getExperienceStep = () => {
     if (!cards[0]) return 0;
@@ -211,33 +216,107 @@ if (experienciaCarousel) {
     return cards[0].offsetWidth + parseFloat(trackStyles.columnGap || trackStyles.gap || 0);
   };
 
-  const dots = cards.map((_, index) => {
-    const dot = document.createElement('button');
-    dot.className = 'experiencia-dot';
-    dot.type = 'button';
-    dot.setAttribute('aria-label', `Ver caso ${index + 1}`);
-    dot.addEventListener('click', () => updateExperience(index));
-    dotsWrap?.appendChild(dot);
-    return dot;
-  });
+  const getVisibleExperienceCards = () => {
+    const step = getExperienceStep();
+    const viewport = experienciaCarousel.querySelector('.experiencia-viewport');
+    if (!viewport || step === 0) return 1;
+    return Math.max(1, Math.round(viewport.offsetWidth / step));
+  };
+
+  const getMaxExperienceIndex = () => Math.max(cards.length - getVisibleExperienceCards(), 0);
+
+  const setExperiencePosition = (offset = 0) => {
+    if (!track) return;
+    const distance = currentIndex * getExperienceStep() - offset;
+    track.style.transform = `translateX(-${distance}px)`;
+  };
+
+  const renderExperienceDots = () => {
+    if (!dotsWrap) return;
+    dotsWrap.innerHTML = '';
+    dots = Array.from({ length: getMaxExperienceIndex() + 1 }, (_, index) => {
+      const dot = document.createElement('button');
+      dot.className = 'experiencia-dot';
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Ver grupo de casos ${index + 1}`);
+      dot.addEventListener('click', () => updateExperience(index));
+      dotsWrap.appendChild(dot);
+      return dot;
+    });
+  };
 
   const updateExperience = (index) => {
     if (!track || cards.length === 0) return;
-    currentIndex = (index + cards.length) % cards.length;
-    track.style.transform = `translateX(-${currentIndex * getExperienceStep()}px)`;
+    const maxIndex = getMaxExperienceIndex();
+    currentIndex = index < 0 ? maxIndex : index > maxIndex ? 0 : index;
+    setExperiencePosition();
     cards.forEach((card, cardIndex) => {
+      const isVisible = cardIndex >= currentIndex && cardIndex < currentIndex + getVisibleExperienceCards();
       card.classList.toggle('is-active', cardIndex === currentIndex);
-      card.setAttribute('aria-hidden', String(cardIndex !== currentIndex));
+      card.classList.toggle('is-near', isVisible && cardIndex !== currentIndex);
+      card.setAttribute('aria-hidden', String(!isVisible));
     });
     dots.forEach((dot, dotIndex) => {
       dot.classList.toggle('is-active', dotIndex === currentIndex);
     });
   };
 
+  const rebuildExperience = () => {
+    renderExperienceDots();
+    currentIndex = Math.min(currentIndex, getMaxExperienceIndex());
+    updateExperience(currentIndex);
+  };
+
   prev?.addEventListener('click', () => updateExperience(currentIndex - 1));
   next?.addEventListener('click', () => updateExperience(currentIndex + 1));
-  window.addEventListener('resize', () => updateExperience(currentIndex));
-  updateExperience(0);
+  window.addEventListener('resize', rebuildExperience);
+
+  viewport?.addEventListener('pointerdown', (event) => {
+    if (event.target.closest('a, button')) return;
+    isDragging = true;
+    dragStartX = event.clientX;
+    dragDeltaX = 0;
+    viewport.classList.add('is-dragging');
+    track.style.transition = 'none';
+    viewport.setPointerCapture?.(event.pointerId);
+  });
+
+  viewport?.addEventListener('pointermove', (event) => {
+    if (!isDragging) return;
+    dragDeltaX = event.clientX - dragStartX;
+    setExperiencePosition(dragDeltaX);
+  });
+
+  const endExperienceDrag = (event) => {
+    if (!isDragging) return;
+    isDragging = false;
+    viewport?.releasePointerCapture?.(event.pointerId);
+    viewport?.classList.remove('is-dragging');
+    track.style.transition = '';
+    const threshold = Math.min(110, Math.max(46, getExperienceStep() * 0.18));
+    if (dragDeltaX < -threshold) updateExperience(currentIndex + 1);
+    else if (dragDeltaX > threshold) updateExperience(currentIndex - 1);
+    else updateExperience(currentIndex);
+  };
+
+  viewport?.addEventListener('pointerup', endExperienceDrag);
+  viewport?.addEventListener('pointercancel', endExperienceDrag);
+  viewport?.addEventListener('lostpointercapture', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    viewport?.classList.remove('is-dragging');
+    track.style.transition = '';
+    updateExperience(currentIndex);
+  });
+
+  experienciaCarousel.querySelectorAll('a[href]').forEach((link) => {
+    link.addEventListener('pointerdown', (event) => event.stopPropagation());
+    link.addEventListener('click', (event) => {
+      if (Math.abs(dragDeltaX) > 8) event.preventDefault();
+    });
+  });
+
+  rebuildExperience();
 }
 
 // TABS seccion Proyectos
@@ -252,6 +331,47 @@ function updateTabIndicator(tabList, activeButton) {
 
 document.querySelectorAll('.tab-list').forEach((tabList) => {
   updateTabIndicator(tabList, tabList.querySelector('.tab-button.active'));
+});
+
+// MEDICIÓN DE CONVERSIONES Y NAVEGACIÓN CLAVE
+document.addEventListener('DOMContentLoaded', () => {
+  const trackEvent = (eventName, params = {}) => {
+    if (typeof window.gtag !== 'function') return;
+    window.gtag('event', eventName, params);
+  };
+
+  document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      trackEvent('click_whatsapp', { event_category: 'conversion', link_url: link.href });
+    });
+  });
+
+  document.querySelectorAll('.experiencia-link[href]').forEach((link) => {
+    link.addEventListener('click', () => {
+      trackEvent('click_proyecto', {
+        event_category: 'engagement',
+        project_name: link.closest('.experiencia-card')?.querySelector('.experiencia-nombre')?.textContent?.trim() || link.href,
+        link_url: link.href
+      });
+    });
+  });
+
+  document.querySelectorAll('a[href*="instagram.com"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      trackEvent('click_instagram', { event_category: 'engagement', link_url: link.href });
+    });
+  });
+
+  const contacto = document.querySelector('#contacto');
+  if (contacto && 'IntersectionObserver' in window) {
+    const contactoObserver = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      trackEvent('view_contacto', { event_category: 'engagement' });
+      contactoObserver.disconnect();
+    }, { threshold: 0.35 });
+
+    contactoObserver.observe(contacto);
+  }
 });
 
 tabButtons.forEach((button) => {
@@ -493,6 +613,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const originalText = submitBtn.textContent;
     submitBtn.textContent = 'Enviando…';
     submitBtn.disabled = true;
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'submit_contacto', { event_category: 'conversion' });
+    }
 
     try {
       const res = await fetch(form.action, {
@@ -502,14 +625,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
 
       if (res.ok) {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'formulario_enviado', { event_category: 'conversion' });
+        }
         form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, podés escribirme por WhatsApp si necesitás respuesta urgente.</small></div>';
         form.querySelector('.form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', 'formulario_error', { event_category: 'conversion' });
+        }
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         alert('Hubo un error al enviar. Intentá de nuevo o escribime por WhatsApp.');
       }
     } catch {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'formulario_error_conexion', { event_category: 'conversion' });
+      }
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
       alert('Sin conexión. Intentá de nuevo.');

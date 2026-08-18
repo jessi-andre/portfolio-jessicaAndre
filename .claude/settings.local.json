@@ -4,7 +4,15 @@
       "Bash(cd:*)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "WebSearch",
+      "WebFetch(domain:bigredes.com)",
+      "WebFetch(domain:bestsolution.cl)",
+      "Bash(ffmpeg -version)",
+      "Bash(where ffmpeg *)",
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(npm --version)"
     ]
   }
 }
