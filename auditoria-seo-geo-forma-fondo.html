@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Auditoria SEO y GEO - Forma &amp; Fondo</title>
+  <style>
+    :root {
+      --bg: #f7f2ed;
+      --ink: #231f1c;
+      --muted: #6b625c;
+      --line: #ddd2c7;
+      --card: #fffaf5;
+      --green: #147a3d;
+      --yellow: #9a6a00;
+      --red: #b3261e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Inter, Arial, sans-serif;
+      line-height: 1.55;
+    }
+
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 48px 20px 72px;
+    }
+
+    header {
+      margin-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin: 42px 0 16px;
+      font-size: 1.45rem;
+    }
+
+    h3 {
+      margin: 28px 0 10px;
+      font-size: 1.05rem;
+    }
+
+    p { margin: 0 0 12px; }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .summary {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-left: 6px solid var(--red);
+      padding: 18px;
+      margin: 24px 0;
+      border-radius: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border: 1px solid var(--line);
+      margin-bottom: 28px;
+      font-size: 0.94rem;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      padding: 12px;
+    }
+
+    th {
+      background: #efe5dc;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    code {
+      background: #efe5dc;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    ul, ol {
+      margin: 8px 0 22px 22px;
+      padding: 0;
+    }
+
+    li { margin-bottom: 7px; }
+
+    .ok { color: var(--green); }
+    .warn { color: var(--yellow); }
+    .bad { color: var(--red); }
+
+    .schema-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 28px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      main { max-width: none; padding: 20px; }
+      table { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Auditoria tecnica SEO y GEO</h1>
+      <p class="meta"><strong>Proyecto:</strong> Forma &amp; Fondo</p>
+      <p class="meta"><strong>Dominio definitivo indicado:</strong> https://formayfondoestudio.com</p>
+      <p class="meta"><strong>Fecha de auditoria:</strong> 19 de agosto de 2026</p>
+    </header>
+
+    <section class="summary">
+      <p><strong>Hallazgo central:</strong> el dominio definitivo indicado es <code>https://formayfondoestudio.com</code> y el servidor publicado normaliza hacia el dominio sin <code>www</code>. Sin embargo, el proyecto declara canonicals, sitemap, robots, Open Graph, Twitter Card y Schema con <code>https://www.formayfondoestudio.com</code>.</p>
+      <p>Esta contradiccion es el punto mas importante a corregir porque puede afectar canonicalizacion, rastreo e interpretacion de la entidad principal del sitio.</p>
+    </section>
+
+    <h2 class="ok">🟢 Correcto — no tocar</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Punto</th>
+          <th>Que encontre</th>
+          <th>Archivo/ruta</th>
+          <th>Por que importa</th>
+          <th>Que recomendaria hacer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>lang</code></td>
+          <td>Todas las paginas tienen <code>&lt;html lang="es"&gt;</code>.</td>
+          <td><code>index.html</code>, <code>webs.html</code>, <code>contenido.html</code></td>
+          <td>Ayuda a buscadores y sistemas de IA a interpretar idioma y contexto.</td>
+          <td>Mantener.</td>
+        </tr>
+        <tr>
+          <td><code>robots.txt</code> base</td>
+          <td>Permite rastreo y declara sitemap.</td>
+          <td><code>robots.txt</code></td>
+          <td>Los crawlers pueden acceder al sitio.</td>
+          <td>Mantener la estructura, corrigiendo el host del sitemap a sin <code>www</code>.</td>
+        </tr>
+        <tr>
+          <td>Sitemap raiz</td>
+          <td>Existe y lista las 3 URLs principales.</td>
+          <td><code>sitemap.xml</code></td>
+          <td>Facilita descubrimiento de paginas.</td>
+          <td>Mantener, corrigiendo dominio.</td>
+        </tr>
+        <tr>
+          <td>Titles</td>
+          <td>Las 3 paginas tienen <code>&lt;title&gt;</code> unico.</td>
+          <td><code>index.html:8</code>, <code>webs.html:8</code>, <code>contenido.html:8</code></td>
+          <td>Evita duplicacion basica y mejora relevancia.</td>
+          <td>Mantener; se pueden afinar despues.</td>
+        </tr>
+        <tr>
+          <td>Meta descriptions</td>
+          <td>Las 3 paginas tienen description clara.</td>
+          <td><code>index.html:10</code>, <code>webs.html:9</code>, <code>contenido.html:9</code></td>
+          <td>Mejora snippet y comprension semantica.</td>
+          <td>Mantener con ajustes menores opcionales.</td>
+        </tr>
+        <tr>
+          <td>HTTPS</td>
+          <td>HTTP redirige a HTTPS.</td>
+          <td>Dominio publicado</td>
+          <td>Es requisito tecnico basico para confianza y SEO.</td>
+          <td>Mantener.</td>
+        </tr>
+        <tr>
+          <td>Alt text principal</td>
+          <td>La mayoria de imagenes relevantes tienen <code>alt</code>.</td>
+          <td>Principalmente <code>index.html</code> y <code>contenido.html</code></td>
+          <td>Aporta accesibilidad, SEO de imagenes y contexto para IA.</td>
+          <td>Mantener; revisar solo los <code>alt=""</code> si alguna imagen no es decorativa.</td>
+        </tr>
+        <tr>
+          <td>Enlaces internos basicos</td>
+          <td>Home enlaza a servicios, proyectos, contacto, <code>webs.html</code> y <code>contenido.html</code>.</td>
+          <td><code>index.html</code></td>
+          <td>Permite navegacion y rastreo interno.</td>
+          <td>Mantener.</td>
+        </tr>
+        <tr>
+          <td>Google verification</td>
+          <td>Existe meta de verificacion y archivo HTML.</td>
+          <td><code>index.html:31</code>, <code>google7547e37f77976090.html</code></td>
+          <td>Sirve para Search Console.</td>
+          <td>Mantener si corresponde a la propiedad actual.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="warn">🟡 Existe pero conviene mejorar</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Punto</th>
+          <th>Que encontre</th>
+          <th>Archivo/ruta</th>
+          <th>Por que importa</th>
+          <th>Que recomendaria hacer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Canonical</td>
+          <td>Existen, pero apuntan a <code>https://www.formayfondoestudio.com/...</code>. El servidor redirige <code>www</code> a sin <code>www</code>.</td>
+          <td><code>index.html:13</code>, <code>webs.html:12</code>, <code>contenido.html:12</code></td>
+          <td>La URL canonica declarada no coincide con la URL final real.</td>
+          <td>Cambiar todos los canonicals a <code>https://formayfondoestudio.com/...</code>.</td>
+        </tr>
+        <tr>
+          <td>Dominio principal</td>
+          <td>El dominio publicado responde sin <code>www</code>; <code>www</code> devuelve 308 hacia sin <code>www</code>.</td>
+          <td>Hosting publicado</td>
+          <td>Esta bien elegir sin <code>www</code>, pero el repo declara <code>www</code>.</td>
+          <td>Alinear todo el proyecto al dominio sin <code>www</code>.</td>
+        </tr>
+        <tr>
+          <td>Duplicado <code>/index.html</code></td>
+          <td><code>https://formayfondoestudio.com/index.html</code> responde 200 ademas de <code>/</code>.</td>
+          <td>Servidor publicado / <code>index.html</code></td>
+          <td>Puede generar duplicado tecnico de Home.</td>
+          <td>Redirigir <code>/index.html</code> a <code>/</code>.</td>
+        </tr>
+        <tr>
+          <td>URLs semanticas</td>
+          <td>Existen <code>webs.html</code> y <code>contenido.html</code>. Son entendibles, pero menos limpias que <code>/webs/</code> o <code>/contenido/</code>.</td>
+          <td><code>webs.html</code>, <code>contenido.html</code></td>
+          <td>No bloquea SEO, pero una arquitectura limpia mejora legibilidad.</td>
+          <td>Opcional: migrar a URLs sin <code>.html</code> con redirects.</td>
+        </tr>
+        <tr>
+          <td>Home Open Graph</td>
+          <td>Existe OG/Twitter, pero <code>og:image</code> usa <code>img/icon2.png</code> de 512x512 mientras declara 1200x630. Twitter usa <code>og-forma-fondo.png</code>.</td>
+          <td><code>index.html:18-30</code></td>
+          <td>Puede renderizar mal al compartir.</td>
+          <td>Usar <code>img/og-forma-fondo.png</code> tambien para OG y mantener dimensiones reales 1200x630.</td>
+        </tr>
+        <tr>
+          <td>Schema existente</td>
+          <td>Hay JSON-LD <code>ProfessionalService</code> solo en Home.</td>
+          <td><code>index.html:34-51</code></td>
+          <td>Es buena base, pero la URL usa <code>www</code> y faltan propiedades utiles.</td>
+          <td>Corregir URL a sin <code>www</code> y enriquecer sin sobreactuar.</td>
+        </tr>
+        <tr>
+          <td>Jerarquia H</td>
+          <td>Home tiene H1 correcto. Paginas internas empiezan con H2, no H1.</td>
+          <td><code>webs.html:195</code>, <code>contenido.html:196</code></td>
+          <td>Cada URL deberia tener un H1 unico para claridad SEO/GEO.</td>
+          <td>Convertir el heading principal de cada pagina interna en H1.</td>
+        </tr>
+        <tr>
+          <td>CTAs</td>
+          <td>Home comunica rapido y tiene CTA. <code>webs.html</code> tiene CTAs claros; <code>contenido.html</code> tiene menos CTA directo en los bloques principales.</td>
+          <td><code>index.html</code>, <code>webs.html</code>, <code>contenido.html</code></td>
+          <td>Ayuda a convertir visitas desde Google.</td>
+          <td>Agregar o reforzar CTA contextual en contenido/social media.</td>
+        </tr>
+        <tr>
+          <td>GEO semantico</td>
+          <td>Se entiende que hace Forma &amp; Fondo, a quien ayuda y quien esta detras. Los casos son mas testimoniales que casos con problema-solucion-resultado.</td>
+          <td><code>index.html</code></td>
+          <td>Los sistemas de IA extraen mejor informacion cuando los casos son explicitos.</td>
+          <td>Sumar contexto de proyectos: industria, objetivo, trabajo realizado y resultado.</td>
+        </tr>
+        <tr>
+          <td>Config de hosting</td>
+          <td>Existe <code>netlify.toml</code>, pero el sitio publicado parece estar en Vercel. Ademas, la CSP de Netlify no permitiria bien Google Fonts/Analytics si se usara.</td>
+          <td><code>netlify.toml</code></td>
+          <td>Una configuracion obsoleta puede confundir deploys futuros.</td>
+          <td>Decidir si se mantiene Netlify o Vercel; si Netlify queda, corregir CSP.</td>
+        </tr>
+        <tr>
+          <td>Recursos pesados</td>
+          <td>El HTML usa optimizados, pero el repo contiene originales grandes en <code>img/</code>, algunos de hasta 9.7 MB.</td>
+          <td><code>img/</code></td>
+          <td>Si se publican todos, aumentan peso de deploy y pueden ser descubiertos.</td>
+          <td>Confirmar que solo se publican recursos necesarios o mover originales fuera del deploy.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 class="bad">🔴 Falta o existe un problema</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Punto</th>
+          <th>Que encontre</th>
+          <th>Archivo/ruta</th>
+          <th>Por que importa</th>
+          <th>Que recomendaria hacer</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Dominio antiguo</td>
+          <td><code>public/sitemap.xml</code> todavia apunta a <code>https://jessandre-design.netlify.app/...</code>.</td>
+          <td><code>public/sitemap.xml</code></td>
+          <td>Si alguna build usa <code>public</code>, puede publicar sitemap con dominio viejo.</td>
+          <td>Actualizar o eliminar ese sitemap duplicado.</td>
+        </tr>
+        <tr>
+          <td>Robots/sitemap con <code>www</code></td>
+          <td><code>robots.txt</code> y <code>sitemap.xml</code> declaran <code>www</code>, pero el host final es sin <code>www</code>.</td>
+          <td><code>robots.txt</code>, <code>sitemap.xml</code>, dominio publicado</td>
+          <td>Genera senales inconsistentes para rastreo e indexacion.</td>
+          <td>Cambiar a <code>https://formayfondoestudio.com/sitemap.xml</code> y URLs sin <code>www</code>.</td>
+        </tr>
+        <tr>
+          <td>Referencia visual antigua</td>
+          <td>En el hero aparece <code>formayfondo.studio</code>.</td>
+          <td><code>index.html:97</code></td>
+          <td>Puede confundir marca/dominio a usuarios y sistemas IA.</td>
+          <td>Cambiar al dominio definitivo o remover esa URL visual.</td>
+        </tr>
+        <tr>
+          <td>Open Graph en internas</td>
+          <td><code>webs.html</code> y <code>contenido.html</code> no tienen OG ni Twitter Cards.</td>
+          <td><code>webs.html</code>, <code>contenido.html</code></td>
+          <td>Al compartir esas URLs, pierden titulo, imagen y descripcion controlados.</td>
+          <td>Agregar OG/Twitter por pagina.</td>
+        </tr>
+        <tr>
+          <td>Schema en internas</td>
+          <td>No hay JSON-LD en <code>webs.html</code> ni <code>contenido.html</code>.</td>
+          <td><code>webs.html</code>, <code>contenido.html</code></td>
+          <td>Pierde contexto estructurado para servicios especificos y FAQ.</td>
+          <td>Agregar <code>WebPage</code>/<code>Service</code> y <code>FAQPage</code> donde corresponda.</td>
+        </tr>
+        <tr>
+          <td><code>WebSite</code> Schema</td>
+          <td>No existe.</td>
+          <td>Proyecto</td>
+          <td>Ayuda a declarar entidad del sitio y nombre oficial.</td>
+          <td>Agregar en Home junto a la entidad principal.</td>
+        </tr>
+        <tr>
+          <td><code>Organization</code> / entidad de marca</td>
+          <td>Solo existe <code>ProfessionalService</code>; no hay <code>Organization</code> explicito ni <code>@id</code> reutilizable.</td>
+          <td><code>index.html</code></td>
+          <td>GEO se beneficia de una entidad clara y estable.</td>
+          <td>Usar <code>ProfessionalService</code> con <code>@id</code>, o combinar con <code>Organization</code> si se modela bien.</td>
+        </tr>
+        <tr>
+          <td><code>BreadcrumbList</code></td>
+          <td>No existe.</td>
+          <td>Todas las paginas</td>
+          <td>Ayuda a interpretar arquitectura.</td>
+          <td>Agregar en paginas internas si se mantienen como paginas de servicio/proyectos.</td>
+        </tr>
+        <tr>
+          <td><code>FAQPage</code></td>
+          <td>Hay FAQ visible en <code>webs.html</code>, pero sin Schema.</td>
+          <td><code>webs.html:307</code></td>
+          <td>Puede ayudar a buscadores a entender preguntas frecuentes.</td>
+          <td>Agregar <code>FAQPage</code> solo para esas FAQs reales.</td>
+        </tr>
+        <tr>
+          <td><code>llms.txt</code></td>
+          <td>No existe localmente y publicado devuelve 404.</td>
+          <td><code>/llms.txt</code></td>
+          <td>No es SEO clasico, pero puede ayudar a GEO/IA como resumen legible del sitio.</td>
+          <td>Crear luego, con resumen de marca, servicios, paginas clave y contacto.</td>
+        </tr>
+        <tr>
+          <td>Pagina 404 personalizada</td>
+          <td>No existe archivo 404. El servidor devuelve 404 generico.</td>
+          <td>Proyecto / dominio publicado</td>
+          <td>Mala experiencia y poca recuperacion hacia paginas utiles.</td>
+          <td>Crear <code>404.html</code> con enlaces a Home, servicios y contacto.</td>
+        </tr>
+        <tr>
+          <td>Redirects explicitos</td>
+          <td>No hay config de redirects para <code>/index.html</code>, <code>www</code> ni <code>.html</code> si se decide limpiar URLs.</td>
+          <td>Proyecto</td>
+          <td>Evita duplicados y consolida autoridad.</td>
+          <td>Agregar reglas en la plataforma real de deploy, probablemente Vercel.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="schema-box">
+      <h2>Schema.org encontrado</h2>
+      <p>Actualmente existe solo un JSON-LD en <code>index.html</code>: <code>ProfessionalService</code>, con <code>name</code>, <code>url</code>, <code>description</code>, <code>founder</code> como <code>Person</code>, <code>serviceType</code>, <code>areaServed</code>, <code>address</code> y <code>sameAs</code>.</p>
+      <p>Esta bien encaminado, pero no esta perfectamente implementado porque usa <code>https://www.formayfondoestudio.com/</code>, que contradice el dominio final sin <code>www</code>. Faltan <code>@id</code>, <code>image</code>/<code>logo</code>, contacto/telefono si se quiere declarar, y servicios como entidades mas especificas.</p>
+      <p>No vi <code>Organization</code>, <code>WebSite</code>, <code>WebPage</code>, <code>Service</code>, <code>BreadcrumbList</code>, <code>FAQPage</code> ni <code>Article</code>. <code>Article</code> no parece necesario porque no hay contenido editorial tipo blog.</p>
+    </section>
+
+    <h2>Acciones recomendadas</h2>
+
+    <h3>PRIORIDAD 1 — critica para rastreo/indexacion</h3>
+    <ol>
+      <li>Alinear todo a <code>https://formayfondoestudio.com</code> sin <code>www</code>: canonicals, sitemap, robots, OG, Twitter y Schema.</li>
+      <li>Redirigir <code>/index.html</code> a <code>/</code>.</li>
+      <li>Corregir o eliminar <code>public/sitemap.xml</code> con dominio viejo de Netlify.</li>
+      <li>Confirmar plataforma real de deploy y configurar redirects ahi, probablemente Vercel.</li>
+    </ol>
+
+    <h3>PRIORIDAD 2 — SEO</h3>
+    <ol>
+      <li>Agregar H1 unico en <code>webs.html</code> y <code>contenido.html</code>.</li>
+      <li>Agregar OG/Twitter Cards a paginas internas.</li>
+      <li>Crear pagina <code>404.html</code> personalizada.</li>
+      <li>Corregir <code>og:image</code> de Home para usar imagen 1200x630 real.</li>
+      <li>Revisar publicacion de imagenes originales pesadas.</li>
+    </ol>
+
+    <h3>PRIORIDAD 3 — GEO/IA</h3>
+    <ol>
+      <li>Enriquecer Schema de Home con entidad estable <code>@id</code>.</li>
+      <li>Agregar <code>WebSite</code>, <code>WebPage</code>, <code>Service</code> y <code>FAQPage</code> donde corresponda.</li>
+      <li>Crear <code>llms.txt</code>.</li>
+      <li>Convertir testimonios/proyectos en casos mas legibles: problema, solucion, servicio aplicado, resultado.</li>
+    </ol>
+
+    <h3>PRIORIDAD 4 — mejoras opcionales</h3>
+    <ol>
+      <li>Migrar URLs <code>.html</code> a rutas limpias si se quiere una arquitectura mas prolija.</li>
+      <li>Agregar breadcrumbs visibles o solo Schema en internas.</li>
+      <li>Limpiar config obsoleta de Netlify o corregirla si seguira siendo usada.</li>
+    </ol>
+  </main>
+</body>
+</html>

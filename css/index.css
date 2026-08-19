@@ -344,42 +344,6 @@
       color: rgba(242, 234, 225, 0.72);
       font-size: 1rem;
     }
-    .hero-marquee {
-      overflow: hidden;
-      border-top: 1px solid rgba(139, 127, 212, 0.24);
-      border-bottom: 1px solid rgba(139, 127, 212, 0.24);
-      background: var(--color-violeta-suave);
-      color: var(--color-negro);
-    }
-    .hero-marquee-track {
-      display: flex;
-      width: max-content;
-      gap: 0;
-      padding: 13px 0;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      animation: heroMarquee 22s linear infinite;
-    }
-    .hero-marquee-track span {
-      display: inline-block;
-      color: var(--color-negro);
-      padding-right: 34px;
-    }
-    .hero-marquee-track span::after {
-      content: "→";
-      color: var(--color-violeta);
-      padding-left: 24px;
-    }
-    @keyframes heroMarquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-33.333%); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-marquee-track { animation: none; }
-    }
     @media (max-width: 768px) {
       .hero-stage { grid-template-columns: 1fr; min-height: auto; }
       .hero-copy { justify-content: flex-start; }
@@ -1743,10 +1707,6 @@
       .hero-proof strong {
         font-size: 1.65rem;
         max-width: 260px;
-      }
-      .hero-marquee-track {
-        padding: 9px 0;
-        font-size: 0.72rem;
       }
       .dolor,
       .quienes,
