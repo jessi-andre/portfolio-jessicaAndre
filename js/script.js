@@ -607,10 +607,55 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.contact-form');
   if (!form) return;
 
+  const hubSpotEndpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/51900546/b6131de4-0dbd-4dd1-92fe-e2ac951a6aa3';
+
+  const getCookieValue = (name) => {
+    const cookie = document.cookie
+      .split('; ')
+      .find((row) => row.startsWith(`${name}=`));
+
+    return cookie ? decodeURIComponent(cookie.split('=').slice(1).join('=')) : '';
+  };
+
+  const submitToHubSpot = async (formData) => {
+    const fields = [
+      { name: 'firstname', value: (formData.get('nombre') || '').toString() },
+      { name: 'email', value: (formData.get('email') || '').toString() },
+      { name: 'mensaje_del_formulario', value: (formData.get('mensaje') || '').toString() }
+    ].filter((field) => field.value.trim() !== '');
+
+    const payload = {
+      fields,
+      context: {
+        pageUri: window.location.href,
+        pageName: document.title
+      }
+    };
+
+    const hutk = getCookieValue('hubspotutk');
+    if (hutk) {
+      payload.context.hutk = hutk;
+    }
+
+    const response = await fetch(hubSpotEndpoint, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+
+    if (!response.ok) {
+      throw new Error(`HubSpot Forms API responded with ${response.status}`);
+    }
+  };
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (form.dataset.submitting === 'true') return;
+    form.dataset.submitting = 'true';
+
     const submitBtn = form.querySelector('[type="submit"]');
     const originalText = submitBtn.textContent;
+    const formData = new FormData(form);
     submitBtn.textContent = 'Enviando…';
     submitBtn.disabled = true;
     if (typeof window.gtag === 'function') {
@@ -620,7 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const res = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
+        body: formData,
         headers: { Accept: 'application/json' }
       });
 
@@ -628,12 +673,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'formulario_enviado', { event_category: 'conversion' });
         }
+        submitToHubSpot(formData).catch((error) => {
+          console.error('HubSpot form submission failed:', error);
+        });
         form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, podés escribirme por WhatsApp si necesitás respuesta urgente.</small></div>';
         form.querySelector('.form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         if (typeof window.gtag === 'function') {
           window.gtag('event', 'formulario_error', { event_category: 'conversion' });
         }
+        form.dataset.submitting = 'false';
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         alert('Hubo un error al enviar. Intentá de nuevo o escribime por WhatsApp.');
@@ -642,6 +691,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof window.gtag === 'function') {
         window.gtag('event', 'formulario_error_conexion', { event_category: 'conversion' });
       }
+      form.dataset.submitting = 'false';
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
       alert('Sin conexión. Intentá de nuevo.');
