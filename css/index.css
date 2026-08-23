@@ -1271,9 +1271,10 @@
       border-radius: 6px;
       font-size: 0.95rem;
       font-family: var(--font-sans);
+      line-height: 1.7;
       color: var(--color-crema);
       background:
-        url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23F2EAE1' stroke-opacity='0.6' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center,
+        url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23C9C2F1' stroke-opacity='0.75' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center,
         rgba(242, 234, 225, 0.08);
       appearance: none;
       -webkit-appearance: none;
@@ -1281,8 +1282,10 @@
       cursor: pointer;
       transition: border-color 0.2s, background-color 0.2s;
     }
-    .contacto .form-group select:invalid {
-      color: rgba(242, 234, 225, 0.6);
+    /* Mientras esté seleccionada la opción vacía, se atenúa igual que el
+       ::placeholder de los otros campos del formulario (sin usar `required`) */
+    .contacto .form-group select:has(option:checked[value=""]) {
+      color: rgba(242, 234, 225, 0.48);
     }
     .contacto .form-group select:focus {
       border-color: #C9C2F1;
