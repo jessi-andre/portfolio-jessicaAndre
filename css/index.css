@@ -31,7 +31,7 @@
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--color-violeta);
+      color: var(--color-violeta-texto);
       margin-bottom: 14px;
     }
 
@@ -854,14 +854,14 @@
       padding: 5px 12px;
       border-radius: 999px;
       background: rgba(139, 127, 212, 0.12);
-      color: var(--color-violeta);
+      color: var(--color-violeta-texto);
       font-size: 0.68rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
     .experiencia-showcase .eyebrow::before {
       content: "+";
-      color: var(--color-violeta);
+      color: var(--color-violeta-texto);
       font-weight: 700;
     }
     .experiencia-header {
@@ -1017,7 +1017,7 @@
     }
     .experiencia-rubro {
       font-size: 0.78rem;
-      color: rgba(46, 41, 38, 0.62);
+      color: rgba(46, 41, 38, 0.74);
       margin: 0 0 18px;
     }
     .experiencia-user {
@@ -1155,210 +1155,6 @@
     }
 
     /* ══════════════════════════════════════
-       TESTIMONIOS
-    ══════════════════════════════════════ */
-    .testimonios {
-      background:
-        radial-gradient(circle at 18% 0%, rgba(124, 92, 62, 0.22), transparent 32%),
-        #150703;
-      color: var(--color-crema);
-      padding: 96px 24px 112px;
-      overflow: hidden;
-    }
-    .testimonios-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .testimonios-header {
-      text-align: center;
-      margin-bottom: 46px;
-    }
-    .testimonios-header h2 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.45rem, 6vw, 4.9rem);
-      font-weight: 500;
-      color: var(--color-crema);
-      line-height: 0.95;
-      margin: 0 0 16px;
-    }
-    .testimonios-header p {
-      max-width: 430px;
-      margin: 0 auto;
-      color: rgba(242, 234, 225, 0.68);
-      font-size: 0.95rem;
-      line-height: 1.55;
-    }
-    .testimonios-carousel {
-      position: relative;
-    }
-    .testimonios-viewport {
-      overflow: hidden;
-      padding: 8px 0 4px;
-      cursor: grab;
-      touch-action: pan-y;
-    }
-    .testimonios-viewport.is-dragging {
-      cursor: grabbing;
-    }
-    .testimonios-track {
-      --testimonios-gap: 20px;
-      display: flex;
-      gap: var(--testimonios-gap);
-      transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
-    }
-    .testimonio-card {
-      flex: 0 0 calc((100% - (var(--testimonios-gap) * 2)) / 3);
-      min-height: 258px;
-      background: #F2E7D6;
-      border: 1px solid rgba(242, 231, 214, 0.62);
-      border-radius: 18px;
-      padding: 28px;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      color: #1F110D;
-      opacity: 0.64;
-      transform: translateY(22px) scale(0.96);
-      transition:
-        opacity 460ms ease,
-        transform 560ms cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 460ms ease;
-    }
-    .testimonio-card.is-active,
-    .testimonio-card.is-near {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.24);
-    }
-    .testimonio-top {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-    }
-    .testimonio-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: #D5C6B4;
-      color: #170804;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-    .testimonio-quote {
-      color: rgba(31, 17, 13, 0.12);
-      font-family: var(--font-serif);
-      font-size: 4.2rem;
-      line-height: 0.8;
-    }
-    .testimonio-card h3 {
-      margin: 0 0 4px;
-      color: #1F110D;
-      font-size: clamp(1.25rem, 1.8vw, 1.65rem);
-      line-height: 1.1;
-      font-weight: 650;
-    }
-    .testimonio-texto {
-      font-family: var(--font-sans);
-      font-style: normal;
-      font-size: 0.94rem;
-      line-height: 1.48;
-      color: rgba(31, 17, 13, 0.72);
-      margin: 0;
-      flex: 1;
-    }
-    .testimonio-rubro {
-      font-size: 0.8rem;
-      color: rgba(31, 17, 13, 0.6);
-      margin: 0;
-    }
-    .testimonios-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .testimonios-control {
-      width: 42px;
-      height: 42px;
-      border: 0;
-      border-radius: 50%;
-      background: rgba(242, 234, 225, 0.94);
-      color: #170804;
-      cursor: pointer;
-      display: grid;
-      place-items: center;
-      transition: transform 220ms ease, background 220ms ease;
-    }
-    .testimonios-control:hover {
-      background: #FFFFFF;
-      transform: translateY(-2px);
-    }
-    .testimonios-control::before {
-      content: "";
-      width: 9px;
-      height: 9px;
-      border-top: 2px solid currentColor;
-      border-right: 2px solid currentColor;
-    }
-    .testimonios-control--prev::before {
-      transform: rotate(-135deg);
-      margin-left: 3px;
-    }
-    .testimonios-control--next::before {
-      transform: rotate(45deg);
-      margin-right: 3px;
-    }
-    .testimonios-dots {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      min-width: 46px;
-      justify-content: center;
-    }
-    .testimonios-dot {
-      width: 6px;
-      height: 6px;
-      border: 0;
-      border-radius: 999px;
-      background: rgba(242, 234, 225, 0.28);
-      padding: 0;
-      cursor: pointer;
-      transition: width 220ms ease, background 220ms ease;
-    }
-    .testimonios-dot.is-active {
-      width: 16px;
-      background: rgba(242, 234, 225, 0.92);
-    }
-    @media (max-width: 900px) {
-      .testimonios {
-        padding: 78px 18px 88px;
-      }
-      .testimonios-track {
-        --testimonios-gap: 16px;
-      }
-      .testimonio-card {
-        flex-basis: min(84vw, 340px);
-        min-height: 282px;
-        padding: 26px;
-      }
-    }
-    @media (max-width: 560px) {
-      .testimonios-header {
-        margin-bottom: 34px;
-      }
-      .testimonio-card {
-        flex-basis: 100%;
-      }
-    }
-
-    /* ══════════════════════════════════════
        CONTACTO
     ══════════════════════════════════════ */
     .contacto {
@@ -1467,54 +1263,39 @@
       resize: vertical;
     }
 
-    /* custom select */
-    .contacto .custom-select { position: relative; }
-    .contacto .custom-select-trigger {
+    /* select nativo (accesible por teclado) */
+    .contacto .form-group select {
       width: 100%;
-      padding: 15px 16px;
+      padding: 15px 40px 15px 16px;
       border: 1px solid rgba(242, 234, 225, 0.18);
       border-radius: 6px;
       font-size: 0.95rem;
       font-family: var(--font-sans);
-      color: rgba(242, 234, 225, 0.7);
-      background: rgba(242, 234, 225, 0.08);
-      text-align: left;
+      color: var(--color-crema);
+      background:
+        url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23F2EAE1' stroke-opacity='0.6' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center,
+        rgba(242, 234, 225, 0.08);
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      transition: border-color 0.2s, background-color 0.2s;
     }
-    .contacto .custom-select-label,
-    .contacto .custom-select-caret {
-      color: inherit;
+    .contacto .form-group select:invalid {
+      color: rgba(242, 234, 225, 0.6);
     }
-    .contacto .custom-select-trigger.selected { color: var(--color-crema); }
-    .contacto .custom-select-menu {
-      display: none;
-      position: absolute;
-      top: calc(100% + 4px);
-      left: 0; right: 0;
+    .contacto .form-group select:focus {
+      border-color: #C9C2F1;
+      background-color: rgba(242, 234, 225, 0.11);
+    }
+    .contacto .form-group select:focus-visible {
+      outline: 2px solid var(--color-violeta);
+      outline-offset: 2px;
+    }
+    .contacto .form-group select option {
       background: #2E2926;
-      border: 1px solid rgba(242, 234, 225, 0.18);
-      border-radius: 6px;
-      list-style: none;
-      margin: 0; padding: 6px 0;
-      z-index: 80;
-      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.32);
-    }
-    .contacto .custom-select.open .custom-select-menu {
-      display: block;
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-    }
-    .contacto .custom-select-menu li {
-      padding: 10px 14px;
-      font-size: 0.93rem;
-      cursor: pointer;
       color: var(--color-crema);
     }
-    .contacto .custom-select-menu li:hover { background: rgba(242, 234, 225, 0.08); }
 
     .contacto .eyebrow,
     .servicios .eyebrow {

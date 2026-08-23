@@ -3,6 +3,7 @@
   --color-crema-claro:  #FAF6F2;
   --color-negro:        #1A1A1A;
   --color-violeta:      #8B7FD4;
+  --color-violeta-texto:#6151C5; /* variante oscura de --color-violeta para texto sobre fondos claros (WCAG AA) */
   --color-violeta-suave:#EAE7F8;
   --color-gris:         #6B6560;
   --color-borde:        #E0D8CE;

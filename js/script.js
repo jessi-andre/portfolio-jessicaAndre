@@ -406,59 +406,6 @@ window.addEventListener('resize', () => {
   });
 });
 
-// -------------------------
-// CUSTOM SELECT CONTACTO
-// -------------------------
-
-const customSelect = document.querySelector(".custom-select");
-
-if (customSelect) {
-  const trigger = customSelect.querySelector(".custom-select-trigger");
-  const label   = customSelect.querySelector(".custom-select-label");
-  const menu    = customSelect.querySelector(".custom-select-menu");
-  const items   = menu.querySelectorAll("li");
-  const hidden  = customSelect.querySelector("input[type='hidden']");
-
-  // abrir / cerrar al hacer clic en el "pill"
-  trigger.addEventListener("click", () => {
-    customSelect.classList.toggle("open");
-    trigger.setAttribute("aria-expanded", String(customSelect.classList.contains("open")));
-  });
-
-  // elegir opción
-  items.forEach((item) => {
-    item.addEventListener("click", () => {
-      items.forEach((i) => i.classList.remove("selected"));
-      item.classList.add("selected");
-
-      label.textContent = item.textContent;
-      hidden.value = item.dataset.value || "";
-      trigger.classList.add("selected");
-
-      customSelect.classList.remove("open");
-      trigger.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  // cerrar al clickear afuera o presionar Escape/Tab
-  document.addEventListener("click", (e) => {
-    if (!customSelect.contains(e.target)) {
-      customSelect.classList.remove("open");
-      trigger.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (!customSelect.classList.contains("open")) return;
-    if (e.key === "Escape" || e.key === "Tab") {
-      customSelect.classList.remove("open");
-      trigger.setAttribute("aria-expanded", "false");
-      if (e.key === "Escape") trigger.focus();
-    }
-  });
-
-}
-
 // Simple carousel para `.content-card-image` que contengan múltiples `<img>`
 document.addEventListener('DOMContentLoaded', () => {
   const galleries = document.querySelectorAll('.content-gallery .content-card-image');
