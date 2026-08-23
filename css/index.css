@@ -334,7 +334,7 @@
       .hero { padding: 0; }
       .hero-copy { padding: 48px 24px 42px; }
       .hero h1 { font-size: 3.8rem; }
-      .hero-actions { flex-direction: column; align-items: stretch; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 16px; }
     }
 
     /* ══════════════════════════════════════
@@ -1489,6 +1489,16 @@
         font-size: 0.95rem;
         line-height: 1.65;
         margin-top: 22px;
+      }
+      .hero-actions .btn-primary {
+        width: 100%;
+        white-space: nowrap;
+      }
+      .hero .btn-outline {
+        padding: 10px 22px;
+        min-height: 44px;
+        border-color: rgba(242, 234, 225, 0.2);
+        color: rgba(242, 234, 225, 0.62);
       }
       .hero-proof {
         padding: 24px;
