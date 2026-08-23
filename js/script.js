@@ -79,10 +79,9 @@ if (window.netlifyIdentity) {
   });
 }
 
-// INTERACCIONES MODERNAS: CURSOR, PROGRESO Y REVEAL
+// INTERACCIONES MODERNAS: PROGRESO Y REVEAL
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const finePointer = window.matchMedia('(pointer: fine)').matches;
 
   const cleanUrl = () => {
     if (history.replaceState) {
@@ -141,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateScrollUi();
   window.addEventListener('scroll', updateScrollUi, { passive: true });
 
-  const revealTargets = document.querySelectorAll('section, .servicio-card, .experiencia-card, .testimonio-card, .content-block, .content-card, .webs-block');
+  const revealTargets = document.querySelectorAll('.servicio-card, .experiencia-card, .testimonio-card, .content-block, .content-card, .webs-block');
   if (!reduceMotion && 'IntersectionObserver' in window) {
     revealTargets.forEach((target) => target.classList.add('reveal-in'));
     const revealObserver = new IntersectionObserver((entries) => {
@@ -155,43 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach((target) => revealObserver.observe(target));
   } else {
     revealTargets.forEach((target) => target.classList.add('is-visible'));
-  }
-
-  if (!reduceMotion && finePointer && window.innerWidth >= 900) {
-    const dot = document.createElement('div');
-    const ring = document.createElement('div');
-    dot.className = 'cursor-dot';
-    ring.className = 'cursor-ring';
-    document.body.append(dot, ring);
-    document.body.classList.add('has-custom-cursor');
-
-    let mouseX = window.innerWidth / 2;
-    let mouseY = window.innerHeight / 2;
-    let ringX = mouseX;
-    let ringY = mouseY;
-
-    window.addEventListener('mousemove', (event) => {
-      mouseX = event.clientX;
-      mouseY = event.clientY;
-      dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-      document.body.classList.add('cursor-ready');
-    }, { passive: true });
-
-    const animateCursor = () => {
-      ringX += (mouseX - ringX) * 0.16;
-      ringY += (mouseY - ringY) * 0.16;
-      ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-      requestAnimationFrame(animateCursor);
-    };
-    animateCursor();
-
-    document.querySelectorAll('a, button, input, textarea, select, .custom-select-trigger').forEach((item) => {
-      item.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
-      item.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
-    });
-
-    window.addEventListener('mouseleave', () => document.body.classList.remove('cursor-ready'));
-    window.addEventListener('mouseenter', () => document.body.classList.add('cursor-ready'));
   }
 });
 
