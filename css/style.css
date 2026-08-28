@@ -864,7 +864,7 @@ section[id] {
   color: var(--color-texto-suave);
 }
 
-.contact-form input,
+.contact-form input:not(.visually-hidden),
 .contact-form select,
 .contact-form textarea {
   width: 100%;
@@ -876,7 +876,7 @@ section[id] {
   background-color: #f7efe7;
 }
 
-.contact-form input,
+.contact-form input:not(.visually-hidden),
 .contact-form select {
   border-radius: 999px;
   padding: 13px 22px;
