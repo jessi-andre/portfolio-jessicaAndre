@@ -585,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submitToHubSpot(formData).catch((error) => {
           console.error('HubSpot form submission failed:', error);
         });
-        form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, podés escribirme por WhatsApp si necesitás respuesta urgente.</small></div>';
+        form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, puedes escribirme por WhatsApp si necesitas respuesta urgente.</small></div>';
         form.querySelector('.form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         if (typeof window.gtag === 'function') {
@@ -594,7 +594,7 @@ document.addEventListener('DOMContentLoaded', () => {
         form.dataset.submitting = 'false';
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
-        alert('Hubo un error al enviar. Intentá de nuevo o escribime por WhatsApp.');
+        alert('Hubo un error al enviar. Intenta de nuevo o escríbeme por WhatsApp.');
       }
     } catch {
       if (typeof window.gtag === 'function') {
@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', () => {
       form.dataset.submitting = 'false';
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
-      alert('Sin conexión. Intentá de nuevo.');
+      alert('Sin conexión. Intenta de nuevo.');
     }
   });
 });
