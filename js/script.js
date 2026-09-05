@@ -874,3 +874,33 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
   });
 });
+
+// RESEÑAS (home): se ven de a poco, no las 4 juntas — en desktop se
+// alternan de a PARES (.resena-pair), en mobile de a UNA (.resena-card).
+// El CSS scopea cada toggle a su breakpoint, así que ambos ciclos
+// pueden correr a la vez sin pisarse.
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.resenas-grid');
+  if (!grid) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) return;
+
+  const cycle = (selector, intervalMs) => {
+    const items = Array.from(grid.querySelectorAll(selector));
+    if (items.length < 2) return;
+    let index = items.findIndex((el) => el.classList.contains('is-active'));
+    if (index === -1) {
+      index = 0;
+      items[0].classList.add('is-active');
+    }
+    window.setInterval(() => {
+      items[index].classList.remove('is-active');
+      index = (index + 1) % items.length;
+      items[index].classList.add('is-active');
+    }, intervalMs);
+  };
+
+  cycle('.resena-pair', 5000);
+  cycle('.resena-card', 4500);
+});

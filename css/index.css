@@ -722,13 +722,30 @@
       margin: 0;
     }
     .resenas-grid {
-      max-width: 1080px;
+      max-width: 900px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      position: relative;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
       padding-top: 40px;
+    }
+    /* Desktop: se ve un par a la vez (no las 4 juntas) — el par activo
+       define la altura, el otro queda superpuesto e invisible, y se
+       van alternando solos. */
+    .resena-pair {
+      position: absolute;
+      inset: 40px 0 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 56px;
+    }
+    .resena-pair.is-active {
+      position: relative;
+      inset: auto;
+      opacity: 1;
+      pointer-events: auto;
     }
     .resena-card {
       display: flex;
@@ -774,8 +791,39 @@
       font-size: 0.76rem;
       color: rgba(242, 241, 239, 0.6);
     }
+    /* Mobile: en vez de apilar las 4 reseñas (mucho scroll), se ven de
+       a una — la activa se desvanece y entra la siguiente sola, en
+       loop. El contenedor toma la altura de la reseña más alta para
+       que no salte al cambiar. */
     @media (max-width: 860px) {
-      .resenas-grid { grid-template-columns: 1fr; gap: 36px; }
+      .resenas-grid {
+        display: block;
+        position: relative;
+      }
+      /* En mobile los pares se "desarman" (display:contents): las 4
+         tarjetas pasan a ser hijas directas de .resenas-grid y se
+         alternan de a una (no de a dos). */
+      .resena-pair {
+        display: contents;
+      }
+      /* !important: [data-reveal].is-revealable.is-animating (style.css)
+         tiene más especificidad y fuerza opacity:1 una vez que el scroll-
+         reveal ya animó la tarjeta — sin esto, las 4 reseñas quedarían
+         visibles a la vez en vez de alternarse. */
+      .resena-card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        opacity: 0 !important;
+        pointer-events: none;
+        transition: opacity 0.8s ease;
+      }
+      .resena-card.is-active {
+        position: relative;
+        opacity: 1 !important;
+        pointer-events: auto;
+      }
     }
 
     /* ══════════════════════════════════════
