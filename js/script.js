@@ -559,7 +559,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const saludoNombre = primerNombre ? `, ${escapeHtml(primerNombre)}` : '';
 
         form.innerHTML = isReserva
-          ? `<div class="form-success"><p>Listo, recibí tus datos 🙌</p><small>Nos vemos en la llamada${saludoNombre}.</small></div>`
+          ? `<div class="form-success"><p>Listo, recibí tus datos 🙌</p><small>Nos vemos en la llamada${saludoNombre}.</small><a href="index.html" class="form-success-link">Volver al inicio →</a></div>`
           : '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, puedes escribirme por WhatsApp si necesitas respuesta urgente.</small></div>';
         form.querySelector('.form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {

@@ -263,6 +263,18 @@
     .reserva-form .form-success small {
       color: rgba(242, 241, 239, 0.5);
     }
+    .reserva-form .form-success-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--color-violeta);
+      font-family: var(--font-display, 'Inter', sans-serif);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .reserva-form .form-success-link:hover {
+      text-decoration: underline;
+    }
 
     /* Paso 1: calendario (primero, para ver disponibilidad al toque) */
     .reserva-calendario {
@@ -409,7 +421,7 @@
     </div>
   </footer>
 
-  <script src="js/script.js?v=20260904bd"></script>
+  <script src="js/script.js?v=20260904bj"></script>
 
   <!-- El envío del formulario lo maneja el handler compartido de .contact-form en js/script.js
        (Formspree + HubSpot + eventos de conversión). Acá solo resolvemos el widget de Cal.com. -->
