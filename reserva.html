@@ -142,7 +142,7 @@
       letter-spacing: 0.03em;
       text-transform: none;
     }
-    #reservaForm input:not(.visually-hidden),
+    #reservaForm input:not(.visually-hidden):not([type="radio"]),
     #reservaForm select,
     #reservaForm textarea {
       width: 100%;
@@ -220,10 +220,24 @@
       transition: border-color 0.2s, background 0.2s, color 0.2s;
     }
     .reserva-radio-group input {
+      /* Sin esto, Safari/iOS a veces dibuja el radio nativo con su
+         tamaño propio (más grande) ignorando width/height, y termina
+         pisando el texto de al lado. Se resetea y se dibuja a mano. */
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
       width: 12px;
       height: 12px;
       margin: 0;
-      accent-color: var(--color-violeta);
+      flex: 0 0 auto;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: 50%;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .reserva-radio-group input:checked {
+      border-color: var(--color-violeta);
+      background-color: var(--color-violeta);
     }
     .reserva-radio-group label:has(input:checked) {
       border-color: var(--color-violeta);
