@@ -7,19 +7,19 @@
 
   <title>Contenido & Social Media · Forma & Fondo</title>
   <meta name="description"
-    content="Gestión de redes sociales y contenido estratégico en Chile. Reels, posts y planificación para comunicar con claridad, coherencia y constancia.">
+    content="Gestión de redes sociales y contenido estratégico en Chile. Piezas reales de clientes: estrategia, copy y diseño para comunicar con claridad y coherencia.">
 
   <link rel="canonical" href="https://formayfondoestudio.com/contenido.html" />
   <link rel="icon" type="image/png" href="img/icon2.png" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contenido &amp; Social Media · Forma &amp; Fondo" />
-  <meta property="og:description" content="Gestión de redes sociales y contenido estratégico en Chile. Reels, posts y planificación para comunicar con claridad, coherencia y constancia." />
+  <meta property="og:description" content="Gestión de redes sociales y contenido estratégico en Chile. Piezas reales de clientes: estrategia, copy y diseño para comunicar con claridad y coherencia." />
   <meta property="og:url" content="https://formayfondoestudio.com/contenido.html" />
   <meta property="og:image" content="https://formayfondoestudio.com/img/og-forma-fondo.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contenido &amp; Social Media · Forma &amp; Fondo" />
-  <meta name="twitter:description" content="Gestión de redes sociales y contenido estratégico en Chile. Reels, posts y planificación para comunicar con claridad, coherencia y constancia." />
+  <meta name="twitter:description" content="Gestión de redes sociales y contenido estratégico en Chile. Piezas reales de clientes: estrategia, copy y diseño para comunicar con claridad y coherencia." />
   <meta name="twitter:image" content="https://formayfondoestudio.com/img/og-forma-fondo.png" />
 
   <script type="application/ld+json">
@@ -31,7 +31,7 @@
         "@id": "https://formayfondoestudio.com/contenido.html#webpage",
         "url": "https://formayfondoestudio.com/contenido.html",
         "name": "Contenido & Social Media · Forma & Fondo",
-        "description": "Gestión de redes sociales y contenido estratégico en Chile. Reels, posts y planificación para comunicar con claridad, coherencia y constancia.",
+        "description": "Gestión de redes sociales y contenido estratégico en Chile. Piezas reales de clientes: estrategia, copy y diseño para comunicar con claridad y coherencia.",
         "isPartOf": {
           "@id": "https://formayfondoestudio.com/#website"
         },
@@ -46,7 +46,7 @@
         "@type": "Service",
         "@id": "https://formayfondoestudio.com/contenido.html#service",
         "name": "Contenido y Social Media",
-        "description": "Community management y creación de contenido visual con planificación estratégica, reels, posts, calendarios y copywriting para sostener una presencia digital ordenada y coherente.",
+        "description": "Community management y creación de contenido visual con planificación estratégica, copy y piezas gráficas para sostener una presencia digital ordenada y coherente.",
         "url": "https://formayfondoestudio.com/contenido.html",
         "provider": {
           "@id": "https://formayfondoestudio.com/#business"
@@ -59,452 +59,326 @@
 
   <!-- Google Analytics: se carga solo tras aceptar cookies (ver js/script.js) -->
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
-
-  <link rel="stylesheet" href="css/style.css?v=20260904bi" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260904bi">
+  <link rel="stylesheet" href="css/index.css?v=20260905j">
 
   <style>
-    /* ── BRAND ── */
-    .brand {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--color-crema);
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .brand-accent { color: var(--color-violeta); }
+    /* Misma estética oscura del resto del sitio (body.home ya trae
+       fondo #0b0b0b + tipografía Space Grotesk/Inter), acá solo lo
+       propio de esta página: intro + portfolio de 3 proyectos. */
 
-    /* ── HEADER ── */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: var(--color-crema);
+    .contenido-hero {
+      padding: clamp(56px, 8vw, 96px) 24px clamp(40px, 6vw, 64px);
+      text-align: center;
     }
-    .header-inner {
-      max-width: none;
+    .contenido-hero-inner {
+      max-width: 640px;
       margin: 0 auto;
-      padding: 0 16px 0 46px;
-      height: 44px;
-      display: flex;
+    }
+    .contenido-hero .eyebrow {
+      text-align: center;
+    }
+    .contenido-hero h1 {
+      font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.2;
+      color: #F2F1EF;
+      margin: 0 0 18px;
+    }
+    .contenido-hero p {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(242, 241, 239, 0.6);
+      margin: 0;
+    }
+
+    /* ══ PROYECTOS ══ */
+    .proyectos {
+      padding: clamp(24px, 4vw, 40px) 24px clamp(72px, 9vw, 108px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .proyectos-list {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .proyecto-row {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.2fr);
+      gap: clamp(32px, 5vw, 64px);
       align-items: center;
-      justify-content: space-between;
-      background: #2E2926;
-      border: 1px solid rgba(242, 234, 225, 0.14);
-      border-bottom: 0;
-      position: relative;
+      padding: clamp(40px, 5vw, 56px) 0;
     }
-    .header-inner::before {
-      content: '';
-      width: 24px;
-      height: 5px;
-      border-radius: 999px;
-      background:
-        radial-gradient(circle at 2.5px 50%, rgba(242,234,225,0.46) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 12px 50%, rgba(242,234,225,0.34) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 21.5px 50%, rgba(242,234,225,0.28) 0 2px, transparent 2.5px);
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
+    .proyecto-row + .proyecto-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .main-nav { display: flex; align-items: center; gap: 18px; margin-left: auto; }
-    .main-nav a { font-size: 0.68rem; color: rgba(242,234,225,0.68); text-decoration: none; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s; }
-    .main-nav a:hover { color: var(--color-crema); text-decoration: none; }
-    .nav-cta {
+    .proyecto-info h3 {
+      font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+      font-weight: 500;
+      color: #F2F1EF;
+      margin: 0 0 12px;
+      line-height: 1.25;
+    }
+    .proyecto-info p {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      color: rgba(242, 241, 239, 0.6);
+      margin: 0 0 18px;
+      max-width: 34ch;
+    }
+    .proyecto-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .proyecto-tags li {
+      font-family: var(--font-display, 'Inter', sans-serif);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(242, 241, 239, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 2px;
+      padding: 5px 10px;
+    }
+    .proyecto-ig {
+      display: block;
+      font-family: var(--font-display, 'Inter', sans-serif);
+      font-size: 0.78rem;
+      color: rgba(242, 241, 239, 0.4);
+      margin-top: 18px;
+    }
+    .proyecto-piezas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .proyecto-piezas img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      display: block;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 2px;
+      transition: transform 0.4s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .proyecto-piezas img:hover {
+        transform: translateY(-3px);
+      }
+    }
+    @media (max-width: 760px) {
+      .proyecto-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 32px 0;
+      }
+      .proyecto-piezas { order: -1; }
+      .proyecto-info p { max-width: 100%; }
+    }
+    @media (max-width: 420px) {
+      .proyecto-piezas { gap: 8px; }
+    }
+
+    /* ══ RESEÑAS: 2 en vez de 3, se recentran ══ */
+    .resenas-contenido .resenas-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 760px;
+    }
+    @media (max-width: 760px) {
+      .resenas-contenido .resenas-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ══ CIERRE ══ */
+    .contenido-volver {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      background-color: transparent;
-      color: var(--color-crema) !important;
-      padding: 7px 13px;
-      border: 1px solid var(--color-violeta);
-      border-radius: 6px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      text-decoration: none;
-      line-height: 1;
-      transition: border-color 0.25s ease, color 0.25s ease, transform 0.2s ease;
-    }
-    .nav-cta::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: var(--color-violeta);
-      transform: translateX(-101%);
-      transition: transform 0.32s ease;
-    }
-    .nav-cta:hover {
-      border-color: var(--color-violeta);
-      color: #ffffff !important;
-      transform: translateY(-1px);
-    }
-    .nav-cta:hover::before {
-      transform: translateX(0);
-    }
-    .nav-toggle { display: none; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--color-crema); }
-    @media (max-width: 640px) {
-      .header-inner { padding: 0 16px; }
-      .main-nav {
-        position: static;
-        width: auto;
-        justify-content: flex-end;
-      }
-      .nav-toggle {
-        display: block !important;
-        margin-left: auto;
-      }
-      .nav-list { display: none !important; }
-      .nav-list.open,
-      .nav-list.nav-open {
-        display: flex !important;
-        flex-direction: column;
-        position: absolute;
-        top: calc(100% + 8px);
-        right: 16px;
-        left: auto;
-        width: auto;
-        min-width: 180px;
-        background: #2E2926;
-        border: 1px solid rgba(242,234,225,0.14);
-        border-radius: 14px;
-        padding: 12px 20px 16px;
-        gap: 14px;
-        z-index: 9999;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.30);
-      }
-    }
-
-    /* ── GRILLA DE PIEZAS (2 por fila, sin columna vacía) ── */
-    .content-gallery {
-      grid-template-columns: repeat(auto-fit, 280px);
-    }
-
-    /* ── CTA POR TAB ── */
-    .tab-cta {
-      margin-top: 20px;
-    }
-
-    /* ── PRUEBA SOCIAL ── */
-    .social-proof {
-      max-width: 700px;
-      margin: 70px auto 0;
-      text-align: center;
-      padding: 40px 32px;
-      background: var(--color-crema-claro);
-      border: 1px solid var(--color-borde);
-      border-radius: 16px;
-    }
-    .social-proof blockquote {
-      margin: 0 0 16px;
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: clamp(1.15rem, 2vw, 1.4rem);
-      line-height: 1.45;
-      color: var(--color-texto);
-    }
-    .social-proof cite {
-      display: block;
-      font-style: normal;
+      gap: 8px;
+      margin-top: 22px;
+      color: rgba(242, 241, 239, 0.5);
+      font-family: var(--font-display, 'Inter', sans-serif);
       font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--color-texto-suave);
+      text-decoration: none;
+      transition: color 0.2s;
     }
-
-    /* ── CIERRE ── */
-    .cierre-final {
-      margin-top: 60px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+    .contenido-volver:hover {
+      color: #F2F1EF;
+      text-decoration: none;
     }
-
-    /* ── FOOTER ── */
-    .site-footer { background-color: var(--color-negro); padding: 48px 24px; }
-    .footer-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
-    .footer-brand { font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 600; color: #fff; }
-    .footer-brand-accent { color: var(--color-violeta); }
-    .footer-copy { font-size: 0.8rem; color: #888; margin-top: 4px; }
-    .footer-nav { display: flex; gap: 24px; }
-    .footer-nav a { font-size: 0.9rem; color: #aaa; text-decoration: none; }
-    .footer-nav a:hover { color: #fff; text-decoration: none; }
-    .footer-ig { font-size: 0.9rem; color: #aaa; text-decoration: none; }
-    .footer-ig:hover { color: #fff; text-decoration: none; }
-    @media (max-width: 640px) {
-      .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+    .contenido-volver svg { transition: transform 0.2s ease; }
+    @media (hover: hover) and (pointer: fine) {
+      .contenido-volver:hover svg { transform: translateX(-3px); }
     }
   </style>
 
 </head>
 
-<body data-ga="G-3SGTNT1XM7" data-hubspot="51900546">
+<body class="home" data-ga="G-3SGTNT1XM7" data-hubspot="51900546">
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
+
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html#inicio" class="brand">
-        Forma <span class="brand-accent">&amp; Fondo</span>
-      </a>
       <nav class="main-nav">
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="index.html#servicios">Servicios</a></li>
-          <li><a href="index.html#trabajo">Trabajo</a></li>
-          <li><a href="reserva.html" class="nav-cta">Agendar</a></li>
+          <li><a href="index.html#trabajo">Trabajos</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="section">
-      <div class="container">
 
-        <!-- HERO -->
-        <header class="section-header section-header--center">
-          <h1>Tu voz en redes, con estrategia y contenido que conecta</h1>
-          <p class="section-intro">
-            Community management y creación de contenido visual que trabajan juntos: desde la planificación estratégica hasta reels, posts y copys que sostienen tu presencia digital con orden, estética y coherencia. Todo lo que necesitas para comunicar tu marca sin vivir pegado a las redes.
-          </p>
-        </header>
+    <!-- ══ INTRO ══ -->
+    <section class="contenido-hero">
+      <div class="contenido-hero-inner">
+        <span class="eyebrow">Contenido / CM</span>
+        <h1>Tu voz en redes, con estrategia y contenido que conecta</h1>
+        <p>
+          Community management y creación de contenido visual que trabajan juntos:
+          desde la planificación estratégica hasta el copy y las piezas que sostienen
+          tu presencia digital con orden, estética y coherencia.
+        </p>
+      </div>
+    </section>
 
-        <!-- TABS -->
-        <div class="tab-list" role="tablist">
-          <button class="tab-button active" id="tab-reels" data-tab-target="#reels-panel" role="tab" aria-selected="true" aria-controls="reels-panel">Reels</button>
-          <button class="tab-button" id="tab-fotos" data-tab-target="#fotos-panel" role="tab" aria-selected="false" aria-controls="fotos-panel">Fotos</button>
-          <button class="tab-button" id="tab-estrategia" data-tab-target="#estrategia-panel" role="tab" aria-selected="false" aria-controls="estrategia-panel">Estrategia</button>
-        </div>
+    <!-- ══ PROYECTOS ══ -->
+    <section class="proyectos" id="proyectos">
+      <div class="proyectos-list">
 
-        <!-- PANEL REELS -->
-        <div id="reels-panel" class="tab-panel active" role="tabpanel" aria-labelledby="tab-reels">
-          <div class="tab-layout">
-            <div class="tab-copy">
-              <h3>Reels</h3>
-              <p>
-                Piezas audiovisuales creadas para captar atención inmediata, transmitir la personalidad de una marca y sostener una estética coherente. Desde presentar los elementos de un branding completo, hasta explicar conceptos educativos con recursos visuales atractivos, o mostrar productos de manera dinámica.
-              </p>
-              <ul class="bullet-list">
-                <li>Contenido pensado desde la estrategia</li>
-                <li>Edición cuidada: ritmo, texto y encuadres</li>
-                <li>Ideal para lanzamientos, procesos creativos y storytelling visual</li>
-              </ul>
-              <a href="reserva.html" class="btn btn-primary btn-web tab-cta">Agendar una llamada</a>
-            </div>
-
-            <div class="tab-grid">
-              <article class="work-card" data-reveal>
-                <div class="work-card-image">
-                  <video class="work-card-video" src="video/optimized/reel-1-720p.mp4" poster="img/poster-reel-1.jpg" controls playsinline preload="metadata" muted loop autoplay></video>
-                </div>
-                <h4>Presentación de branding</h4>
-                <p>Reel explicativo mostrando la identidad visual completa de una marca.</p>
-              </article>
-
-              <article class="work-card" data-reveal>
-                <div class="work-card-image">
-                  <video class="work-card-video" src="video/optimized/reel2-720p.mp4" poster="img/poster-reel-2.jpg" controls playsinline preload="metadata" muted loop autoplay></video>
-                </div>
-                <h4>Contenido educativo</h4>
-                <p>Explicación de conceptos complejos de manera visual y atractiva.</p>
-              </article>
-
-              <article class="work-card" data-reveal>
-                <div class="work-card-image">
-                  <video class="work-card-video" src="video/optimized/reel3-720p.mp4" poster="img/poster-reel-3.jpg" controls playsinline preload="metadata" muted loop autoplay></video>
-                </div>
-                <h4>Producto lifestyle</h4>
-                <p>Presentación dinámica de productos en contextos reales.</p>
-              </article>
-            </div>
+        <article class="proyecto-row" id="apr" data-reveal>
+          <div class="proyecto-info">
+            <h3>APR Grupo Abogados</h3>
+            <p>Comunicación legal clara para transformar temas complejos en contenido entendible y útil.</p>
+            <ul class="proyecto-tags">
+              <li>Estrategia</li>
+              <li>Copy</li>
+              <li>Diseño</li>
+            </ul>
+            <span class="proyecto-ig">@aprgrupoabogados</span>
           </div>
-        </div>
-
-        <!-- PANEL FOTOS -->
-        <div id="fotos-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-fotos">
-          <div class="tab-layout">
-            <div class="tab-copy">
-              <h3>Contenido fotográfico</h3>
-              <p>
-                Sesiones fotográficas pensadas para comunicar personalidad y estilo. Desde retratos naturales hasta contenido lifestyle y producto, cada imagen está construida con luz cuidada, colores coherentes y una narrativa visual clara.
-              </p>
-              <ul class="bullet-list">
-                <li>Iluminación y composición profesional</li>
-                <li>Estilo coherente con la marca</li>
-                <li>Optimizado para redes sociales</li>
-              </ul>
-              <a href="reserva.html" class="btn btn-primary btn-web tab-cta">Agendar una llamada</a>
-            </div>
-
-            <div class="tab-grid">
-              <div class="photo-grid-wrapper">
-                <div class="photo-grid">
-                  <img src="img/optimized/photo-content-1.webp" alt="Primera imagen de sesión fotográfica, enfoque en expresión y pose" loading="lazy">
-                  <img src="img/optimized/photo-content-4.webp" alt="Cuarta fotografía de la sesión, composición alternativa" loading="lazy">
-                  <img src="img/optimized/photo-content-6.webp" alt="Sexta imagen de contenido fotográfico, estilo editorial" loading="lazy">
-                  <img src="img/optimized/photo-content-7.webp" alt="Séptima toma fotográfica, retrato con fondo texturizado" loading="lazy">
-                  <img src="img/optimized/photo-content-marce.webp" alt="Sesión fotográfica de Marce, retrato profesional con iluminación de estudio" loading="lazy">
-                  <img src="img/optimized/photo-content-marce3.webp" alt="Tercera fotografía de la sesión de Marce, enfoque en detalles" loading="lazy">
-                  <img src="img/optimized/photo-content-marce4.webp" alt="Última toma de Marce, retrato completo con fondo limpio" loading="lazy">
-                  <img src="img/optimized/juliLedesma2.webp" alt="Fotografía de retrato de Juli Ledesma con iluminación natural y composición cuidada" loading="lazy">
-                  <img src="img/optimized/juliLedesma4.webp" alt="Retrato artístico de Juli Ledesma con fondo neutro y luz lateral" loading="lazy">
-                  <img src="img/optimized/juliLedesma7.webp" alt="Última toma de la sesión fotográfica de Juli Ledesma, retrato completo" loading="lazy">
-                </div>
-                <div class="photo-grid-overlay">
-                  <button class="btn-photo-expand">Ver todas las fotos</button>
-                </div>
-              </div>
-            </div>
+          <div class="proyecto-piezas">
+            <img src="img/optimized/contenido/contenidoApr.webp" alt="Pieza de APR Grupo Abogados: &quot;Todos heredaron, pero no todos quieren hacer lo mismo con la casa&quot;, con foto de una firma de documentos" loading="lazy" width="700" height="940">
+            <img src="img/optimized/contenido/contenidoApr1.webp" alt="Pieza de APR Grupo Abogados: &quot;¿Tu herencia lleva meses trabada? Ojo con esto&quot;, con foto de manos firmando un documento" loading="lazy" width="700" height="940">
+            <img src="img/optimized/contenido/contenidoApr2.webp" alt="Pieza de APR Grupo Abogados: &quot;Murió sin testamento, ¿y ahora qué pasa con sus bienes?&quot;" loading="lazy" width="700" height="940">
           </div>
-        </div>
+        </article>
 
-        <!-- PANEL ESTRATEGIA -->
-        <div id="estrategia-panel" class="tab-panel" role="tabpanel" aria-labelledby="tab-estrategia">
-          <div class="tab-layout">
-            <div class="tab-copy">
-              <h3>Estrategia de contenido</h3>
-              <p>
-                Planificación estratégica que va más allá de las publicaciones individuales. Desarrollo de calendarios de contenido, definición de pilares temáticos, análisis de audiencias y métricas que guían cada decisión.
-              </p>
-              <ul class="bullet-list">
-                <li>Calendario editorial mensual</li>
-                <li>Análisis de rendimiento y optimización</li>
-                <li>Alineación con objetivos de negocio</li>
-              </ul>
-              <p class="tab-note">
-                La estrategia es la base que sostiene todo el contenido. Sin ella, las publicaciones pierden coherencia y los resultados se diluyen.
-              </p>
-              <a href="reserva.html" class="btn btn-primary btn-web tab-cta">Agendar una llamada</a>
-            </div>
-
-            <div class="tab-grid">
-              <article class="work-card" data-reveal>
-                <h4>Calendario de contenido</h4>
-                <p>Planificación mensual con temas, formatos y fechas específicas para mantener consistencia.</p>
-              </article>
-
-              <article class="work-card" data-reveal>
-                <h4>Análisis de métricas</h4>
-                <p>Seguimiento de engagement, reach y conversiones para optimizar la estrategia continuamente.</p>
-              </article>
-
-              <article class="work-card" data-reveal>
-                <h4>Pilares temáticos</h4>
-                <p>Definición de temas centrales que estructuran la narrativa de la marca a largo plazo.</p>
-              </article>
-            </div>
+        <article class="proyecto-row" id="nicolas-kings" data-reveal>
+          <div class="proyecto-info">
+            <h3>Nicolás Kings</h3>
+            <p>Guiones de reels pensados para atraer leads y convertir ideas comerciales en contenido más directo.</p>
+            <ul class="proyecto-tags">
+              <li>Guiones</li>
+              <li>Grabación</li>
+              <li>Copy</li>
+            </ul>
+            <span class="proyecto-ig">@nicokingss</span>
           </div>
-        </div>
-        </section>
-
-        <!-- BLOQUE 3 · PIEZAS ESTÁTICAS (cards normales) -->
-        <section class="content-block" data-reveal>
-          <div class="content-block-text">
-            <h3>Piezas estáticas &amp; carruseles</h3>
-            <p>
-              Contenido estático desarrollado con lógica visual y enfoque editorial.
-              Diseños que organizan información, guían la lectura y transmiten mensajes con claridad.
-              Ideales para marcas que buscan comunicar valor, educar o presentar sus servicios de forma efectiva.
-            </p>
+          <div class="proyecto-piezas">
+            <img src="img/optimized/contenido/contenidoNicolas.webp" alt="Pieza de contenido para Nicolás Kings" loading="lazy" width="700" height="1105">
+            <img src="img/optimized/contenido/contenidoNicolas1.webp" alt="Pieza de contenido para Nicolás Kings" loading="lazy" width="700" height="1098">
+            <img src="img/optimized/contenido/contenidoNicolas2.webp" alt="Pieza de contenido para Nicolás Kings" loading="lazy" width="700" height="1101">
           </div>
+        </article>
 
-          <div class="content-gallery">
-            <article class="content-card" data-reveal>
-              <div class="content-card-image">
-                <img src="img/optimized/1.webp" alt="Carrusel educativo diseñado en Canva mostrando contenido interactivo" loading="lazy">
-                <img src="img/optimized/2.webp" alt="Diseño alternativo de carrusel en Canva con elementos visuales atractivos" loading="lazy">
-                <img src="img/optimized/3.webp" alt="Segunda alternativa de carrusel educativo en plataforma Canva" loading="lazy">
-              </div>
-              <p class="content-card-instagram">
-                <a href="https://www.instagram.com/p/CvGCwcLr8vP/?img_index=1" target="_blank" rel="noopener noreferrer">
-                  Instagram: @pulso_de_vida
-                </a>
-              </p>
-            </article>
-
-            <article class="content-card" data-reveal>
-              <div class="content-card-image">
-                <img src="img/optimized/elSonidoDelCuerpo.webp" alt="Piezas estáticas diseñadas en Figma para proyecto 'El sonido del cuerpo'" loading="lazy">
-                <img src="img/optimized/elSonidoDelCuerpo2.webp" alt="Mockup alternativo del proyecto 'El sonido del cuerpo' en Figma" loading="lazy">
-                <img src="img/optimized/elSonidoDelCuerpo3.webp" alt="Tercera variante de diseño para 'El sonido del cuerpo'" loading="lazy">
-                <img src="img/optimized/elSonidoDelCuerpo4.webp" alt="Cuarta iteración del diseño estático en Figma" loading="lazy">
-                <img src="img/optimized/elSonidoDelCuerpo5.webp" alt="Quinta versión del mockup para proyecto artístico" loading="lazy">
-              </div>
-              <p class="content-card-instagram">
-                <a href="https://www.instagram.com/p/C7PWvQDuPya/?img_index=1" target="_blank" rel="noopener noreferrer">
-                  Instagram: @nhaisha_renacer
-                </a>
-              </p>
-            </article>
+        <article class="proyecto-row" id="yoga-luz-dorada" data-reveal>
+          <div class="proyecto-info">
+            <h3>Yoga Luz Dorada</h3>
+            <p>Contenido pensado para construir comunidad, explicar sus prácticas y comunicar bienestar con más claridad.</p>
+            <ul class="proyecto-tags">
+              <li>Estrategia</li>
+              <li>Guiones</li>
+              <li>Diseño</li>
+            </ul>
+            <span class="proyecto-ig">@yogaluzdorada</span>
           </div>
-
-          <div class="content-gallery" style="margin-top: 80px;">
-            <article class="content-card content-card-static" data-reveal>
-              <a href="https://www.instagram.com/p/C87aevcusHw/" target="_blank" rel="noopener noreferrer"
-                class="content-card-link">
-                <div class="content-card-image-static">
-                  <img src="img/optimized/contenidoestatico2.webp" alt="Segunda variante de contenido estático con elementos visuales atractivos" loading="lazy">
-                </div>
-                <h4 class="content-card-title">Diseño editorial</h4>
-              </a>
-            </article>
-
-            <article class="content-card content-card-static" data-reveal>
-              <a href="https://www.instagram.com/p/C8Ng3YvPayT/" target="_blank" rel="noopener noreferrer"
-                class="content-card-link">
-                <div class="content-card-image-static">
-                  <img src="img/optimized/contenidoEstatico3.webp" alt="Tercera versión de contenido estático con composición gráfica equilibrada" loading="lazy">
-                </div>
-                <h4 class="content-card-title">Contenido promocional</h4>
-              </a>
-            </article>
+          <div class="proyecto-piezas">
+            <img src="img/optimized/contenido/contenidoGraciela.webp" alt="Pieza de Yoga Luz Dorada: &quot;Creé el espacio que yo misma estaba buscando&quot;, salón de yoga con esteras en el piso" loading="lazy" width="700" height="940">
+            <img src="img/optimized/contenido/contenidoGraciela2.webp" alt="Pieza de Yoga Luz Dorada: Graciela presentándose a cámara" loading="lazy" width="700" height="940">
+            <img src="img/optimized/contenido/contenidoGraciela3.webp" alt="Pieza de Yoga Luz Dorada: tabla de horarios disponibles de clases de yoga y masajes" loading="lazy" width="700" height="940">
           </div>
-        </section>
+        </article>
 
-        <!-- PRUEBA SOCIAL -->
-        <div class="social-proof">
-          <blockquote>"El contenido empezó a sentirse más claro, sensible y coherente con la experiencia que queremos transmitir en yoga, masajes y retiros."</blockquote>
-          <cite>— Yoga Luz Dorada</cite>
-        </div>
-
-        <div class="social-proof">
-          <blockquote>"Logró traducir una propuesta sensible y energética en una identidad visual más clara, cuidada y coherente para redes."</blockquote>
-          <cite>— nhaisha_renacer</cite>
-        </div>
-
-        <div class="cierre-final">
-          <a href="reserva.html" class="btn btn-primary btn-web">Agendar una llamada</a>
-          <a href="index.html#trabajo" class="btn-back">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
-            </svg>
-            Volver a proyectos
-          </a>
-        </div>
+        <article class="proyecto-row" id="nhaisha" data-reveal>
+          <div class="proyecto-info">
+            <h3>Nhaisha</h3>
+            <p>Ideas, guiones y piezas para difundir meditaciones, encuentros y experiencias de bienestar.</p>
+            <ul class="proyecto-tags">
+              <li>Guiones</li>
+              <li>Grabación</li>
+              <li>Edición</li>
+            </ul>
+            <span class="proyecto-ig">@nhaisha_renacer</span>
+          </div>
+          <div class="proyecto-piezas">
+            <img src="img/optimized/contenido/contenidoNhaisha.webp" alt="Pieza de Nhaisha sobre Flores de Bach, esencias naturales para emociones y estados mentales" loading="lazy" width="700" height="940">
+            <img src="img/optimized/contenido/contenidoNhaisha1.webp" alt="Pieza de Nhaisha: apertura de inscripciones para encuentro grupal de Rebirthing" loading="lazy" width="700" height="940">
+            <img src="img/optimized/contenido/contenidoNhaisha2.webp" alt="Pieza de Nhaisha: &quot;Viaje con sonidos&quot;, convocatoria a sesión de sonoterapia" loading="lazy" width="700" height="940">
+          </div>
+        </article>
 
       </div>
     </section>
+
+    <!-- ══ PRUEBA SOCIAL ══ -->
+    <section class="resenas resenas-contenido">
+      <div class="resenas-header">
+        <h2>Lo que dicen quienes ya trabajaron conmigo</h2>
+      </div>
+      <div class="resenas-grid">
+        <article class="resena-card" data-reveal>
+          <p class="resena-texto">"El contenido empezó a sentirse más claro, sensible y coherente con la experiencia que queremos transmitir en yoga, masajes y retiros."</p>
+          <div class="resena-autor">
+            <span class="resena-avatar"><img src="img/avatars/yoga-luz-dorada.jpg" alt="" loading="lazy"></span>
+            <div>
+              <span class="resena-nombre">Yoga Luz Dorada</span>
+              <span class="resena-link">@yogaluzdorada</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="resena-card" data-reveal>
+          <p class="resena-texto">"Logró traducir una propuesta sensible y energética en una identidad visual más clara, cuidada y coherente para redes."</p>
+          <div class="resena-autor">
+            <span class="resena-avatar"><img src="img/avatars/nhaisha-renacer.jpg" alt="" loading="lazy"></span>
+            <div>
+              <span class="resena-nombre">Nhaisha</span>
+              <span class="resena-link">@nhaisha_renacer</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══ CIERRE ══ -->
+    <section class="cta-final">
+      <h2>Ya viste lo que hago.<br>Ahora hablemos de tu proyecto.</h2>
+      <a href="reserva.html" class="btn btn-primary">Agendar una llamada</a>
+      <br>
+      <a href="index.html#trabajo" class="contenido-volver">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Volver a proyectos
+      </a>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div>
-        <div class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></div>
-        <div class="footer-copy">&copy; <span id="year"></span> · Jess André · <a href="#" data-cookie-preferences style="color:inherit;">Cookies</a></div>
+      <div class="footer-meta">
+        <span class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></span>
+        <span class="footer-copy">&copy; <span id="year"></span> · Jess André</span>
+        <a href="#" class="footer-cookies" data-cookie-preferences>Cookies</a>
       </div>
       <a href="https://instagram.com/formayfondo__" class="footer-ig" target="_blank" rel="noopener" aria-label="Instagram de Forma &amp; Fondo">
         <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -516,9 +390,9 @@
   </footer>
 
   <!-- BOTÓN FLOTANTE WHATSAPP -->
-  <a href="https://wa.me/56978941879?text=Hola Jessi! Me interesa conocer más sobre tus servicios" 
-     class="whatsapp-float" 
-     target="_blank" 
+  <a href="https://wa.me/56978941879?text=Hola Jessi! Me interesa conocer más sobre tus servicios"
+     class="whatsapp-float"
+     target="_blank"
      rel="noopener noreferrer"
      aria-label="Contactar por WhatsApp">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -526,7 +400,7 @@
     </svg>
   </a>
 
-  <script src="js/script.js?v=20260904bj"></script>
+  <script src="js/script.js?v=20260905a"></script>
   <!-- HubSpot: se carga solo tras aceptar cookies (ver js/script.js) -->
 </body>
 

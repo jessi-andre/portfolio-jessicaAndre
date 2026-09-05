@@ -13,3 +13,6 @@ skills-lock.json
 
 # Videos sin optimizar: el sitio usa solo las versiones en video/optimized/
 video/aprweb.mp4
+
+# Imagenes originales sin optimizar: el sitio usa solo img/optimized/contenido/
+img/contenido/

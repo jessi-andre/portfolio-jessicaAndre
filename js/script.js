@@ -814,3 +814,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 })();
+
+// CARRUSEL "CONTENIDO" (home, mobile): 1 pieza visible por vez, con
+// flechas y dots. En desktop el CSS desarma esto (display:contents) y
+// las piezas se ven las 3 juntas, así que este JS no afecta esa vista.
+document.addEventListener('DOMContentLoaded', () => {
+  const carousels = document.querySelectorAll('[data-carousel]');
+  if (!carousels.length) return;
+
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('.contenido-carousel-track');
+    const slides = Array.from(carousel.querySelectorAll('.contenido-carousel-slide'));
+    const dots = Array.from(carousel.querySelectorAll('.contenido-carousel-dots span'));
+    const prevBtn = carousel.querySelector('.contenido-carousel-prev');
+    const nextBtn = carousel.querySelector('.contenido-carousel-next');
+    if (!track || slides.length < 2) return;
+
+    let index = 0;
+
+    const render = () => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+      if (prevBtn) prevBtn.disabled = index === 0;
+      if (nextBtn) nextBtn.disabled = index === slides.length - 1;
+    };
+
+    const goTo = (i) => {
+      index = Math.max(0, Math.min(slides.length - 1, i));
+      render();
+    };
+
+    prevBtn && prevBtn.addEventListener('click', () => goTo(index - 1));
+    nextBtn && nextBtn.addEventListener('click', () => goTo(index + 1));
+
+    // Swipe táctil
+    let touchStartX = 0;
+    let touchDeltaX = 0;
+    track.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchDeltaX = 0;
+    }, { passive: true });
+    track.addEventListener('touchmove', (e) => {
+      touchDeltaX = e.touches[0].clientX - touchStartX;
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      if (Math.abs(touchDeltaX) > 40) {
+        goTo(index + (touchDeltaX < 0 ? 1 : -1));
+      }
+    });
+
+    // Si cambia de mobile a desktop (rotación / resize), resetear
+    // para que no quede un transform residual al volver a mobile.
+    window.addEventListener('resize', () => {
+      index = 0;
+      track.style.transform = '';
+      render();
+    });
+
+    render();
+  });
+});
