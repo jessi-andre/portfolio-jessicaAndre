@@ -466,7 +466,7 @@
       font-size: 0.72rem;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: rgba(242, 241, 239, 0.45);
+      color: rgba(242, 241, 239, 0.6);
       margin-bottom: 20px;
     }
     .portfolio-grid {
@@ -592,7 +592,7 @@
       display: block;
       font-family: var(--font-display, 'Inter', sans-serif);
       font-size: 0.72rem;
-      color: rgba(242, 241, 239, 0.35);
+      color: rgba(242, 241, 239, 0.6);
       margin-top: 16px;
     }
     .contenido-row-piezas {
@@ -772,7 +772,7 @@
     .resena-link {
       display: block;
       font-size: 0.76rem;
-      color: rgba(242, 241, 239, 0.45);
+      color: rgba(242, 241, 239, 0.6);
     }
     @media (max-width: 860px) {
       .resenas-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -856,7 +856,7 @@
     .faq-row-num {
       font-family: var(--font-display, 'Inter', sans-serif);
       font-size: 0.78rem;
-      color: rgba(242, 241, 239, 0.4);
+      color: rgba(242, 241, 239, 0.6);
       flex: 0 0 auto;
     }
     .faq-row-q {
@@ -949,22 +949,22 @@
     .footer-brand-accent { color: var(--color-violeta); }
     .footer-copy {
       font-size: 0.78rem;
-      color: rgba(242, 241, 239, 0.45);
+      color: rgba(242, 241, 239, 0.6);
     }
     .footer-copy::before {
       content: "·";
       margin-right: 10px;
-      color: rgba(242, 241, 239, 0.3);
+      color: rgba(242, 241, 239, 0.45);
     }
     .footer-cookies {
       font-size: 0.78rem;
-      color: rgba(242, 241, 239, 0.4);
+      color: rgba(242, 241, 239, 0.6);
       text-decoration: none;
     }
     .footer-cookies::before {
       content: "·";
       margin-right: 10px;
-      color: rgba(242, 241, 239, 0.3);
+      color: rgba(242, 241, 239, 0.45);
     }
     .footer-cookies:hover {
       color: #F2F1EF;
@@ -1043,7 +1043,7 @@
       font-weight: 500;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(242, 241, 239, 0.45);
+      color: rgba(242, 241, 239, 0.6);
     }
     @media (prefers-reduced-motion: reduce) {
       .sticky-cta { transition: none; }
