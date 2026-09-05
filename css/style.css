@@ -2254,7 +2254,7 @@ textarea:focus::placeholder {
                         vía la variable --reveal-delay que fija el JS)
    ==================================================================== */
 :root {
-  --reveal-duration: 700ms;
+  --reveal-duration: 950ms;
   --reveal-blur: 8px;
   --reveal-easing: cubic-bezier(0.16, 1, 0.3, 1);
 }

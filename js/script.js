@@ -141,8 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.__revealInitialized) return;
   window.__revealInitialized = true;
 
-  const DURATION_MS = 700; // ajustar junto con --reveal-duration en CSS
-  const STAGGER_MS = 80;   // demora entre hermanos del mismo contenedor
+  const DURATION_MS = 950; // ajustar junto con --reveal-duration en CSS
+  const STAGGER_MS = 110;  // demora entre hermanos del mismo contenedor
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   // Con reduced-motion, o sin soporte de IntersectionObserver, no se toca
