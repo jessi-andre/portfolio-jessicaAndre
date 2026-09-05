@@ -68,17 +68,6 @@ if (yearElement) {
   yearElement.textContent = new Date().getFullYear();
 }
 
-// NETLIFY IDENTITY
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-}
-
 // INTERACCIONES MODERNAS: PROGRESO Y REVEAL
 document.addEventListener('DOMContentLoaded', () => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -125,161 +114,129 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const progress = document.createElement('div');
-  progress.className = 'scroll-progress';
-  document.body.appendChild(progress);
-
   const header = document.querySelector('.site-header');
   const updateScrollUi = () => {
-    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-    const progressValue = scrollable > 0 ? window.scrollY / scrollable : 0;
-    progress.style.transform = `scaleX(${Math.min(progressValue, 1)})`;
     header?.classList.toggle('is-scrolled', window.scrollY > 24);
   };
 
   updateScrollUi();
   window.addEventListener('scroll', updateScrollUi, { passive: true });
-
-  const revealTargets = document.querySelectorAll('.servicio-card, .experiencia-card, .testimonio-card, .content-block, .content-card, .webs-block');
-  if (!reduceMotion && 'IntersectionObserver' in window) {
-    revealTargets.forEach((target) => target.classList.add('reveal-in'));
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
-    revealTargets.forEach((target) => revealObserver.observe(target));
-  } else {
-    revealTargets.forEach((target) => target.classList.add('is-visible'));
-  }
 });
 
-// CARRUSEL EXPERIENCIA REAL
-const experienciaCarousel = document.querySelector('.experiencia-carousel');
-if (experienciaCarousel) {
-  const track = experienciaCarousel.querySelector('.experiencia-track');
-  const cards = Array.from(experienciaCarousel.querySelectorAll('.experiencia-card'));
-  const prev = experienciaCarousel.querySelector('.experiencia-control--prev');
-  const next = experienciaCarousel.querySelector('.experiencia-control--next');
-  const dotsWrap = experienciaCarousel.querySelector('.experiencia-dots');
-  const viewport = experienciaCarousel.querySelector('.experiencia-viewport');
-  let currentIndex = 0;
-  let dots = [];
-  let dragStartX = 0;
-  let dragDeltaX = 0;
-  let isDragging = false;
+// ====================================================================
+// REVEAL ON SCROLL — animación de una sola vez (blur+scale+translate → normal).
+// Sin librerías. Idempotente. No deja NINGÚN estado permanente en el DOM.
+//
+// Ajustes rápidos:
+//   DURATION_MS  -> duración de la transición (debe coincidir con la
+//                   variable --reveal-duration en css/style.css)
+//   STAGGER_MS   -> demora entre elementos hermanos (mismo padre)
+// El blur inicial y el easing se definen en CSS (--reveal-blur /
+// --reveal-easing), no acá, para que el único "source of truth" del
+// look sea el CSS.
+// ====================================================================
+(function initReveal() {
+  // Idempotente: si ya se inicializó (ej. se vuelve a incluir el script),
+  // no se crean observers duplicados.
+  if (window.__revealInitialized) return;
+  window.__revealInitialized = true;
 
-  const getExperienceStep = () => {
-    if (!cards[0]) return 0;
-    const trackStyles = window.getComputedStyle(track);
-    return cards[0].offsetWidth + parseFloat(trackStyles.columnGap || trackStyles.gap || 0);
-  };
+  const DURATION_MS = 700; // ajustar junto con --reveal-duration en CSS
+  const STAGGER_MS = 80;   // demora entre hermanos del mismo contenedor
 
-  const getVisibleExperienceCards = () => {
-    const step = getExperienceStep();
-    const viewport = experienciaCarousel.querySelector('.experiencia-viewport');
-    if (!viewport || step === 0) return 1;
-    return Math.max(1, Math.round(viewport.offsetWidth / step));
-  };
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Con reduced-motion, o sin soporte de IntersectionObserver, no se toca
+  // el DOM: [data-reveal] nunca recibe la clase que lo oculta, así que el
+  // contenido queda visible tal cual está escrito en el HTML.
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
 
-  const getMaxExperienceIndex = () => Math.max(cards.length - getVisibleExperienceCards(), 0);
+  const run = () => {
+    const targets = Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!targets.length) return;
 
-  const setExperiencePosition = (offset = 0) => {
-    if (!track) return;
-    const distance = currentIndex * getExperienceStep() - offset;
-    track.style.transform = `translateX(-${distance}px)`;
-  };
+    // El filter/transform de la animación crea un containing block nuevo;
+    // si un elemento contiene (o es) position:fixed/sticky, esos hijos se
+    // romperían mientras dura la animación. Se excluyen por completo.
+    const hasFixedOrSticky = (el) => {
+      const isFixedOrSticky = (node) => {
+        const pos = getComputedStyle(node).position;
+        return pos === 'fixed' || pos === 'sticky';
+      };
+      if (isFixedOrSticky(el)) return true;
+      return Array.from(el.querySelectorAll('*')).some(isFixedOrSticky);
+    };
 
-  const renderExperienceDots = () => {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = '';
-    dots = Array.from({ length: getMaxExperienceIndex() + 1 }, (_, index) => {
-      const dot = document.createElement('button');
-      dot.className = 'experiencia-dot';
-      dot.type = 'button';
-      dot.setAttribute('aria-label', `Ver grupo de casos ${index + 1}`);
-      dot.addEventListener('click', () => updateExperience(index));
-      dotsWrap.appendChild(dot);
-      return dot;
+    const eligible = targets.filter((el) => !hasFixedOrSticky(el));
+
+    // Stagger por grupos de hermanos (mismo parentElement), no global,
+    // para que cada grilla/sección tenga su propio ritmo de entrada.
+    const siblingIndex = new Map();
+    eligible.forEach((el) => {
+      const parent = el.parentElement;
+      const index = siblingIndex.get(parent) || 0;
+      siblingIndex.set(parent, index + 1);
+      el.style.setProperty('--reveal-delay', `${index * STAGGER_MS}ms`);
     });
+
+    // Estado inicial: se agrega vía JS, nunca vive en CSS puro. Si este
+    // script no llega a correr, [data-reveal] no tiene ningún estilo
+    // asociado y el contenido se ve normal desde el primer render.
+    eligible.forEach((el) => el.classList.add('is-revealable'));
+
+    const cleanup = (el) => {
+      el.classList.remove('is-revealable', 'is-animating');
+      // Requisito no negociable: nada de blur/transform/opacity/will-change
+      // inline debe sobrevivir a la animación.
+      el.style.removeProperty('--reveal-delay');
+      el.style.removeProperty('opacity');
+      el.style.removeProperty('filter');
+      el.style.removeProperty('transform');
+      el.style.removeProperty('will-change');
+    };
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        obs.unobserve(el); // no se re-dispara al volver a scrollear
+
+        requestAnimationFrame(() => {
+          el.classList.add('is-animating');
+
+          let done = false;
+          const finish = () => {
+            if (done) return;
+            done = true;
+            clearTimeout(fallbackTimer);
+            el.removeEventListener('transitionend', onTransitionEnd);
+            cleanup(el);
+          };
+          const onTransitionEnd = (event) => {
+            // Ignorar transiciones de hijos (bubbling) y quedarse con una
+            // sola propiedad como disparador, ya que las tres terminan juntas.
+            if (event.target !== el || event.propertyName !== 'opacity') return;
+            finish();
+          };
+          el.addEventListener('transitionend', onTransitionEnd);
+
+          // Red de seguridad: si por lo que sea transitionend no llega a
+          // disparar (elemento removido del DOM, tab en background, etc.),
+          // igual se limpia el estado para no dejar nada permanente.
+          const delay = parseFloat(el.style.getPropertyValue('--reveal-delay')) || 0;
+          const fallbackTimer = setTimeout(finish, DURATION_MS + delay + 150);
+        });
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+
+    eligible.forEach((el) => observer.observe(el));
   };
 
-  const updateExperience = (index) => {
-    if (!track || cards.length === 0) return;
-    const maxIndex = getMaxExperienceIndex();
-    currentIndex = index < 0 ? maxIndex : index > maxIndex ? 0 : index;
-    setExperiencePosition();
-    cards.forEach((card, cardIndex) => {
-      const isVisible = cardIndex >= currentIndex && cardIndex < currentIndex + getVisibleExperienceCards();
-      card.classList.toggle('is-active', cardIndex === currentIndex);
-      card.classList.toggle('is-near', isVisible && cardIndex !== currentIndex);
-      card.setAttribute('aria-hidden', String(!isVisible));
-    });
-    dots.forEach((dot, dotIndex) => {
-      dot.classList.toggle('is-active', dotIndex === currentIndex);
-    });
-  };
-
-  const rebuildExperience = () => {
-    renderExperienceDots();
-    currentIndex = Math.min(currentIndex, getMaxExperienceIndex());
-    updateExperience(currentIndex);
-  };
-
-  prev?.addEventListener('click', () => updateExperience(currentIndex - 1));
-  next?.addEventListener('click', () => updateExperience(currentIndex + 1));
-  window.addEventListener('resize', rebuildExperience);
-
-  viewport?.addEventListener('pointerdown', (event) => {
-    if (event.target.closest('a, button')) return;
-    isDragging = true;
-    dragStartX = event.clientX;
-    dragDeltaX = 0;
-    viewport.classList.add('is-dragging');
-    track.style.transition = 'none';
-    viewport.setPointerCapture?.(event.pointerId);
-  });
-
-  viewport?.addEventListener('pointermove', (event) => {
-    if (!isDragging) return;
-    dragDeltaX = event.clientX - dragStartX;
-    setExperiencePosition(dragDeltaX);
-  });
-
-  const endExperienceDrag = (event) => {
-    if (!isDragging) return;
-    isDragging = false;
-    viewport?.releasePointerCapture?.(event.pointerId);
-    viewport?.classList.remove('is-dragging');
-    track.style.transition = '';
-    const threshold = Math.min(110, Math.max(46, getExperienceStep() * 0.18));
-    if (dragDeltaX < -threshold) updateExperience(currentIndex + 1);
-    else if (dragDeltaX > threshold) updateExperience(currentIndex - 1);
-    else updateExperience(currentIndex);
-  };
-
-  viewport?.addEventListener('pointerup', endExperienceDrag);
-  viewport?.addEventListener('pointercancel', endExperienceDrag);
-  viewport?.addEventListener('lostpointercapture', () => {
-    if (!isDragging) return;
-    isDragging = false;
-    viewport?.classList.remove('is-dragging');
-    track.style.transition = '';
-    updateExperience(currentIndex);
-  });
-
-  experienciaCarousel.querySelectorAll('a[href]').forEach((link) => {
-    link.addEventListener('pointerdown', (event) => event.stopPropagation());
-    link.addEventListener('click', (event) => {
-      if (Math.abs(dragDeltaX) > 8) event.preventDefault();
-    });
-  });
-
-  rebuildExperience();
-}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
 
 // TABS seccion Proyectos
 const tabButtons = document.querySelectorAll('.tab-button');
@@ -308,11 +265,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelectorAll('.experiencia-link[href]').forEach((link) => {
+  document.querySelectorAll('.portfolio-card[href]').forEach((link) => {
     link.addEventListener('click', () => {
       trackEvent('click_proyecto', {
         event_category: 'engagement',
-        project_name: link.closest('.experiencia-card')?.querySelector('.experiencia-nombre')?.textContent?.trim() || link.href,
+        project_name: link.querySelector('h3')?.textContent?.trim() || link.href,
         link_url: link.href
       });
     });
@@ -585,7 +542,25 @@ document.addEventListener('DOMContentLoaded', () => {
         submitToHubSpot(formData).catch((error) => {
           console.error('HubSpot form submission failed:', error);
         });
-        form.innerHTML = '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, puedes escribirme por WhatsApp si necesitas respuesta urgente.</small></div>';
+
+        const isReserva = form.id === 'reservaForm';
+
+        if (isReserva) {
+          // A partir de acá el mensaje de éxito hace de único título:
+          // se oculta el encabezado de arriba para no repetir el "listo".
+          const reservaHeader = document.getElementById('reservaHeader');
+          if (reservaHeader) reservaHeader.hidden = true;
+        }
+
+        const escapeHtml = (str) => str.replace(/[&<>"']/g, (c) => ({
+          '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+        }[c]));
+        const primerNombre = (formData.get('nombre') || '').toString().trim().split(/\s+/)[0];
+        const saludoNombre = primerNombre ? `, ${escapeHtml(primerNombre)}` : '';
+
+        form.innerHTML = isReserva
+          ? `<div class="form-success"><p>Listo, recibí tus datos 🙌</p><small>Nos vemos en la llamada${saludoNombre}.</small></div>`
+          : '<div class="form-success"><p>¡Mensaje enviado! 🙌</p><small>Te escribo a la brevedad. Mientras tanto, puedes escribirme por WhatsApp si necesitas respuesta urgente.</small></div>';
         form.querySelector('.form-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
       } else {
         if (typeof window.gtag === 'function') {
@@ -689,3 +664,153 @@ document.addEventListener('DOMContentLoaded', () => {
   toggleBackToTop();
   window.addEventListener('scroll', toggleBackToTop, { passive: true });
 });
+
+// CTA STICKY (home): aparece al pasar el hero, se oculta arriba del todo
+// o cuando el CTA final / calendario ya está a la vista, para no duplicar.
+document.addEventListener('DOMContentLoaded', () => {
+  const stickyCta = document.querySelector('.sticky-cta');
+  const heroEl = document.querySelector('.hero');
+  if (!stickyCta || !heroEl) return;
+
+  // Cualquier sección que ya muestre su propio "Agendar una llamada"
+  // (el aside del FAQ y el CTA final) oculta la barra para no duplicar.
+  const duplicateZones = Array.from(
+    document.querySelectorAll('.faq-home-aside, .cta-final')
+  );
+
+  const isInViewport = (el) => {
+    const rect = el.getBoundingClientRect();
+    return rect.top < window.innerHeight && rect.bottom > 0;
+  };
+
+  const updateStickyCta = () => {
+    const pastHero = heroEl.getBoundingClientRect().bottom <= 0;
+    const nearDuplicate = duplicateZones.some(isInViewport);
+    stickyCta.classList.toggle('is-visible', pastHero && !nearDuplicate);
+  };
+
+  updateStickyCta();
+  window.addEventListener('scroll', updateStickyCta, { passive: true });
+  window.addEventListener('resize', updateStickyCta);
+});
+
+// DETECCIÓN TECLADO vs MOUSE — el foco violeta (ver css/index.css) solo
+// se muestra con .using-keyboard en <html>, para que nunca aparezca al
+// hacer click con el mouse (Chrome sí marca foco en <a> al clickear).
+(function () {
+  const enableKeyboardFocus = (event) => {
+    if (event.key === 'Tab') {
+      document.documentElement.classList.add('using-keyboard');
+    }
+  };
+  const disableKeyboardFocus = () => {
+    document.documentElement.classList.remove('using-keyboard');
+  };
+  window.addEventListener('keydown', enableKeyboardFocus);
+  window.addEventListener('mousedown', disableKeyboardFocus);
+  window.addEventListener('touchstart', disableKeyboardFocus, { passive: true });
+})();
+
+// ====================================================================
+// COOKIES — Google Analytics y HubSpot solo cargan si la persona acepta.
+// Cada página trae sus propios data-ga / data-hubspot-id en <body> para
+// indicar qué scripts corresponde ofrecer (no todas las páginas usan
+// los dos). El consentimiento se guarda en localStorage y se puede
+// revocar/reabrir desde el link "Cookies" del footer.
+// ====================================================================
+(function () {
+  const STORAGE_KEY = 'ff_cookie_consent'; // 'accepted' | 'rejected'
+  const GA_ID = document.body.dataset.ga;
+  const HUBSPOT_ID = document.body.dataset.hubspot;
+
+  const loadGoogleAnalytics = () => {
+    if (!GA_ID || window.__gaLoaded) return;
+    window.__gaLoaded = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+    document.head.appendChild(script);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
+  };
+
+  const loadHubSpot = () => {
+    if (!HUBSPOT_ID || window.__hsLoaded) return;
+    window.__hsLoaded = true;
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.id = 'hs-script-loader';
+    script.async = true;
+    script.defer = true;
+    script.src = `//js.hs-scripts.com/${HUBSPOT_ID}.js`;
+    document.body.appendChild(script);
+  };
+
+  const loadAnalytics = () => {
+    loadGoogleAnalytics();
+    loadHubSpot();
+  };
+
+  const getConsent = () => {
+    try { return window.localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+  };
+  const setConsent = (value) => {
+    try { window.localStorage.setItem(STORAGE_KEY, value); } catch (e) { /* modo privado, etc. */ }
+  };
+
+  let banner = null;
+
+  const hideBanner = () => {
+    if (!banner) return;
+    banner.classList.remove('is-visible');
+    const toRemove = banner;
+    setTimeout(() => toRemove.remove(), 250);
+    banner = null;
+  };
+
+  const buildBanner = () => {
+    if (banner) return;
+    banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'region');
+    banner.setAttribute('aria-label', 'Aviso de cookies');
+    banner.innerHTML =
+      '<p>Uso cookies de análisis (Google Analytics, HubSpot) para entender cómo se usa el sitio. Podés aceptarlas o rechazarlas.</p>' +
+      '<div class="cookie-banner-actions">' +
+        '<button type="button" class="cookie-btn cookie-btn--reject">Rechazar</button>' +
+        '<button type="button" class="cookie-btn cookie-btn--accept">Aceptar</button>' +
+      '</div>';
+    document.body.appendChild(banner);
+    requestAnimationFrame(() => banner.classList.add('is-visible'));
+
+    banner.querySelector('.cookie-btn--accept').addEventListener('click', () => {
+      setConsent('accepted');
+      loadAnalytics();
+      hideBanner();
+    });
+    banner.querySelector('.cookie-btn--reject').addEventListener('click', () => {
+      setConsent('rejected');
+      hideBanner();
+    });
+  };
+
+  const consent = getConsent();
+  if (consent === 'accepted') {
+    loadAnalytics();
+  } else if (consent !== 'rejected') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', buildBanner);
+    } else {
+      buildBanner();
+    }
+  }
+
+  document.querySelectorAll('[data-cookie-preferences]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      buildBanner();
+    });
+  });
+})();

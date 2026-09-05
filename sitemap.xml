@@ -2,17 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://formayfondoestudio.com/</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://formayfondoestudio.com/webs.html</loc>
-    <lastmod>2026-08-18</lastmod>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://formayfondoestudio.com/reserva.html</loc>
+    <lastmod>2026-09-04</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://formayfondoestudio.com/contenido.html</loc>
-    <lastmod>2026-08-18</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2026-09-04</lastmod>
+    <priority>0.7</priority>
   </url>
 </urlset>

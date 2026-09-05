@@ -341,7 +341,7 @@ section[id] {
 
 .trabajos-media-btn {
   border: none;
-  border-radius: 999px;
+  border-radius: 2px;
   padding: 10px 20px;
   font-size: 0.85rem;
   font-weight: 500;
@@ -375,27 +375,28 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 9px 18px;
-  border-radius: 999px;
+  padding: 9px 22px;
+  border-radius: 2px;
   border: 1px solid var(--color-borde);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   background-color: transparent;
   text-decoration: none;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-primary {
   background-color: var(--color-marron);
   color: rgb(241, 230, 221);
-  box-shadow: var(--shadow-suave);
+  box-shadow: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+    background-color: transparent;
+    color: var(--color-marron);
+    border-color: var(--color-marron);
   }
 }
 
@@ -467,7 +468,7 @@ section[id] {
   position: relative;
   display: inline-flex;
   padding: 4px;
-  border-radius: 999px;
+  border-radius: 2px;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.14);
   gap: 4px;
@@ -492,7 +493,7 @@ section[id] {
   bottom: 4px;
   left: 0;
   width: var(--tab-indicator-width);
-  border-radius: 999px;
+  border-radius: 1px;
   background: rgba(136, 114, 205, 0.14);
   border: 1px solid rgba(136, 114, 205, 0.36);
   box-shadow: 0 8px 18px rgba(136, 114, 205, 0.16);
@@ -505,7 +506,7 @@ section[id] {
   position: relative;
   z-index: 1;
   background: transparent;
-  border-radius: 999px;
+  border-radius: 1px;
   border: none;
   padding: 7px 16px;
   font-size: 0.9rem;
@@ -1416,7 +1417,7 @@ textarea:focus::placeholder {
   background: var(--color-marron);
   color: var(--color-crema);
   border: none;
-  border-radius: 999px;
+  border-radius: 2px;
   font-family: var(--font-sans);
   font-size: 0.95rem;
   font-weight: 500;
@@ -1862,14 +1863,6 @@ textarea:focus::placeholder {
 }
 
 @media (max-width: 900px) {
-  .hero-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-photo {
-    height: 420px;
-  }
-
   .contact-inner {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -2158,7 +2151,7 @@ textarea:focus::placeholder {
     justify-content: center;
     margin: 30px auto 0;
     padding: 10px 24px;
-    border-radius: 999px;
+    border-radius: 2px;
     border: 1px solid var(--color-borde);
     background-color: var(--color-crema-claro);
     color: var(--color-texto);
@@ -2231,19 +2224,6 @@ textarea:focus::placeholder {
 
 /* ==================== INTERACCIONES MODERNAS ==================== */
 
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  z-index: 2000;
-  transform-origin: left center;
-  transform: scaleX(0);
-  background: linear-gradient(90deg, var(--color-violeta), #C9C2F1);
-  pointer-events: none;
-}
-
 .site-header {
   transition: box-shadow 0.25s ease, background-color 0.25s ease, backdrop-filter 0.25s ease;
 }
@@ -2254,26 +2234,60 @@ textarea:focus::placeholder {
   box-shadow: 0 10px 30px rgba(26, 26, 26, 0.06);
 }
 
-.reveal-in {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.reveal-in.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .reveal-in,
   .experiencia-track,
   .site-header {
     transition: none !important;
   }
 
-  .scroll-progress {
-    display: none !important;
+}
+
+/* ====================================================================
+   REVEAL ON SCROLL — animación de una sola vez, sin estado permanente.
+   Ver la lógica completa (observer, cleanup, stagger) en js/script.js.
+
+   Ajustes rápidos:
+   - Duración:        --reveal-duration
+   - Blur inicial:     --reveal-blur
+   - Stagger:          constante STAGGER en script.js (debe coincidir
+                        con el valor que uses ahí; acá solo se consume
+                        vía la variable --reveal-delay que fija el JS)
+   ==================================================================== */
+:root {
+  --reveal-duration: 700ms;
+  --reveal-blur: 8px;
+  --reveal-easing: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sin esta clase, [data-reveal] no tiene NINGÚN efecto visual: el
+   contenido se ve normal. La clase la agrega SOLO el JS (ver
+   initReveal en script.js) antes de observar los elementos — si el
+   script no corre, esta clase nunca se aplica y nada queda oculto. */
+[data-reveal].is-revealable {
+  opacity: 0;
+  filter: blur(var(--reveal-blur));
+  transform: scale(1.2) translateY(30px);
+}
+
+/* Estado final: agregado en el mismo frame en que arranca la
+   animación (ver requestAnimationFrame en script.js) para que el
+   navegador anime la transición entre ambos estados. */
+[data-reveal].is-revealable.is-animating {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  transition: opacity var(--reveal-duration) var(--reveal-easing),
+              filter var(--reveal-duration) var(--reveal-easing),
+              transform var(--reveal-duration) var(--reveal-easing);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal].is-revealable {
+    opacity: 1;
+    filter: none;
+    transform: none;
   }
 }
 
@@ -2382,4 +2396,90 @@ textarea:focus::placeholder {
   width: 20px;
   height: 20px;
   fill: currentColor;
+}
+
+/* ==================== COOKIES ====================
+   Tarjeta oscura fija, funciona igual sobre fondo claro u oscuro.
+   Reaparece con el link "Cookies" del footer (data-cookie-preferences). */
+
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 200;
+  max-width: 380px;
+  margin: 0 auto 0 0;
+  padding: 18px 20px;
+  background: #131211;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.cookie-banner.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cookie-banner p {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(242, 241, 239, 0.78);
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  flex: 1;
+  padding: 9px 14px;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.cookie-btn--accept {
+  border: 1px solid #F2F1EF;
+  background: #F2F1EF;
+  color: #0b0b0b;
+}
+
+.cookie-btn--accept:hover {
+  background: transparent;
+  color: #F2F1EF;
+}
+
+.cookie-btn--reject {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  color: rgba(242, 241, 239, 0.7);
+}
+
+.cookie-btn--reject:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #F2F1EF;
+}
+
+@media (max-width: 480px) {
+  .cookie-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    max-width: none;
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner { transition: none; }
 }

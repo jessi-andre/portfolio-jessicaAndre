@@ -5,3 +5,11 @@ package-lock.json
 .local-server.*.log
 
 .vercel
+
+# Herramientas locales de Claude Code, no son parte del sitio
+.agents/
+.claude/
+skills-lock.json
+
+# Videos sin optimizar: el sitio usa solo las versiones en video/optimized/
+video/aprweb.mp4

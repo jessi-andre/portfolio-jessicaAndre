@@ -10,59 +10,76 @@
   <link rel="canonical" href="https://formayfondoestudio.com/404.html">
   <link rel="icon" type="image/png" href="img/icon2.png">
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=20260904bb">
+  <link rel="stylesheet" href="css/index.css?v=20260904bc">
+
+  <style>
+    .error-404 {
+      min-height: calc(100svh - 66px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 56px 24px;
+    }
+    .error-404-inner { max-width: 480px; }
+    .error-404 .eyebrow { justify-content: center; display: flex; }
+    .error-404 h1 {
+      font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+      font-weight: 500;
+      color: #F2F1EF;
+      margin: 0 0 12px;
+      line-height: 1.25;
+    }
+    .error-404 p {
+      color: rgba(242, 241, 239, 0.55);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 32px;
+    }
+  </style>
 </head>
 
-<body>
+<body class="home" data-hubspot="51900546">
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
 
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="brand">
-        Forma <span class="brand-accent">&amp; Fondo</span>
-      </a>
       <nav class="main-nav">
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="/#servicios">Servicios</a></li>
-          <li><a href="/#trabajo">Proyectos</a></li>
-          <li><a href="/#contacto" class="nav-cta">Cotizar</a></li>
+          <li><a href="/#trabajo">Trabajos</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="contacto">
-      <div class="contacto-grid">
-        <div class="contacto-copy">
-          <span class="eyebrow">Error 404</span>
-          <h1>Esta página no existe.</h1>
-          <p>
-            Es posible que el enlace haya cambiado o que la dirección no esté escrita correctamente.
-          </p>
-          <div class="hero-actions">
-            <a href="/" class="btn btn-primary">Volver al inicio</a>
-            <a href="/#servicios" class="btn btn-outline">Ver servicios</a>
-          </div>
-        </div>
-
-        <div class="contacto-form-panel">
-          <h2>¿Necesitabas hablar con Forma &amp; Fondo?</h2>
-          <p>
-            Podés ir directo a contacto y contarme qué necesitas trabajar.
-          </p>
-          <a href="/#contacto" class="btn btn-primary btn-full">Ir a contacto</a>
-        </div>
+    <section class="error-404">
+      <div class="error-404-inner">
+        <span class="eyebrow">Error 404</span>
+        <h1>Esta página no existe.</h1>
+        <p>
+          Es posible que el enlace haya cambiado o que la dirección no esté escrita correctamente.
+        </p>
+        <a href="/reserva.html" class="btn btn-primary">Agendar una llamada</a>
       </div>
     </section>
   </main>
 
-  <script src="js/script.js"></script>
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/51900546.js"></script>
-  <!-- End of HubSpot Embed Code -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-meta">
+        <span class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></span>
+        <span class="footer-copy">&copy; <span id="year"></span> · Jess André</span>
+        <a href="#" class="footer-cookies" data-cookie-preferences>Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js?v=20260904ap"></script>
+  <!-- HubSpot: se carga solo tras aceptar cookies (ver js/script.js) -->
 </body>
 </html>

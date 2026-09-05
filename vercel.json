@@ -16,7 +16,7 @@
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.hs-scripts.com https://js.hs-analytics.net https://js.hscollectedforms.net https://js.usemessages.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io https://api.hsforms.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://forms.hubspot.com https://track.hubspot.com; form-action 'self' https://formspree.io; frame-ancestors 'none';"
+          "value": "default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://js.hs-scripts.com https://js.hs-analytics.net https://js.hscollectedforms.net https://js.usemessages.com https://app.cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://cal.com https://app.cal.com; connect-src 'self' https://formspree.io https://api.hsforms.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://forms.hubspot.com https://track.hubspot.com https://cal.com https://app.cal.com; form-action 'self' https://formspree.io; frame-ancestors 'none';"
         }
       ]
     }

@@ -57,20 +57,13 @@
   }
   </script>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-3SGTNT1XM7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-3SGTNT1XM7');
-  </script>
+  <!-- Google Analytics: se carga solo tras aceptar cookies (ver js/script.js) -->
 
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="css/style.css?v=20260828" />
+  <link rel="stylesheet" href="css/style.css?v=20260904bb" />
 
   <style>
     /* ── BRAND ── */
@@ -260,7 +253,7 @@
 
 </head>
 
-<body>
+<body data-ga="G-3SGTNT1XM7" data-hubspot="51900546">
   <a href="#main-content" class="skip-link">Saltar al contenido</a>
   <header class="site-header">
     <div class="header-inner">
@@ -271,8 +264,8 @@
         <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navList">☰</button>
         <ul class="nav-list" id="navList">
           <li><a href="index.html#servicios">Servicios</a></li>
-          <li><a href="index.html#trabajo">Proyectos</a></li>
-          <li><a href="index.html#contacto" class="nav-cta">Cotizar</a></li>
+          <li><a href="index.html#trabajo">Trabajo</a></li>
+          <li><a href="reserva.html" class="nav-cta">Agendar</a></li>
         </ul>
       </nav>
     </div>
@@ -310,11 +303,11 @@
                 <li>Edición cuidada: ritmo, texto y encuadres</li>
                 <li>Ideal para lanzamientos, procesos creativos y storytelling visual</li>
               </ul>
-              <a href="index.html#contacto" class="btn btn-primary btn-web tab-cta">Cotizar contenido</a>
+              <a href="reserva.html" class="btn btn-primary btn-web tab-cta">Agendar una llamada</a>
             </div>
 
             <div class="tab-grid">
-              <article class="work-card">
+              <article class="work-card" data-reveal>
                 <div class="work-card-image">
                   <video class="work-card-video" src="video/optimized/reel-1-720p.mp4" poster="img/poster-reel-1.jpg" controls playsinline preload="metadata" muted loop autoplay></video>
                 </div>
@@ -322,7 +315,7 @@
                 <p>Reel explicativo mostrando la identidad visual completa de una marca.</p>
               </article>
 
-              <article class="work-card">
+              <article class="work-card" data-reveal>
                 <div class="work-card-image">
                   <video class="work-card-video" src="video/optimized/reel2-720p.mp4" poster="img/poster-reel-2.jpg" controls playsinline preload="metadata" muted loop autoplay></video>
                 </div>
@@ -330,7 +323,7 @@
                 <p>Explicación de conceptos complejos de manera visual y atractiva.</p>
               </article>
 
-              <article class="work-card">
+              <article class="work-card" data-reveal>
                 <div class="work-card-image">
                   <video class="work-card-video" src="video/optimized/reel3-720p.mp4" poster="img/poster-reel-3.jpg" controls playsinline preload="metadata" muted loop autoplay></video>
                 </div>
@@ -354,7 +347,7 @@
                 <li>Estilo coherente con la marca</li>
                 <li>Optimizado para redes sociales</li>
               </ul>
-              <a href="index.html#contacto" class="btn btn-primary btn-web tab-cta">Cotizar contenido</a>
+              <a href="reserva.html" class="btn btn-primary btn-web tab-cta">Agendar una llamada</a>
             </div>
 
             <div class="tab-grid">
@@ -395,21 +388,21 @@
               <p class="tab-note">
                 La estrategia es la base que sostiene todo el contenido. Sin ella, las publicaciones pierden coherencia y los resultados se diluyen.
               </p>
-              <a href="index.html#contacto" class="btn btn-primary btn-web tab-cta">Cotizar gestión de contenido</a>
+              <a href="reserva.html" class="btn btn-primary btn-web tab-cta">Agendar una llamada</a>
             </div>
 
             <div class="tab-grid">
-              <article class="work-card">
+              <article class="work-card" data-reveal>
                 <h4>Calendario de contenido</h4>
                 <p>Planificación mensual con temas, formatos y fechas específicas para mantener consistencia.</p>
               </article>
 
-              <article class="work-card">
+              <article class="work-card" data-reveal>
                 <h4>Análisis de métricas</h4>
                 <p>Seguimiento de engagement, reach y conversiones para optimizar la estrategia continuamente.</p>
               </article>
 
-              <article class="work-card">
+              <article class="work-card" data-reveal>
                 <h4>Pilares temáticos</h4>
                 <p>Definición de temas centrales que estructuran la narrativa de la marca a largo plazo.</p>
               </article>
@@ -419,7 +412,7 @@
         </section>
 
         <!-- BLOQUE 3 · PIEZAS ESTÁTICAS (cards normales) -->
-        <section class="content-block">
+        <section class="content-block" data-reveal>
           <div class="content-block-text">
             <h3>Piezas estáticas &amp; carruseles</h3>
             <p>
@@ -430,7 +423,7 @@
           </div>
 
           <div class="content-gallery">
-            <article class="content-card">
+            <article class="content-card" data-reveal>
               <div class="content-card-image">
                 <img src="img/optimized/1.webp" alt="Carrusel educativo diseñado en Canva mostrando contenido interactivo" loading="lazy">
                 <img src="img/optimized/2.webp" alt="Diseño alternativo de carrusel en Canva con elementos visuales atractivos" loading="lazy">
@@ -443,7 +436,7 @@
               </p>
             </article>
 
-            <article class="content-card">
+            <article class="content-card" data-reveal>
               <div class="content-card-image">
                 <img src="img/optimized/elSonidoDelCuerpo.webp" alt="Piezas estáticas diseñadas en Figma para proyecto 'El sonido del cuerpo'" loading="lazy">
                 <img src="img/optimized/elSonidoDelCuerpo2.webp" alt="Mockup alternativo del proyecto 'El sonido del cuerpo' en Figma" loading="lazy">
@@ -460,7 +453,7 @@
           </div>
 
           <div class="content-gallery" style="margin-top: 80px;">
-            <article class="content-card content-card-static">
+            <article class="content-card content-card-static" data-reveal>
               <a href="https://www.instagram.com/p/C87aevcusHw/" target="_blank" rel="noopener noreferrer"
                 class="content-card-link">
                 <div class="content-card-image-static">
@@ -470,7 +463,7 @@
               </a>
             </article>
 
-            <article class="content-card content-card-static">
+            <article class="content-card content-card-static" data-reveal>
               <a href="https://www.instagram.com/p/C8Ng3YvPayT/" target="_blank" rel="noopener noreferrer"
                 class="content-card-link">
                 <div class="content-card-image-static">
@@ -494,7 +487,7 @@
         </div>
 
         <div class="cierre-final">
-          <a href="index.html#contacto" class="btn btn-primary btn-web">Cotizar mi proyecto</a>
+          <a href="reserva.html" class="btn btn-primary btn-web">Agendar una llamada</a>
           <a href="index.html#trabajo" class="btn-back">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M19 12H5M12 19l-7-7 7-7"/>
@@ -511,7 +504,7 @@
     <div class="footer-inner">
       <div>
         <div class="footer-brand">Forma <span class="footer-brand-accent">&amp; Fondo</span></div>
-        <div class="footer-copy">&copy; <span id="year"></span> · Jess André</div>
+        <div class="footer-copy">&copy; <span id="year"></span> · Jess André · <a href="#" data-cookie-preferences style="color:inherit;">Cookies</a></div>
       </div>
       <a href="https://instagram.com/formayfondo__" class="footer-ig" target="_blank" rel="noopener" aria-label="Instagram de Forma &amp; Fondo">
         <svg aria-hidden="true" viewBox="0 0 24 24">
@@ -533,10 +526,8 @@
     </svg>
   </a>
 
-  <script src="js/script.js?v=20260828"></script>
-  <!-- Start of HubSpot Embed Code -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/51900546.js"></script>
-  <!-- End of HubSpot Embed Code -->
+  <script src="js/script.js?v=20260904ap"></script>
+  <!-- HubSpot: se carga solo tras aceptar cookies (ver js/script.js) -->
 </body>
 
 </html>
