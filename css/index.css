@@ -314,7 +314,7 @@
       .hero-copy h1, .hero-lead { max-width: 100%; }
     }
     @media (max-width: 480px) {
-      .hero-inner { padding: 40px 24px 40px; }
+      .hero-inner { padding: 16px 24px 40px; }
       .hero-copy h1 { font-size: 2.3rem; }
       body.home .hero-actions .btn {
         width: 100%;
